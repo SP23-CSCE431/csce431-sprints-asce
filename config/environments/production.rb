@@ -88,6 +88,9 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  ENV['GOOGLE_OAUTH_CLIENT_ID'] = '818845343073-q9h2802k1jtmnno2sfa9upeco7a636q6.apps.googleusercontent.com'
+  ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
