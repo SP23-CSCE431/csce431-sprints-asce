@@ -1,3 +1,3 @@
 class EventType < ApplicationRecord
-  validate :points, presence: true
+  validates :points, presence: true
 end
