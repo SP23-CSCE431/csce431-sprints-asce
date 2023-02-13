@@ -6,18 +6,30 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     if params[:search_by_first_name] && params[:search_by_first_name] != ""
-      @user = @user.where("first_name like ?", 
-      "%# {params[:search_by_first_name]}%")
+      @users = @users.where("first_name like ?", "%#{params[:search_by_first_name]}%")
     end
-    if params[:search_by_uin] && params[:search_by_uin] != ""
-      @user = @user.where("uin like ?", 
-      "%# {params[:search_by_uin]}%")
-    end
-   if params[:search_by_email] && params[:search_by_email] != ""
-      @user = @user.where("email like ?", 
-      "%# {params[:search_by_email]}%")
-    end
+    
+    # if params[:search_by_last_name] && params[:search_by_last_name] != ""
+    #   @users = @users.where("last_name like ?", "%#{params[:search_by_last_name]}%")
+    # end
+
+    # if params[:search_by_uin] && params[:search_by_uin] != ""
+    #   @users = @users.where("uin like ?", "%#{params[:search_by_uin]}%")
+    # end
+
+    # if params[:search_by_email] && params[:search_by_email] != ""
+    #   @users = @users.where("email like ?", "%#{params[:search_by_email]}%")
+    # end
+
+    # if params[:search_by_phone_number] && params[:search_by_phone_number] != ""
+    #   @users = @users.where("phone_number like ?", "%#{params[:search_by_phone_number]}%")
+    # end
+
+    # if params[:search_by_dob] && params[:search_by_dob] != ""
+    #   @users = @users.where("dob like ?", "%#{params[:search_by_dob]}%")
+    # end
   end
+
 
   # GET /users/1 or /users/1.json
   def show; 

@@ -2,17 +2,17 @@
 
 <h1>Users</h1>
 
-<%= form_tag "/users", method: "GET" do %>
-  <%= label_tag :search_by_first_name %>
-  <%= text_field_tag :search_by_first_name, params[:search_by_first_name] %>
-  <%= label_tag :search_by_uin %>
-  <%= text_field_tag :search_by_uin, params[:search_by_uin] %>
-  <%= label_tag :search_by_email %>
-  <%= text_field_tag :search_by_email, params[:search_by_email] %>
-  <%= submit_tag "Search" %>
+  <%= form_tag "/users", method: "GET" do %>
+    <%= label_tag :search_by_first_name %>
+    <%= text_field_tag :search_by_first_name, params[:search_by_first_name] %>
+
+    
+
 <% end %>
 
+
 <div id="users">
+  <p>dasdsadsad</p>
   <% @users.each do |user| %>
     <%= render user %>
     <p>
