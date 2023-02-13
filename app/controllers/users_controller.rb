@@ -2,12 +2,38 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users or /users.json
+  #search index
   def index
     @users = User.all
+    if params[:search_by_first_name] && params[:search_by_first_name] != ""
+      @users = @users.where("first_name like ?", "%#{params[:search_by_first_name]}%")
+    end
+    
+    # if params[:search_by_last_name] && params[:search_by_last_name] != ""
+    #   @users = @users.where("last_name like ?", "%#{params[:search_by_last_name]}%")
+    # end
+
+    # if params[:search_by_uin] && params[:search_by_uin] != ""
+    #   @users = @users.where("uin like ?", "%#{params[:search_by_uin]}%")
+    # end
+
+    # if params[:search_by_email] && params[:search_by_email] != ""
+    #   @users = @users.where("email like ?", "%#{params[:search_by_email]}%")
+    # end
+
+    # if params[:search_by_phone_number] && params[:search_by_phone_number] != ""
+    #   @users = @users.where("phone_number like ?", "%#{params[:search_by_phone_number]}%")
+    # end
+
+    # if params[:search_by_dob] && params[:search_by_dob] != ""
+    #   @users = @users.where("dob like ?", "%#{params[:search_by_dob]}%")
+    # end
   end
 
+
   # GET /users/1 or /users/1.json
-  def show; end
+  def show; 
+  end
 
   # GET /users/new
   def new
@@ -15,7 +41,8 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit; end
+  def edit;
+   end
 
   # POST /users or /users.json
   def create
@@ -43,6 +70,10 @@ class UsersController < ApplicationController
         format.json { render(json: @user.errors, status: :unprocessable_entity) }
       end
     end
+  end
+
+  def delete
+    @user = User.find(params[:id])
   end
 
   # DELETE /users/1 or /users/1.json
