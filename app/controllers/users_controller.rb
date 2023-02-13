@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users or /users.json
+  #search index
   def index
     @users = User.all
     if params[:search_by_first_name] && params[:search_by_first_name] != ""
@@ -19,7 +20,8 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1 or /users/1.json
-  def show; end
+  def show; 
+  end
 
   # GET /users/new
   def new
@@ -27,7 +29,8 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit; end
+  def edit;
+   end
 
   # POST /users or /users.json
   def create
