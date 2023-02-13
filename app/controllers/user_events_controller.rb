@@ -1,5 +1,5 @@
 class UserEventsController < ApplicationController
-  before_action :set_user_event, only: %i[ show edit update destroy ]
+  before_action :set_user_event, only: %i[show edit update destroy]
 
   # GET /user_events or /user_events.json
   def index
@@ -7,8 +7,7 @@ class UserEventsController < ApplicationController
   end
 
   # GET /user_events/1 or /user_events/1.json
-  def show
-  end
+  def show; end
 
   # GET /user_events/new
   def new
@@ -16,8 +15,7 @@ class UserEventsController < ApplicationController
   end
 
   # GET /user_events/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /user_events or /user_events.json
   def create
@@ -25,11 +23,11 @@ class UserEventsController < ApplicationController
 
     respond_to do |format|
       if @user_event.save
-        format.html { redirect_to user_event_url(@user_event), notice: "User event was successfully created." }
-        format.json { render :show, status: :created, location: @user_event }
+        format.html { redirect_to(user_event_url(@user_event), notice: 'User event was successfully created.') }
+        format.json { render(:show, status: :created, location: @user_event) }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user_event.errors, status: :unprocessable_entity }
+        format.html { render(:new, status: :unprocessable_entity) }
+        format.json { render(json: @user_event.errors, status: :unprocessable_entity) }
       end
     end
   end
@@ -38,11 +36,11 @@ class UserEventsController < ApplicationController
   def update
     respond_to do |format|
       if @user_event.update(user_event_params)
-        format.html { redirect_to user_event_url(@user_event), notice: "User event was successfully updated." }
-        format.json { render :show, status: :ok, location: @user_event }
+        format.html { redirect_to(user_event_url(@user_event), notice: 'User event was successfully updated.') }
+        format.json { render(:show, status: :ok, location: @user_event) }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user_event.errors, status: :unprocessable_entity }
+        format.html { render(:edit, status: :unprocessable_entity) }
+        format.json { render(json: @user_event.errors, status: :unprocessable_entity) }
       end
     end
   end
@@ -52,19 +50,20 @@ class UserEventsController < ApplicationController
     @user_event.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_events_url, notice: "User event was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to(user_events_url, notice: 'User event was successfully destroyed.') }
+      format.json { head(:no_content) }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_event
-      @user_event = UserEvent.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_event_params
-      params.require(:user_event).permit(:user_id, :event_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_event
+    @user_event = UserEvent.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_event_params
+    params.require(:user_event).permit(:user_id, :event_id)
+  end
 end
