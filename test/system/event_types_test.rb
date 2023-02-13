@@ -1,41 +1,41 @@
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class EventTypesTest < ApplicationSystemTestCase
   setup do
     @event_type = event_types(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit event_types_url
-    assert_selector "h1", text: "Event types"
+    assert_selector 'h1', text: 'Event types'
   end
 
-  test "should create event type" do
+  test 'should create event type' do
     visit event_types_url
-    click_on "New event type"
+    click_on 'New event type'
 
-    fill_in "Points", with: @event_type.points
-    click_on "Create Event type"
+    fill_in 'Points', with: @event_type.points
+    click_on 'Create Event type'
 
-    assert_text "Event type was successfully created"
-    click_on "Back"
+    assert_text 'Event type was successfully created'
+    click_on 'Back'
   end
 
-  test "should update Event type" do
+  test 'should update Event type' do
     visit event_type_url(@event_type)
-    click_on "Edit this event type", match: :first
+    click_on 'Edit this event type', match: :first
 
-    fill_in "Points", with: @event_type.points
-    click_on "Update Event type"
+    fill_in 'Points', with: @event_type.points
+    click_on 'Update Event type'
 
-    assert_text "Event type was successfully updated"
-    click_on "Back"
+    assert_text 'Event type was successfully updated'
+    click_on 'Back'
   end
 
-  test "should destroy Event type" do
+  test 'should destroy Event type' do
     visit event_type_url(@event_type)
-    click_on "Destroy this event type", match: :first
+    click_on 'Destroy this event type', match: :first
 
-    assert_text "Event type was successfully destroyed"
+    assert_text 'Event type was successfully destroyed'
   end
 end

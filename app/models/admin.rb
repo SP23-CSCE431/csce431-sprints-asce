@@ -3,7 +3,8 @@ class Admin < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   def self.from_google(email:, full_name:, uid:, avatar_url:)
-    return nil unless email =~ /@tamu.edu\z/
+    return nil unless /@tamu.edu\z/.match?(email)
+
     create_with(uid: uid, full_name: full_name, avatar_url: avatar_url).find_or_create_by!(email: email)
   end
 end
