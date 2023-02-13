@@ -4,6 +4,18 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    if params[:search_by_first_name] && params[:search_by_first_name] != ""
+      @user = @user.where("first_name like ?", 
+      "%# {params[:search_by_first_name]}%")
+    end
+    if params[:search_by_uin] && params[:search_by_uin] != ""
+      @user = @user.where("uin like ?", 
+      "%# {params[:search_by_uin]}%")
+    end
+   if params[:search_by_email] && params[:search_by_email] != ""
+      @user = @user.where("email like ?", 
+      "%# {params[:search_by_email]}%")
+    end
   end
 
   # GET /users/1 or /users/1.json
@@ -45,6 +57,10 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def delete
+    @user = User.find(params[:id])
   end
 
   # DELETE /users/1 or /users/1.json
