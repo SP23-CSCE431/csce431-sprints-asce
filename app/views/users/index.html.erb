@@ -1,23 +1,38 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>User Profile</h1>
 
+
+
+<% if !current_admin.email.nil? %>
+  <div id="users">
+    <% @users.each do |user| %>
+      <% if current_admin.email == user.email %>
+        <%= render user %>
+        <p>
+          <%= link_to "Show this user", user %>
+        </p>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if current_admin.email.nil? %>
   <%= form_tag "/users", method: "GET" do %>
     <%= label_tag :search_by_first_name %>
     <%= text_field_tag :search_by_first_name, params[:search_by_first_name] %>
 
     
 
-<% end %>
-
-
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
   <% end %>
-</div>
+  <div id="users">
+    <% @users.each do |user| %>
+        <%= render user %>
+        <p>
+          <%= link_to "Show this user", user %>
+        </p>
+    <% end %>
+  </div>
+<% end %>
 
 <%= link_to "New user", new_user_path %>
