@@ -1,22 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>User Profile</h1>
 
-  <%= form_tag "/users", method: "GET" do %>
-    <%= label_tag :search_by_first_name %>
-    <%= text_field_tag :search_by_first_name, params[:search_by_first_name] %>
-
-    
-
-<% end %>
-
+<%= link_to "Back to my profile", profile_path %>
 
 <div id="users">
   <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
+      <%= render user %>
+      <p>
+        <%= link_to "Show this user", user %>
+      </p>
   <% end %>
 </div>
 

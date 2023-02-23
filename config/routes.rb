@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'admins/sign_in', to: 'admins/sessions#new', as: :new_admin_session
     get 'admins/sign_out', to: 'admins/sessions#destroy', as: :destroy_admin_session
   end
+  match 'profile', to: 'users#profile', via: :get
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # resources :user_events, :event_types, :events, :roles
   # Defines the root path route ("/")

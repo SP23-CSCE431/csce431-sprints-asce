@@ -1,0 +1,14 @@
+<h2>My Profile</h2>
+
+<div id="users">
+    <% @users.each do |user| %>
+      <% if current_admin.email == user.email %>
+        <%= render user %>
+      <% end %>
+    <% end %>
+</div>
+
+<br>
+<br>
+<p>List of All Users</p>
+<%= link_to "All Users", users_path %>
