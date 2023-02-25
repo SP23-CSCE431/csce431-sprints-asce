@@ -9,9 +9,9 @@ class UsersController < ApplicationController
       @users = @users.where("first_name like ?", "%#{params[:search_by_first_name]}%")
     end
     
-    # if params[:search_by_last_name] && params[:search_by_last_name] != ""
-    #   @users = @users.where("last_name like ?", "%#{params[:search_by_last_name]}%")
-    # end
+    if params[:search_by_last_name] && params[:search_by_last_name] != ""
+      @users = @users.where("last_name like ?", "%#{params[:search_by_last_name]}%")
+    end
 
     # if params[:search_by_uin] && params[:search_by_uin] != ""
     #   @users = @users.where("uin like ?", "%#{params[:search_by_uin]}%")

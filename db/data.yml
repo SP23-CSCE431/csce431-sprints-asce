@@ -1,0 +1,92 @@
+
+---
+admins:
+  columns:
+  - id
+  - email
+  - full_name
+  - uid
+  - avatar_url
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - adao102@tamu.edu
+    - Anthony Dao
+    - '102137279818612393486'
+    - https://lh3.googleusercontent.com/a/AEdFTp65QdKsvhdHa4AeuhZQkKi8Zu2HtwTak1fVB7XB=s96-c
+    - 2023-02-13 06:11:59.567375000 Z
+    - 2023-02-13 06:11:59.567375000 Z
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - 2023-02-13 03:51:54.350424000 Z
+    - 2023-02-13 03:51:54.350424000 Z
+
+---
+users:
+  columns:
+  - id
+  - first_name
+  - last_name
+  - uin
+  - email
+  - phone_number
+  - dob
+  - points
+  - role_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Anthony
+    - Dao
+    - '828006672'
+    - anvdao@gmail.com
+    - '7132547212'
+    - '2001-07-24'
+    - 321312
+    - 3
+    - 2023-02-13 06:12:57.405328000 Z
+    - 2023-02-13 06:12:57.405328000 Z
+  - - 2
+    - Tracy
+    - Nguyen
+    - '828006671'
+    - tranguyen26@gmail.com
+    - '7137715174'
+    - '2001-07-24'
+    - 32
+    - 3
+    - 2023-02-13 06:42:26.258758000 Z
+    - 2023-02-13 06:42:26.258758000 Z
+  - - 3
+    - peta
+    - griffin
+    - '123456789'
+    - petagriffin@gmail.com
+    - '8323245671'
+    - '1111-01-01'
+    - 1
+    - 1
+    - 2023-02-13 06:46:55.734406000 Z
+    - 2023-02-13 06:46:55.734406000 Z
+  - - 4
+    - testo
+    - tesoo
+    - '412987412'
+    - teso@tamu.edu
+    - '5673429801'
+    - '2023-04-20'
+    - 9887
+    - 1
+    - 2023-02-13 20:57:37.137536000 Z
+    - 2023-02-13 20:57:37.137536000 Z
