@@ -41,11 +41,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_12_060930) do
 
   create_table "roles", force: :cascade do |t|
     t.string "role_name"
-    t.boolean "create_event"
-    t.boolean "delete_event"
-    t.boolean "edit_event"
-    t.boolean "delete_member"
-    t.boolean "promote_member"
+    t.boolean "create_event", :default => false
+    t.boolean "delete_event", :default => false
+    t.boolean "edit_event", :default => false
+    t.boolean "delete_member", :default => false
+    t.boolean "promote_member", :default => false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
