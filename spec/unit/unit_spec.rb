@@ -38,8 +38,10 @@ RSpec.describe(User, type: :model) do
 end
 
 RSpec.describe(UserEvent, type: :model) do
+  let(:user) {User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob:'2003-10-10', points:'3', role_id:'1')}
+  let(:event) {Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing')}
   subject do
-    described_class.new(user_id: '345', event_id: '3')
+    described_class.new(user: user, event: event)
   end
 
   it 'userevent is valid with valid attributes' do
