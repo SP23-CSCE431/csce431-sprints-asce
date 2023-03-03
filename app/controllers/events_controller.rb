@@ -55,6 +55,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def calendar
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @events = Event.all
+    @events_by_date = @events.group_by(&:date)
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'admins/sign_out', to: 'admins/sessions#destroy', as: :destroy_admin_session
   end
   match 'profile', to: 'users#profile', via: :get
+  get '/calendar(/:date)', to: 'events#calendar', as: 'calendar'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # resources :user_events, :event_types, :events, :roles
   # Defines the root path route ("/")
