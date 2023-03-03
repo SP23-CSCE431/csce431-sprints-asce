@@ -11,6 +11,12 @@ require 'rails_helper'
   #   visit new_user_path
   #   expect(page).to have_content "New user"
   # end
+RSpec.describe('Authentication Test', type: :feature) do
+  scenario 'valid authentication' do
+    visit '/admins/auth/google_oauth2/callback'
+    expect(page).to have_content('You\'re logged in!')
+  end
+end
 
 RSpec.describe('Creating a user', type: :feature) do
   scenario 'valid inputs' do
