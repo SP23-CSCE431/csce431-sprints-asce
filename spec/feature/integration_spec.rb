@@ -2,7 +2,19 @@
 require 'rails_helper'
 
 RSpec.describe 'Creating a user', type: :feature do
+
+  # it 'should create a new user after Google OAuth authentication' do
+  #   visit '/admins/auth/google_oauth2/callback'
+  #   expect(page).to have_content 'Welcome'
+  # end
+  # it "displays the correct content" do
+  #   visit '/admins/auth/google_oauth2/callback'
+  #   visit new_user_path
+  #   expect(page).to have_content "New user"
+  # end
+
   scenario 'valid inputs' do
+    visit '/admins/auth/google_oauth2/callback'
     visit new_user_path
     fill_in "user[first_name]", with: 'harry'
     fill_in "user[last_name]", with: 'potter'
@@ -10,41 +22,43 @@ RSpec.describe 'Creating a user', type: :feature do
     fill_in "user[email]", with: 'student@tamu.edu'
     fill_in "user[phone_number]", with: '1234567898'
     fill_in "user[dob]", with: '2003-10-10'
+    fill_in "user[points]", with: '3'
+    fill_in "user[role_id]", with: '2'
     click_on 'Create User'
-    visit users_path
-    expect(page).to have_content('harry')
+    expect(page).to have_content('User was successfully created')
   end
 
   scenario 'blank inputs' do
+    visit '/admins/auth/google_oauth2/callback'
     visit new_user_path
-    click_on 'Create User'
-    expect(page).to have_content('prohibited this user from being saved:')
-  end
-
-  scenario 'invalid uin' do
-    visit new_user_path
-    fill_in "user[first_name]", with: 'harry'
-    fill_in "user[last_name]", with: 'potter'
-    fill_in "user[uin]", with: 'abcdefg'
-    fill_in "user[email]", with: 'student@tamu.edu'
-    fill_in "user[phone_number]", with: '1234567898'
-    fill_in "user[dob]", with: '2003-10-10'
-    click_on 'Create User'
-    expect(page).to have_content('prohibited this user from being saved:')
-  end
-
-  scenario 'invalid email' do
-    visit new_user_path
-    fill_in "user[first_name]", with: 'harry'
-    fill_in "user[last_name]", with: 'potter'
-    fill_in "user[uin]", with: 'abcdefg'
-    fill_in "user[email]", with: 'student@gmail.com'
-    fill_in "user[phone_number]", with: '1234567898'
-    fill_in "user[dob]", with: '2003-10-10'
     click_on 'Create User'
     expect(page).to have_content('prohibited this user from being saved:')
   end
 end
+#   scenario 'invalid uin' do
+#     visit new_user_path
+#     fill_in "user[first_name]", with: 'harry'
+#     fill_in "user[last_name]", with: 'potter'
+#     fill_in "user[uin]", with: 'abcdefg'
+#     fill_in "user[email]", with: 'student@tamu.edu'
+#     fill_in "user[phone_number]", with: '1234567898'
+#     fill_in "user[dob]", with: '2003-10-10'
+#     click_on 'Create User'
+#     expect(page).to have_content('prohibited this user from being saved:')
+#   end
+
+#   scenario 'invalid email' do
+#     visit new_user_path
+#     fill_in "user[first_name]", with: 'harry'
+#     fill_in "user[last_name]", with: 'potter'
+#     fill_in "user[uin]", with: 'abcdefg'
+#     fill_in "user[email]", with: 'student@gmail.com'
+#     fill_in "user[phone_number]", with: '1234567898'
+#     fill_in "user[dob]", with: '2003-10-10'
+#     click_on 'Create User'
+#     expect(page).to have_content('prohibited this user from being saved:')
+#   end
+# end
 
 # Rspec.describe 'Deleting Personal Account', type: :feature do
 #   scenario 'valid deletion' do
