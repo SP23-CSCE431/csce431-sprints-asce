@@ -1,12 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
+<!-- This allows a user to be taken back to their profile page -->
+<%= link_to "Back To My Profile", profile_path %>
+
 <h1>Events</h1>
 
+<!-- This displays all events to the user -->
+<!-- For each displayed event you can show this event to see more details or add the new event to sign up for -->
 <div id="events">
   <% @events.each do |event| %>
     <%= render event %>
     <p>
-      <%= link_to "Show this event", event %>
+      <%= link_to "Show this event", event %> |
+      <%= link_to "Add this event", new_user_event_path(eventId: event.id) %>
     </p>
   <% end %>
 </div>

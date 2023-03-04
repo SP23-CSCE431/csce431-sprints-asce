@@ -1,5 +1,8 @@
+<!-- Allows the user to sign out of their account from their profile page -->
+<%= link_to "Sign Out", destroy_admin_session_path %>
 <h2>My Profile</h2>
 
+<!-- This displays only the current user information on their profile page -->
 <div id="users">
     <% @users.each do |user| %>
       <% if current_admin.email == user.email %>
@@ -8,7 +11,16 @@
     <% end %>
 </div>
 
+<!-- The link can show the user what events they have signed up for -->
+<p>List of All Events I Am Signed Up For</p>
+<%= link_to "My Events", user_events_path %>
 <br>
 <br>
+<!-- This link can show the user to see all other users in the club -->
 <p>List of All Users</p>
 <%= link_to "All Users", users_path %>
+<br>
+<br>
+<!-- This link takes the user to the events page where they can sign up for more events -->
+<p>Sign Up for Available Events</p>
+<%= link_to "Events", events_path %>
