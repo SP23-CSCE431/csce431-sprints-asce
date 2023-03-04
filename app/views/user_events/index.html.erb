@@ -1,7 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
+<!-- This allows a user to be taken back to their profile page -->
+
+<%= link_to "Back To My Profile", profile_path %>
+
 <h1>User events</h1>
 
+<!-- This displays all user_events ie. all signed up events by a user -->
 <div id="user_events">
   <% @user_events.each do |user_event| %>
     <%= render user_event %>

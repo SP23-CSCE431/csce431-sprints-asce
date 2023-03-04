@@ -1,7 +1,5 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>User Profile</h1>
-
 <%= link_to "Back to my profile", profile_path %>
 
 <h1>Users</h1>
@@ -15,6 +13,8 @@
 
 <% end %>
 
+<!-- This shows/displays all users in the club -->
+<!-- Each user displayed has a link to individually see more details of that user -->
 <div id="users">
   <% @users.each do |user| %>
       <%= render user %>
