@@ -57,7 +57,7 @@ gem 'rexml'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
-
+gem 'simple_calendar'
 gem 'sassc-rails'
 
 group :development, :test do
