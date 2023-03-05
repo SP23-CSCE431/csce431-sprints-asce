@@ -11,7 +11,8 @@
     <% end %>
 </div>
 
-<%= link_to "Show My Calendar", calendar_path %>
+<% userId = User.find_by(email: current_admin.email) %>
+<%= link_to "Show My Calendar", calendar_path(user_id: userId.id) %>
 
 <!-- The link can show the user what events they have signed up for -->
 <p>List of All Events I Am Signed Up For</p>

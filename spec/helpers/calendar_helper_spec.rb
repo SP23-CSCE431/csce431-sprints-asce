@@ -11,5 +11,10 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe CalendarHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # describe "#month_calendar" do
+  #   it "displays a calendar for a given month" do
+  #     date = Date.new(2023, 3, 1)
+  #     expect(helper.month_calendar(date) { |d| d.to_s }).to match(/March 2023/)
+  #   end
+  # end
 end

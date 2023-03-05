@@ -66,8 +66,9 @@ class UserEventsController < ApplicationController
   # Handles calendar actions by getting all events that need to be stored on calendar
   def calendar
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
-    @events = Event.all
-    @events_by_date = @events.group_by(&:date)
+    @user_events = UserEvent.where(user_id: params[:user_id])
+    @events = @user_events.map(&:event)
+    @events_by_date = @events.group_by{ |event| event.start.to_date }
   end
 
 
