@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-03-07T05:14:04+00:00">2023-03-07T05:14:04+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-03-07T05:16:26+00:00">2023-03-07T05:16:26+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -392,7 +392,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#19298ee1be4cbec3746be2d2612b5d838d8d7ca5" class="src_link" title="spec/feature/integration_spec.rb">spec/feature/integration_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">363</td>
+            <td class="cell--number">365</td>
             <td class="cell--number">125</td>
             <td class="cell--number">125</td>
             <td class="cell--number">0</td>
@@ -10897,7 +10897,7 @@
 
             
 
-            <code class="ruby"># RSpec.describe(&#39;Deleting Personal Account&#39;, type: :feature) do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10908,40 +10908,40 @@
 
             
 
-            <code class="ruby">#   let!(:user) { User.create(first_name: &#39;Joe&#39;, last_name: &#39;Shmoe&#39;, uin: &#39;730303036&#39;, phone_number: &#39;8324344445&#39;, email: &#39;student@tamu.edu&#39;, dob: &#39;2003-10-10&#39;, points: &#39;3&#39;, role_id: &#39;1&#39;) }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="72">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="72">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#   scenario &#39;valid deletion&#39; do</code>
+            
+
+            <code class="ruby">RSpec.describe(&#39;Member Signing Up for an Event&#39;, type: :feature) do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="73">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="73">
+            <span class="hits">4</span>
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            
+
+            <code class="ruby">  let!(:user) { User.create(first_name: &#39;Joe&#39;, last_name: &#39;Shmoe&#39;, uin: &#39;730303036&#39;, phone_number: &#39;8324344445&#39;, email: &#39;student@tamu.edu&#39;, dob: &#39;2003-10-10&#39;, points: &#39;3&#39;, role_id: &#39;1&#39;) }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="74">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="74">
+            <span class="hits">4</span>
             
 
-            <code class="ruby">#     visit user_url</code>
+            
+
+            <code class="ruby">  let!(:event) { Event.create(start: &#39;2022-10-10&#39;, end: &#39;2023-10-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
           </li>
         </div>
       
@@ -10952,95 +10952,95 @@
 
             
 
-            <code class="ruby">#     click_on &#39;Destroy&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="76">
-            
-            
-
-            
-
-            <code class="ruby">#     expect(page).to have_content(&#39;User was successfully destroyed&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="77">
-            
-            
-
-            
-
-            <code class="ruby">#   end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="78">
-            
-            
-
-            
-
-            <code class="ruby"># end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="79">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="80">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="76">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"># RSpec.describe(&#39;Editing Personal Account&#39; , type: :feature) do</code>
+            
+
+            <code class="ruby">  it &#39;valid inputs&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="81">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="77">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#   scenario &#39;valid edit&#39; do</code>
+            
+
+            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="82">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="78">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            
+
+            <code class="ruby">    visit new_user_event_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="83">
+          <li class="covered" data-hits="1" data-linenumber="79">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="80">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">#     click_on &#39;All Users&#39;</code>
+            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: event.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="81">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    click_on &#39;Create User event&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="82">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit user_events_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="83">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to(have_content(user.id))</code>
           </li>
         </div>
       
@@ -11051,7 +11051,7 @@
 
             
 
-            <code class="ruby">#     click_on &#39;Show this user&#39;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11062,62 +11062,62 @@
 
             
 
-            <code class="ruby">#     click_on &#39;Edit&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="86">
-            
-            
-
-            
-
-            <code class="ruby">#     fill_in &#39;user[first_name]&#39;, with: &#39;harry&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="87">
-            
-            
-
-            
-
-            <code class="ruby">#     click_on &#39;Update&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="88">
-            
-            
-
-            
-
-            <code class="ruby">#     expect(page).to have_content(&#39;successfully&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="89">
-            
-            
-
-            
-
-            <code class="ruby">#   end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="90">
-            
-            
-
-            
-
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="86">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &#39;blank inputs&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="87">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="88">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit new_user_event_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="89">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    click_on &#39;Create User event&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="90">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to(have_content(&#39;2 errors prohibited this user_event from being saved&#39;))</code>
           </li>
         </div>
       
@@ -11128,7 +11128,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;invalid edit&#39; do</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11139,84 +11139,84 @@
 
             
 
-            <code class="ruby">#     click_on &#39;All Users&#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="93">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="93">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     click_on &#39;Show this user&#39;</code>
+            
+
+            <code class="ruby">  it &#39;invalid event&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="94">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="94">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     click_on &#39;Edit&#39;</code>
+            
+
+            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="95">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="95">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     fill_in &#39;user[first_name]&#39;, with: &#39;&#39;</code>
+            
+
+            <code class="ruby">    visit new_user_event_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="96">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="96">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     click_on &#39;Update&#39;</code>
+            
+
+            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="97">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="97">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;error&#39;)</code>
+            
+
+            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: &#39; &#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="98">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="98">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#   end</code>
+            
+
+            <code class="ruby">    click_on &#39;Create User event&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="99">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="99">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"># end</code>
+            
+
+            <code class="ruby">    expect(page).to(have_content(&#39;Event must exist&#39;))</code>
           </li>
         </div>
       
@@ -11227,7 +11227,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11238,7 +11238,7 @@
 
             
 
-            <code class="ruby"># RSpec.describe(&#39;Creating an Event&#39;, type: :feature) do</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -11249,62 +11249,62 @@
 
             
 
-            <code class="ruby">#   let!(:user) { User.create(first_name: &#39;Joe&#39;, last_name: &#39;Shmoe&#39;, uin: &#39;730303036&#39;, phone_number: &#39;8324344445&#39;, email: &#39;student@tamu.edu&#39;, dob: &#39;2003-10-10&#39;, points: &#39;3&#39;, role_id: &#39;1&#39;) }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="103">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="103">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#   scenario &#39;valid inputs&#39; do</code>
+            
+
+            <code class="ruby">RSpec.describe(&#39;Updating a UserEvent&#39;, type: :feature) do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="104">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="104">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            
+
+            <code class="ruby">  let!(:user) { User.create(first_name: &#39;Joe&#39;, last_name: &#39;Shmoe&#39;, uin: &#39;730303036&#39;, phone_number: &#39;8324344445&#39;, email: &#39;student@tamu.edu&#39;, dob: &#39;2003-10-10&#39;, points: &#39;3&#39;, role_id: &#39;1&#39;) }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="105">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="105">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">#     click_on &#39;Events&#39;</code>
+            
+
+            <code class="ruby">  let!(:event1) { Event.create(start: &#39;2022-10-10&#39;, end: &#39;2023-10-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="106">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="106">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">#     click_on &#39;New event&#39;</code>
+            
+
+            <code class="ruby">  let!(:event2) { Event.create(start: &#39;2022-11-10&#39;, end: &#39;2023-11-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="107">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="107">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">#     fill_in &quot;event[start]&quot;, with: &#39;03/26/2023 03:26 AM&#39;</code>
+            
+
+            <code class="ruby">  let!(:user_event) { UserEvent.create(user_id: user.id, event_id: event1.id) }</code>
           </li>
         </div>
       
@@ -11315,95 +11315,95 @@
 
             
 
-            <code class="ruby">#     fill_in &quot;event[end]&quot;, with: &#39;03/27/2023 04:26 PM&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="109">
-            
-            
-
-            
-
-            <code class="ruby">#     fill_in &quot;event[type_id]&quot;, with: &#39;1&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="110">
-            
-            
-
-            
-
-            <code class="ruby">#     fill_in &quot;event[status]&quot;, with: &#39;ongoing&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="111">
-            
-            
-
-            
-
-            <code class="ruby">#     click_on &#39;Create&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="112">
-            
-            
-
-            
-
-            <code class="ruby">#     expect(page).to have_content(&#39;successfully&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="113">
-            
-            
-
-            
-
-            <code class="ruby">#   end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="114">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="115">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="109">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#   scenario &#39;blank inputs&#39; do</code>
+            
+
+            <code class="ruby">  it &#39;valid update&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="116">
+          <li class="covered" data-hits="1" data-linenumber="110">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="111">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">    visit edit_user_event_path(user_event)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="112">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="113">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: event2.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="114">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    click_on &#39;Update User event&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="115">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit user_events_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="116">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to(have_content(user.id))</code>
           </li>
         </div>
       
@@ -11414,7 +11414,7 @@
 
             
 
-            <code class="ruby">#     click_on &#39;Events&#39;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11425,84 +11425,84 @@
 
             
 
-            <code class="ruby">#     click_on &#39;New event&#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="119">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="119">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     fill_in &quot;event[start]&quot;, with: &#39;&#39;</code>
+            
+
+            <code class="ruby">  it &#39;invalid update due to nonexistent event&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="120">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="120">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     fill_in &quot;event[end]&quot;, with: &#39;03/27/2023 04:26 PM&#39;</code>
+            
+
+            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="121">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="121">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     fill_in &quot;event[type_id]&quot;, with: &#39;1&#39;</code>
+            
+
+            <code class="ruby">    visit edit_user_event_path(user_event)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="122">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="122">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     fill_in &quot;event[status]&quot;, with: &#39;ongoing&#39;</code>
+            
+
+            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="123">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="123">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     click_on &#39;Create&#39;</code>
+            
+
+            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: &#39;20&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="124">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="124">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;error&#39;)</code>
+            
+
+            <code class="ruby">    click_on &#39;Update User event&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="125">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="125">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#   end</code>
+            
+
+            <code class="ruby">    expect(page).to(have_content(&#39;Event must exist&#39;))</code>
           </li>
         </div>
       
@@ -11513,7 +11513,7 @@
 
             
 
-            <code class="ruby"># end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11524,7 +11524,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -11535,51 +11535,51 @@
 
             
 
-            <code class="ruby"># RSpec.describe(&#39;Modifying an Event&#39;, type: :feature) do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="129">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="129">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#   let!(:event) { Event.create(start: &#39;2022-10-10&#39;, end: &#39;2023-10-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
+            
+
+            <code class="ruby">RSpec.describe(&#39;Calendar:&#39;, type: :feature) do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="130">
-            
-            
-
+          <li class="covered" data-hits="5" data-linenumber="130">
+            <span class="hits">5</span>
             
 
-            <code class="ruby">#   scenario &#39;valid modification&#39; do</code>
+            
+
+            <code class="ruby">  let!(:user) { User.create(first_name: &#39;Joe&#39;, last_name: &#39;Shmoe&#39;, uin: &#39;730303036&#39;, phone_number: &#39;8324344445&#39;, email: &#39;student@tamu.edu&#39;, dob: &#39;2003-10-10&#39;, points: &#39;3&#39;, role_id: &#39;1&#39;) }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="131">
-            
-            
-
+          <li class="covered" data-hits="5" data-linenumber="131">
+            <span class="hits">5</span>
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            
+
+            <code class="ruby">  let!(:event1) { Event.create(start: &#39;2023-3-20&#39;, end: &#39;2023-3-21&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="132">
-            
-            
-
+          <li class="covered" data-hits="5" data-linenumber="132">
+            <span class="hits">5</span>
             
 
-            <code class="ruby">#     click_on &#39;Events&#39;</code>
+            
+
+            <code class="ruby">  let!(:event2) { Event.create(start: &#39;2022-11-10&#39;, end: &#39;2023-11-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
           </li>
         </div>
       
@@ -11590,117 +11590,117 @@
 
             
 
-            <code class="ruby">#     click_on &#39;Show this event&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="134">
-            
-            
-
-            
-
-            <code class="ruby">#     click_on &#39;Edit&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="135">
-            
-            
-
-            
-
-            <code class="ruby">#     fill_in &quot;event[status]&quot;, with: &#39;ended&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="136">
-            
-            
-
-            
-
-            <code class="ruby">#     click_on &#39;Update&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="137">
-            
-            
-
-            
-
-            <code class="ruby">#     expect(page).to have_content(&#39;successfully&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="138">
-            
-            
-
-            
-
-            <code class="ruby">#   end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="139">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="140">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="134">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#   scenario &#39;invalid modification&#39; do</code>
+            
+
+            <code class="ruby">  it &#39;valid event added to calendar&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="141">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="135">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     click_on &#39;Events&#39;</code>
+            
+
+            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="142">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="136">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     click_on &#39;Show this event&#39;</code>
+            
+
+            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="143">
+          <li class="covered" data-hits="1" data-linenumber="137">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">    expect(page).not_to(have_content(event1.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="138">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">#     click_on &#39;Edit&#39;</code>
+            <code class="ruby">    visit new_user_event_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="139">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="140">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: event1.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="141">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    click_on &#39;Create User event&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="142">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="143">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to(have_content(event1.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
           </li>
         </div>
       
@@ -11711,7 +11711,7 @@
 
             
 
-            <code class="ruby">#     fill_in &quot;event[status]&quot;, with: &#39;&#39;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11722,51 +11722,51 @@
 
             
 
-            <code class="ruby">#     click_on &#39;Update&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="146">
-            
-            
-
-            
-
-            <code class="ruby">#     expect(page).to have_content(&#39;error&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="147">
-            
-            
-
-            
-
-            <code class="ruby">#   end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="148">
-            
-            
-
-            
-
-            <code class="ruby"># end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="149">
-            
-            
-
-            
-
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="146">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &#39;newly registered user should have empty calendar&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="147">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="148">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="149">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).not_to(have_content(event1.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
           </li>
         </div>
       
@@ -11777,7 +11777,7 @@
 
             
 
-            <code class="ruby"># RSpec.describe(&#39;Deleting an Event&#39;, type: :feature) do</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11788,117 +11788,117 @@
 
             
 
-            <code class="ruby">#   let!(:event) { Event.create(start: &#39;2022-10-10&#39;, end: &#39;2023-10-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="152">
-            
-            
-
-            
-
-            <code class="ruby">#   scenario &#39;valid deletion&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="153">
-            
-            
-
-            
-
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="154">
-            
-            
-
-            
-
-            <code class="ruby">#     click_on &#39;Events&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="155">
-            
-            
-
-            
-
-            <code class="ruby">#     click_on &#39;Show this event&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="156">
-            
-            
-
-            
-
-            <code class="ruby">#     click_on &#39;Destroy&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="157">
-            
-            
-
-            
-
-            <code class="ruby">#     expect(page).to have_content(&#39;successfully&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="158">
-            
-            
-
-            
-
-            <code class="ruby">#   end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="159">
-            
-            
-
-            
-
-            <code class="ruby"># end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="160">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="161">
+          <li class="covered" data-hits="1" data-linenumber="152">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">  it &#39;user adds event and it automatically appears on calendar&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="153">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby"># RSpec.describe(&#39;Searching a User&#39;, type: :feature) do</code>
+            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="154">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="155">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).not_to(have_content(event1.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="156">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit new_user_event_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="157">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="158">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: event1.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="159">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    click_on &#39;Create User event&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="160">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="161">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to(have_content(event1.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
           </li>
         </div>
       
@@ -11909,7 +11909,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;user exists&#39; do</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11920,95 +11920,95 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="164">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="164">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     visit users_path</code>
+            
+
+            <code class="ruby">  it &#39;user tries to add an event that has already occurred&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="165">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="165">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     fill_in &quot;params[search_by_first_name]&quot;, with: &#39;Anthony&#39;</code>
+            
+
+            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="166">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="166">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;adao102@tamu.edu&#39;)</code>
+            
+
+            <code class="ruby">    visit new_user_event_path</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="167">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="167">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#   end</code>
+            
+
+            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="168">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="168">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#   scenario &#39;user does not exist&#39; do</code>
+            
+
+            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: event2.id</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="169">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="169">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            
+
+            <code class="ruby">    click_on &#39;Create User event&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="170">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="170">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     visit users_path</code>
+            
+
+            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="171">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="171">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">#     fill_in &quot;params[search_by_first_name]&quot;, with: &#39;NonexistentUser&#39;</code>
+            
+
+            <code class="ruby">    expect(page).not_to(have_content(event2.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
           </li>
         </div>
       
@@ -12019,7 +12019,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;No matching user exists&#39;)</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -12030,7 +12030,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -12041,7 +12041,7 @@
 
             
 
-            <code class="ruby"># end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12052,7 +12052,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby"># RSpec.describe(&#39;Deleting Personal Account&#39;, type: :feature) do</code>
           </li>
         </div>
       
@@ -12063,7 +12063,7 @@
 
             
 
-            <code class="ruby"># RSpec.describe(&#39;Signing members into event&#39; , type: :feature) do</code>
+            <code class="ruby">#   let!(:user) { User.create(first_name: &#39;Joe&#39;, last_name: &#39;Shmoe&#39;, uin: &#39;730303036&#39;, phone_number: &#39;8324344445&#39;, email: &#39;student@tamu.edu&#39;, dob: &#39;2003-10-10&#39;, points: &#39;3&#39;, role_id: &#39;1&#39;) }</code>
           </li>
         </div>
       
@@ -12074,7 +12074,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#   scenario &#39;valid deletion&#39; do</code>
           </li>
         </div>
       
@@ -12085,7 +12085,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;Valid UIN&#39; do</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -12096,7 +12096,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     visit user_url</code>
           </li>
         </div>
       
@@ -12107,7 +12107,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#     click_on &#39;Destroy&#39;</code>
           </li>
         </div>
       
@@ -12118,7 +12118,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;User was successfully destroyed&#39;)</code>
           </li>
         </div>
       
@@ -12129,7 +12129,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
@@ -12140,7 +12140,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;Invalid UIN&#39; do</code>
+            <code class="ruby"># end</code>
           </li>
         </div>
       
@@ -12151,7 +12151,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12162,7 +12162,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby"># RSpec.describe(&#39;Editing Personal Account&#39; , type: :feature) do</code>
           </li>
         </div>
       
@@ -12173,7 +12173,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#   scenario &#39;valid edit&#39; do</code>
           </li>
         </div>
       
@@ -12184,7 +12184,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -12195,7 +12195,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;Sign member in more than once&#39; do</code>
+            <code class="ruby">#     click_on &#39;All Users&#39;</code>
           </li>
         </div>
       
@@ -12206,7 +12206,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     click_on &#39;Show this user&#39;</code>
           </li>
         </div>
       
@@ -12217,7 +12217,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#     click_on &#39;Edit&#39;</code>
           </li>
         </div>
       
@@ -12228,7 +12228,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#     fill_in &#39;user[first_name]&#39;, with: &#39;harry&#39;</code>
           </li>
         </div>
       
@@ -12239,7 +12239,7 @@
 
             
 
-            <code class="ruby"># end</code>
+            <code class="ruby">#     click_on &#39;Update&#39;</code>
           </li>
         </div>
       
@@ -12250,7 +12250,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#     expect(page).to have_content(&#39;successfully&#39;)</code>
           </li>
         </div>
       
@@ -12261,7 +12261,7 @@
 
             
 
-            <code class="ruby"># RSpec.describe(&#39;Change member status&#39; , type: :feature) do</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
@@ -12272,7 +12272,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;promote member&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12283,7 +12283,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#   scenario &#39;invalid edit&#39; do</code>
           </li>
         </div>
       
@@ -12294,7 +12294,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#     click_on &#39;All Users&#39;</code>
           </li>
         </div>
       
@@ -12305,7 +12305,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#     click_on &#39;Show this user&#39;</code>
           </li>
         </div>
       
@@ -12316,7 +12316,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#     click_on &#39;Edit&#39;</code>
           </li>
         </div>
       
@@ -12327,7 +12327,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;demote officer&#39; do</code>
+            <code class="ruby">#     fill_in &#39;user[first_name]&#39;, with: &#39;&#39;</code>
           </li>
         </div>
       
@@ -12338,7 +12338,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     click_on &#39;Update&#39;</code>
           </li>
         </div>
       
@@ -12349,7 +12349,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;error&#39;)</code>
           </li>
         </div>
       
@@ -12371,7 +12371,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby"># end</code>
           </li>
         </div>
       
@@ -12382,7 +12382,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;demote member (rainy)&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12393,7 +12393,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby"># RSpec.describe(&#39;Creating an Event&#39;, type: :feature) do</code>
           </li>
         </div>
       
@@ -12404,7 +12404,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#   let!(:user) { User.create(first_name: &#39;Joe&#39;, last_name: &#39;Shmoe&#39;, uin: &#39;730303036&#39;, phone_number: &#39;8324344445&#39;, email: &#39;student@tamu.edu&#39;, dob: &#39;2003-10-10&#39;, points: &#39;3&#39;, role_id: &#39;1&#39;) }</code>
           </li>
         </div>
       
@@ -12415,7 +12415,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#   scenario &#39;valid inputs&#39; do</code>
           </li>
         </div>
       
@@ -12426,7 +12426,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -12437,7 +12437,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;demote executive officer (rainy)&#39; do</code>
+            <code class="ruby">#     click_on &#39;Events&#39;</code>
           </li>
         </div>
       
@@ -12448,7 +12448,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     click_on &#39;New event&#39;</code>
           </li>
         </div>
       
@@ -12459,7 +12459,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#     fill_in &quot;event[start]&quot;, with: &#39;03/26/2023 03:26 AM&#39;</code>
           </li>
         </div>
       
@@ -12470,7 +12470,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#     fill_in &quot;event[end]&quot;, with: &#39;03/27/2023 04:26 PM&#39;</code>
           </li>
         </div>
       
@@ -12481,7 +12481,7 @@
 
             
 
-            <code class="ruby"># end</code>
+            <code class="ruby">#     fill_in &quot;event[type_id]&quot;, with: &#39;1&#39;</code>
           </li>
         </div>
       
@@ -12492,7 +12492,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#     fill_in &quot;event[status]&quot;, with: &#39;ongoing&#39;</code>
           </li>
         </div>
       
@@ -12503,7 +12503,7 @@
 
             
 
-            <code class="ruby"># RSpec.describe(&#39;Delete other members&#39; , type: :feature) do</code>
+            <code class="ruby">#     click_on &#39;Create&#39;</code>
           </li>
         </div>
       
@@ -12514,7 +12514,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;delete member&#39; do</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;successfully&#39;)</code>
           </li>
         </div>
       
@@ -12525,7 +12525,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
@@ -12536,7 +12536,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12547,7 +12547,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#   scenario &#39;blank inputs&#39; do</code>
           </li>
         </div>
       
@@ -12558,7 +12558,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -12569,7 +12569,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;delete officer&#39; do</code>
+            <code class="ruby">#     click_on &#39;Events&#39;</code>
           </li>
         </div>
       
@@ -12580,7 +12580,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     click_on &#39;New event&#39;</code>
           </li>
         </div>
       
@@ -12591,7 +12591,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#     fill_in &quot;event[start]&quot;, with: &#39;&#39;</code>
           </li>
         </div>
       
@@ -12602,7 +12602,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#     fill_in &quot;event[end]&quot;, with: &#39;03/27/2023 04:26 PM&#39;</code>
           </li>
         </div>
       
@@ -12613,7 +12613,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#     fill_in &quot;event[type_id]&quot;, with: &#39;1&#39;</code>
           </li>
         </div>
       
@@ -12624,7 +12624,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;delete executive officer (rainy)&#39; do</code>
+            <code class="ruby">#     fill_in &quot;event[status]&quot;, with: &#39;ongoing&#39;</code>
           </li>
         </div>
       
@@ -12635,7 +12635,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     click_on &#39;Create&#39;</code>
           </li>
         </div>
       
@@ -12646,7 +12646,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;error&#39;)</code>
           </li>
         </div>
       
@@ -12690,7 +12690,7 @@
 
             
 
-            <code class="ruby"># RSpec.describe(&#39;view events in google calender&#39; , type: :feature) do</code>
+            <code class="ruby"># RSpec.describe(&#39;Modifying an Event&#39;, type: :feature) do</code>
           </li>
         </div>
       
@@ -12701,7 +12701,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;check events&#39; do</code>
+            <code class="ruby">#   let!(:event) { Event.create(start: &#39;2022-10-10&#39;, end: &#39;2023-10-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
           </li>
         </div>
       
@@ -12712,7 +12712,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#   scenario &#39;valid modification&#39; do</code>
           </li>
         </div>
       
@@ -12723,7 +12723,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -12734,7 +12734,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#     click_on &#39;Events&#39;</code>
           </li>
         </div>
       
@@ -12745,7 +12745,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#     click_on &#39;Show this event&#39;</code>
           </li>
         </div>
       
@@ -12756,7 +12756,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;no events&#39; do</code>
+            <code class="ruby">#     click_on &#39;Edit&#39;</code>
           </li>
         </div>
       
@@ -12767,7 +12767,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     fill_in &quot;event[status]&quot;, with: &#39;ended&#39;</code>
           </li>
         </div>
       
@@ -12778,7 +12778,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#     click_on &#39;Update&#39;</code>
           </li>
         </div>
       
@@ -12789,7 +12789,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;successfully&#39;)</code>
           </li>
         </div>
       
@@ -12800,7 +12800,7 @@
 
             
 
-            <code class="ruby"># end</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
@@ -12822,7 +12822,7 @@
 
             
 
-            <code class="ruby"># RSpec.describe(&#39;Manage user points&#39; , type: :feature) do</code>
+            <code class="ruby">#   scenario &#39;invalid modification&#39; do</code>
           </li>
         </div>
       
@@ -12833,7 +12833,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;Add points to user&#39; do</code>
+            <code class="ruby">#     click_on &#39;Events&#39;</code>
           </li>
         </div>
       
@@ -12844,7 +12844,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     click_on &#39;Show this event&#39;</code>
           </li>
         </div>
       
@@ -12855,7 +12855,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#     click_on &#39;Edit&#39;</code>
           </li>
         </div>
       
@@ -12866,7 +12866,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#     fill_in &quot;event[status]&quot;, with: &#39;&#39;</code>
           </li>
         </div>
       
@@ -12877,7 +12877,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#     click_on &#39;Update&#39;</code>
           </li>
         </div>
       
@@ -12888,7 +12888,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;Delete points from user&#39; do</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;error&#39;)</code>
           </li>
         </div>
       
@@ -12899,7 +12899,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
@@ -12910,7 +12910,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby"># end</code>
           </li>
         </div>
       
@@ -12921,7 +12921,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -12932,7 +12932,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby"># RSpec.describe(&#39;Deleting an Event&#39;, type: :feature) do</code>
           </li>
         </div>
       
@@ -12943,7 +12943,7 @@
 
             
 
-            <code class="ruby">#   scenario &#39;Negative points&#39; do</code>
+            <code class="ruby">#   let!(:event) { Event.create(start: &#39;2022-10-10&#39;, end: &#39;2023-10-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
           </li>
         </div>
       
@@ -12954,7 +12954,7 @@
 
             
 
-            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#   scenario &#39;valid deletion&#39; do</code>
           </li>
         </div>
       
@@ -12965,7 +12965,7 @@
 
             
 
-            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -12976,7 +12976,7 @@
 
             
 
-            <code class="ruby">#   end</code>
+            <code class="ruby">#     click_on &#39;Events&#39;</code>
           </li>
         </div>
       
@@ -12987,7 +12987,7 @@
 
             
 
-            <code class="ruby"># end</code>
+            <code class="ruby">#     click_on &#39;Show this event&#39;</code>
           </li>
         </div>
       
@@ -12998,40 +12998,40 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">#     click_on &#39;Destroy&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="262">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="262">
+            
             
 
             
 
-            <code class="ruby">RSpec.describe(&#39;Member Signing Up for an Event&#39;, type: :feature) do</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;successfully&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="263">
-            <span class="hits">4</span>
+          <li class="never" data-hits="" data-linenumber="263">
+            
             
 
             
 
-            <code class="ruby">  let!(:user) { User.create(first_name: &#39;Joe&#39;, last_name: &#39;Shmoe&#39;, uin: &#39;730303036&#39;, phone_number: &#39;8324344445&#39;, email: &#39;student@tamu.edu&#39;, dob: &#39;2003-10-10&#39;, points: &#39;3&#39;, role_id: &#39;1&#39;) }</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="264">
-            <span class="hits">4</span>
+          <li class="never" data-hits="" data-linenumber="264">
+            
             
 
             
 
-            <code class="ruby">  let!(:event) { Event.create(start: &#39;2022-10-10&#39;, end: &#39;2023-10-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
+            <code class="ruby"># end</code>
           </li>
         </div>
       
@@ -13047,90 +13047,90 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="266">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="266">
+            
             
 
             
 
-            <code class="ruby">  it &#39;valid inputs&#39; do</code>
+            <code class="ruby"># RSpec.describe(&#39;Searching a User&#39;, type: :feature) do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="267">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="267">
+            
             
 
             
 
-            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#   scenario &#39;user exists&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="268">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="268">
+            
             
 
             
 
-            <code class="ruby">    visit new_user_event_path</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="269">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="269">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
+            <code class="ruby">#     visit users_path</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="270">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="270">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: event.id</code>
+            <code class="ruby">#     fill_in &quot;params[search_by_first_name]&quot;, with: &#39;Anthony&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="271">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="271">
+            
             
 
             
 
-            <code class="ruby">    click_on &#39;Create User event&#39;</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;adao102@tamu.edu&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="272">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="272">
+            
             
 
             
 
-            <code class="ruby">    visit user_events_path</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="273">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="273">
+            
             
 
             
 
-            <code class="ruby">    expect(page).to(have_content(user.id))</code>
+            <code class="ruby">#   scenario &#39;user does not exist&#39; do</code>
           </li>
         </div>
       
@@ -13141,7 +13141,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -13152,62 +13152,62 @@
 
             
 
+            <code class="ruby">#     visit users_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="276">
+            
+            
+
+            
+
+            <code class="ruby">#     fill_in &quot;params[search_by_first_name]&quot;, with: &#39;NonexistentUser&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="277">
+            
+            
+
+            
+
+            <code class="ruby">#     expect(page).to have_content(&#39;No matching user exists&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="278">
+            
+            
+
+            
+
+            <code class="ruby">#   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="279">
+            
+            
+
+            
+
+            <code class="ruby"># end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="280">
+            
+            
+
+            
+
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="276">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  it &#39;blank inputs&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="277">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="278">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    visit new_user_event_path</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="279">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    click_on &#39;Create User event&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="280">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(page).to(have_content(&#39;2 errors prohibited this user_event from being saved&#39;))</code>
           </li>
         </div>
       
@@ -13218,7 +13218,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby"># RSpec.describe(&#39;Signing members into event&#39; , type: :feature) do</code>
           </li>
         </div>
       
@@ -13234,79 +13234,79 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="283">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="283">
+            
             
 
             
 
-            <code class="ruby">  it &#39;invalid event&#39; do</code>
+            <code class="ruby">#   scenario &#39;Valid UIN&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="284">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="284">
+            
             
 
             
 
-            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="285">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="285">
+            
             
 
             
 
-            <code class="ruby">    visit new_user_event_path</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="286">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="286">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="287">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="287">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: &#39; &#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="288">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="288">
+            
             
 
             
 
-            <code class="ruby">    click_on &#39;Create User event&#39;</code>
+            <code class="ruby">#   scenario &#39;Invalid UIN&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="289">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="289">
+            
             
 
             
 
-            <code class="ruby">    expect(page).to(have_content(&#39;Event must exist&#39;))</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -13317,7 +13317,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
           </li>
         </div>
       
@@ -13328,7 +13328,7 @@
 
             
 
-            <code class="ruby">end</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
@@ -13344,57 +13344,57 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="293">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="293">
+            
             
 
             
 
-            <code class="ruby">RSpec.describe(&#39;Updating a UserEvent&#39;, type: :feature) do</code>
+            <code class="ruby">#   scenario &#39;Sign member in more than once&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="294">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="294">
+            
             
 
             
 
-            <code class="ruby">  let!(:user) { User.create(first_name: &#39;Joe&#39;, last_name: &#39;Shmoe&#39;, uin: &#39;730303036&#39;, phone_number: &#39;8324344445&#39;, email: &#39;student@tamu.edu&#39;, dob: &#39;2003-10-10&#39;, points: &#39;3&#39;, role_id: &#39;1&#39;) }</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="295">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="295">
+            
             
 
             
 
-            <code class="ruby">  let!(:event1) { Event.create(start: &#39;2022-10-10&#39;, end: &#39;2023-10-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="296">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="296">
+            
             
 
             
 
-            <code class="ruby">  let!(:event2) { Event.create(start: &#39;2022-11-10&#39;, end: &#39;2023-11-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="297">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="297">
+            
             
 
             
 
-            <code class="ruby">  let!(:user_event) { UserEvent.create(user_id: user.id, event_id: event1.id) }</code>
+            <code class="ruby"># end</code>
           </li>
         </div>
       
@@ -13410,90 +13410,90 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="299">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="299">
+            
             
 
             
 
-            <code class="ruby">  it &#39;valid update&#39; do</code>
+            <code class="ruby"># RSpec.describe(&#39;Change member status&#39; , type: :feature) do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="300">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="300">
+            
             
 
             
 
-            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#   scenario &#39;promote member&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="301">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="301">
+            
             
 
             
 
-            <code class="ruby">    visit edit_user_event_path(user_event)</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="302">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="302">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="303">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="303">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: event2.id</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="304">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="304">
+            
             
 
             
 
-            <code class="ruby">    click_on &#39;Update User event&#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="305">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="305">
+            
             
 
             
 
-            <code class="ruby">    visit user_events_path</code>
+            <code class="ruby">#   scenario &#39;demote officer&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="306">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="306">
+            
             
 
             
 
-            <code class="ruby">    expect(page).to(have_content(user.id))</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -13504,7 +13504,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
           </li>
         </div>
       
@@ -13515,84 +13515,84 @@
 
             
 
+            <code class="ruby">#   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="309">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="309">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="310">
+            
             
 
             
 
-            <code class="ruby">  it &#39;invalid update due to nonexistent event&#39; do</code>
+            <code class="ruby">#   scenario &#39;demote member (rainy)&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="310">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="311">
+            
             
 
             
 
-            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="311">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="312">
+            
             
 
             
 
-            <code class="ruby">    visit edit_user_event_path(user_event)</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="312">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="313">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="313">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="314">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: &#39;20&#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="314">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="315">
+            
             
 
             
 
-            <code class="ruby">    click_on &#39;Update User event&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="315">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(page).to(have_content(&#39;Event must exist&#39;))</code>
+            <code class="ruby">#   scenario &#39;demote executive officer (rainy)&#39; do</code>
           </li>
         </div>
       
@@ -13603,7 +13603,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -13614,7 +13614,7 @@
 
             
 
-            <code class="ruby">end</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
           </li>
         </div>
       
@@ -13625,51 +13625,51 @@
 
             
 
+            <code class="ruby">#   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="319">
+            
+            
+
+            
+
+            <code class="ruby"># end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="320">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="319">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="321">
+            
             
 
             
 
-            <code class="ruby">RSpec.describe(&#39;Calendar:&#39;, type: :feature) do</code>
+            <code class="ruby"># RSpec.describe(&#39;Delete other members&#39; , type: :feature) do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="320">
-            <span class="hits">5</span>
+          <li class="never" data-hits="" data-linenumber="322">
+            
             
 
             
 
-            <code class="ruby">  let!(:user) { User.create(first_name: &#39;Joe&#39;, last_name: &#39;Shmoe&#39;, uin: &#39;730303036&#39;, phone_number: &#39;8324344445&#39;, email: &#39;student@tamu.edu&#39;, dob: &#39;2003-10-10&#39;, points: &#39;3&#39;, role_id: &#39;1&#39;) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="5" data-linenumber="321">
-            <span class="hits">5</span>
-            
-
-            
-
-            <code class="ruby">  let!(:event1) { Event.create(start: &#39;2023-3-20&#39;, end: &#39;2023-3-21&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="5" data-linenumber="322">
-            <span class="hits">5</span>
-            
-
-            
-
-            <code class="ruby">  let!(:event2) { Event.create(start: &#39;2022-11-10&#39;, end: &#39;2023-11-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;) }</code>
+            <code class="ruby">#   scenario &#39;delete member&#39; do</code>
           </li>
         </div>
       
@@ -13680,117 +13680,117 @@
 
             
 
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="324">
+            
+            
+
+            
+
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="325">
+            
+            
+
+            
+
+            <code class="ruby">#   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="326">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="324">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="327">
+            
             
 
             
 
-            <code class="ruby">  it &#39;valid event added to calendar&#39; do</code>
+            <code class="ruby">#   scenario &#39;delete officer&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="325">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="328">
+            
             
 
             
 
-            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="326">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="329">
+            
             
 
             
 
-            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="327">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="330">
+            
             
 
             
 
-            <code class="ruby">    expect(page).not_to(have_content(event1.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="328">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="331">
+            
             
 
             
 
-            <code class="ruby">    visit new_user_event_path</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="329">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="332">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
+            <code class="ruby">#   scenario &#39;delete executive officer (rainy)&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="330">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="333">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: event1.id</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="331">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    click_on &#39;Create User event&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="332">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="333">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(page).to(have_content(event1.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -13801,7 +13801,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
           </li>
         </div>
       
@@ -13812,51 +13812,51 @@
 
             
 
+            <code class="ruby">#   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="336">
+            
+            
+
+            
+
+            <code class="ruby"># end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="337">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="336">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="338">
+            
             
 
             
 
-            <code class="ruby">  it &#39;newly registered user should have empty calendar&#39; do</code>
+            <code class="ruby"># RSpec.describe(&#39;view events in google calender&#39; , type: :feature) do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="337">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="339">
+            
             
 
             
 
-            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="338">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="339">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(page).not_to(have_content(event1.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
+            <code class="ruby">#   scenario &#39;check events&#39; do</code>
           </li>
         </div>
       
@@ -13867,7 +13867,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -13878,117 +13878,117 @@
 
             
 
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="342">
+            
+            
+
+            
+
+            <code class="ruby">#   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="343">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="342">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="344">
+            
             
 
             
 
-            <code class="ruby">  it &#39;user adds event and it automatically appears on calendar&#39; do</code>
+            <code class="ruby">#   scenario &#39;no events&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="343">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="345">
+            
             
 
             
 
-            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="344">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="346">
+            
             
 
             
 
-            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="345">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="347">
+            
             
 
             
 
-            <code class="ruby">    expect(page).not_to(have_content(event1.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="346">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="348">
+            
             
 
             
 
-            <code class="ruby">    visit new_user_event_path</code>
+            <code class="ruby"># end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="347">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="349">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="348">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="350">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: event1.id</code>
+            <code class="ruby"># RSpec.describe(&#39;Manage user points&#39; , type: :feature) do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="349">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="351">
+            
             
 
             
 
-            <code class="ruby">    click_on &#39;Create User event&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="350">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="351">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(page).to(have_content(event1.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
+            <code class="ruby">#   scenario &#39;Add points to user&#39; do</code>
           </li>
         </div>
       
@@ -13999,7 +13999,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -14010,95 +14010,95 @@
 
             
 
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="354">
+            
+            
+
+            
+
+            <code class="ruby">#   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="355">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="354">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="356">
+            
             
 
             
 
-            <code class="ruby">  it &#39;user tries to add an event that has already occurred&#39; do</code>
+            <code class="ruby">#   scenario &#39;Delete points from user&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="355">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="357">
+            
             
 
             
 
-            <code class="ruby">    visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="356">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="358">
+            
             
 
             
 
-            <code class="ruby">    visit new_user_event_path</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="357">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="359">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[user_id]&#39;, with: user.id</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="358">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="360">
+            
             
 
             
 
-            <code class="ruby">    fill_in &#39;user_event[event_id]&#39;, with: event2.id</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="359">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="361">
+            
             
 
             
 
-            <code class="ruby">    click_on &#39;Create User event&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="360">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    visit calendar_path(user_id: user.id)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="361">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(page).not_to(have_content(event2.start.strftime(&#39;%Y-%m-%d&#39;)))</code>
+            <code class="ruby">#   scenario &#39;Negative points&#39; do</code>
           </li>
         </div>
       
@@ -14109,7 +14109,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">#     visit &#39;/admins/auth/google_oauth2/callback&#39;</code>
           </li>
         </div>
       
@@ -14120,7 +14120,29 @@
 
             
 
-            <code class="ruby">end</code>
+            <code class="ruby">#     expect(page).to have_content(&#39;placeholder&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="364">
+            
+            
+
+            
+
+            <code class="ruby">#   end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="365">
+            
+            
+
+            
+
+            <code class="ruby"># end</code>
           </li>
         </div>
       

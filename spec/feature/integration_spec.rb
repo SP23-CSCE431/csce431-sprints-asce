@@ -67,6 +67,111 @@ RSpec.describe('Creating a user', type: :feature) do
   end
 end
 
+
+
+RSpec.describe('Member Signing Up for an Event', type: :feature) do
+  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  let!(:event) { Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing') }
+
+  it 'valid inputs' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit new_user_event_path
+    fill_in 'user_event[user_id]', with: user.id
+    fill_in 'user_event[event_id]', with: event.id
+    click_on 'Create User event'
+    visit user_events_path
+    expect(page).to(have_content(user.id))
+  end
+
+  it 'blank inputs' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit new_user_event_path
+    click_on 'Create User event'
+    expect(page).to(have_content('2 errors prohibited this user_event from being saved'))
+  end
+
+  it 'invalid event' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit new_user_event_path
+    fill_in 'user_event[user_id]', with: user.id
+    fill_in 'user_event[event_id]', with: ' '
+    click_on 'Create User event'
+    expect(page).to(have_content('Event must exist'))
+  end
+end
+
+RSpec.describe('Updating a UserEvent', type: :feature) do
+  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  let!(:event1) { Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing') }
+  let!(:event2) { Event.create(start: '2022-11-10', end: '2023-11-10', type_id: '3', status: 'ongoing') }
+  let!(:user_event) { UserEvent.create(user_id: user.id, event_id: event1.id) }
+
+  it 'valid update' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit edit_user_event_path(user_event)
+    fill_in 'user_event[user_id]', with: user.id
+    fill_in 'user_event[event_id]', with: event2.id
+    click_on 'Update User event'
+    visit user_events_path
+    expect(page).to(have_content(user.id))
+  end
+
+  it 'invalid update due to nonexistent event' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit edit_user_event_path(user_event)
+    fill_in 'user_event[user_id]', with: user.id
+    fill_in 'user_event[event_id]', with: '20'
+    click_on 'Update User event'
+    expect(page).to(have_content('Event must exist'))
+  end
+end
+
+RSpec.describe('Calendar:', type: :feature) do
+  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  let!(:event1) { Event.create(start: '2023-3-20', end: '2023-3-21', type_id: '3', status: 'ongoing') }
+  let!(:event2) { Event.create(start: '2022-11-10', end: '2023-11-10', type_id: '3', status: 'ongoing') }
+
+  it 'valid event added to calendar' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit calendar_path(user_id: user.id)
+    expect(page).not_to(have_content(event1.start.strftime('%Y-%m-%d')))
+    visit new_user_event_path
+    fill_in 'user_event[user_id]', with: user.id
+    fill_in 'user_event[event_id]', with: event1.id
+    click_on 'Create User event'
+    visit calendar_path(user_id: user.id)
+    expect(page).to(have_content(event1.start.strftime('%Y-%m-%d')))
+  end
+
+  it 'newly registered user should have empty calendar' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit calendar_path(user_id: user.id)
+    expect(page).not_to(have_content(event1.start.strftime('%Y-%m-%d')))
+  end
+
+  it 'user adds event and it automatically appears on calendar' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit calendar_path(user_id: user.id)
+    expect(page).not_to(have_content(event1.start.strftime('%Y-%m-%d')))
+    visit new_user_event_path
+    fill_in 'user_event[user_id]', with: user.id
+    fill_in 'user_event[event_id]', with: event1.id
+    click_on 'Create User event'
+    visit calendar_path(user_id: user.id)
+    expect(page).to(have_content(event1.start.strftime('%Y-%m-%d')))
+  end
+
+  it 'user tries to add an event that has already occurred' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit new_user_event_path
+    fill_in 'user_event[user_id]', with: user.id
+    fill_in 'user_event[event_id]', with: event2.id
+    click_on 'Create User event'
+    visit calendar_path(user_id: user.id)
+    expect(page).not_to(have_content(event2.start.strftime('%Y-%m-%d')))
+  end
+end
+
 # RSpec.describe('Deleting Personal Account', type: :feature) do
 #   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
 #   scenario 'valid deletion' do
@@ -258,106 +363,3 @@ end
 #     expect(page).to have_content('placeholder')
 #   end
 # end
-
-RSpec.describe('Member Signing Up for an Event', type: :feature) do
-  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
-  let!(:event) { Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing') }
-
-  it 'valid inputs' do
-    visit '/admins/auth/google_oauth2/callback'
-    visit new_user_event_path
-    fill_in 'user_event[user_id]', with: user.id
-    fill_in 'user_event[event_id]', with: event.id
-    click_on 'Create User event'
-    visit user_events_path
-    expect(page).to(have_content(user.id))
-  end
-
-  it 'blank inputs' do
-    visit '/admins/auth/google_oauth2/callback'
-    visit new_user_event_path
-    click_on 'Create User event'
-    expect(page).to(have_content('2 errors prohibited this user_event from being saved'))
-  end
-
-  it 'invalid event' do
-    visit '/admins/auth/google_oauth2/callback'
-    visit new_user_event_path
-    fill_in 'user_event[user_id]', with: user.id
-    fill_in 'user_event[event_id]', with: ' '
-    click_on 'Create User event'
-    expect(page).to(have_content('Event must exist'))
-  end
-end
-
-RSpec.describe('Updating a UserEvent', type: :feature) do
-  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
-  let!(:event1) { Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing') }
-  let!(:event2) { Event.create(start: '2022-11-10', end: '2023-11-10', type_id: '3', status: 'ongoing') }
-  let!(:user_event) { UserEvent.create(user_id: user.id, event_id: event1.id) }
-
-  it 'valid update' do
-    visit '/admins/auth/google_oauth2/callback'
-    visit edit_user_event_path(user_event)
-    fill_in 'user_event[user_id]', with: user.id
-    fill_in 'user_event[event_id]', with: event2.id
-    click_on 'Update User event'
-    visit user_events_path
-    expect(page).to(have_content(user.id))
-  end
-
-  it 'invalid update due to nonexistent event' do
-    visit '/admins/auth/google_oauth2/callback'
-    visit edit_user_event_path(user_event)
-    fill_in 'user_event[user_id]', with: user.id
-    fill_in 'user_event[event_id]', with: '20'
-    click_on 'Update User event'
-    expect(page).to(have_content('Event must exist'))
-  end
-end
-
-RSpec.describe('Calendar:', type: :feature) do
-  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
-  let!(:event1) { Event.create(start: '2023-3-20', end: '2023-3-21', type_id: '3', status: 'ongoing') }
-  let!(:event2) { Event.create(start: '2022-11-10', end: '2023-11-10', type_id: '3', status: 'ongoing') }
-
-  it 'valid event added to calendar' do
-    visit '/admins/auth/google_oauth2/callback'
-    visit calendar_path(user_id: user.id)
-    expect(page).not_to(have_content(event1.start.strftime('%Y-%m-%d')))
-    visit new_user_event_path
-    fill_in 'user_event[user_id]', with: user.id
-    fill_in 'user_event[event_id]', with: event1.id
-    click_on 'Create User event'
-    visit calendar_path(user_id: user.id)
-    expect(page).to(have_content(event1.start.strftime('%Y-%m-%d')))
-  end
-
-  it 'newly registered user should have empty calendar' do
-    visit '/admins/auth/google_oauth2/callback'
-    visit calendar_path(user_id: user.id)
-    expect(page).not_to(have_content(event1.start.strftime('%Y-%m-%d')))
-  end
-
-  it 'user adds event and it automatically appears on calendar' do
-    visit '/admins/auth/google_oauth2/callback'
-    visit calendar_path(user_id: user.id)
-    expect(page).not_to(have_content(event1.start.strftime('%Y-%m-%d')))
-    visit new_user_event_path
-    fill_in 'user_event[user_id]', with: user.id
-    fill_in 'user_event[event_id]', with: event1.id
-    click_on 'Create User event'
-    visit calendar_path(user_id: user.id)
-    expect(page).to(have_content(event1.start.strftime('%Y-%m-%d')))
-  end
-
-  it 'user tries to add an event that has already occurred' do
-    visit '/admins/auth/google_oauth2/callback'
-    visit new_user_event_path
-    fill_in 'user_event[user_id]', with: user.id
-    fill_in 'user_event[event_id]', with: event2.id
-    click_on 'Create User event'
-    visit calendar_path(user_id: user.id)
-    expect(page).not_to(have_content(event2.start.strftime('%Y-%m-%d')))
-  end
-end
