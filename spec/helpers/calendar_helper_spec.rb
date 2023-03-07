@@ -10,7 +10,7 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe CalendarHelper, type: :helper do
+RSpec.describe(CalendarHelper, type: :helper) do
   # describe "#month_calendar" do
   #   it "displays a calendar for a given month" do
   #     date = Date.new(2023, 3, 1)

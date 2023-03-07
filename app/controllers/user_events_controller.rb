@@ -68,9 +68,8 @@ class UserEventsController < ApplicationController
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @user_events = UserEvent.where(user_id: params[:user_id])
     @events = @user_events.map(&:event)
-    @events_by_date = @events.group_by{ |event| event.start.to_date }
+    @events_by_date = @events.group_by { |event| event.start.to_date }
   end
-
 
   private
 

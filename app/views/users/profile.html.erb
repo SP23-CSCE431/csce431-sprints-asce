@@ -1,3 +1,6 @@
+<% userId = User.find_by(email: current_admin.email) %>
+<!-- Link to the help section of the website -->
+<div><%= link_to "Help", help_user_path(id: userId.id) %></div>
 <!-- Allows the user to sign out of their account from their profile page -->
 <%= link_to "Sign Out", destroy_admin_session_path %>
 <h2>My Profile</h2>
@@ -11,7 +14,7 @@
     <% end %>
 </div>
 
-<% userId = User.find_by(email: current_admin.email) %>
+
 <%= link_to "Show My Calendar", calendar_path(user_id: userId.id) %>
 
 <!-- The link can show the user what events they have signed up for -->
@@ -27,3 +30,4 @@
 <!-- This link takes the user to the events page where they can sign up for more events -->
 <p>Sign Up for Available Events</p>
 <%= link_to "Events", events_path %>
+<br>
