@@ -2,15 +2,15 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users or /users.json
-  #search index
+  # search index
   def index
     @users = User.all
-    if params[:search_by_first_name] && params[:search_by_first_name] != ""
-      @users = @users.where("first_name like ?", "%#{params[:search_by_first_name]}%")
+    if params[:search_by_first_name] && params[:search_by_first_name] != ''
+      @users = @users.where('first_name like ?', "%#{params[:search_by_first_name]}%")
     end
-    
-    if params[:search_by_last_name] && params[:search_by_last_name] != ""
-      @users = @users.where("last_name like ?", "%#{params[:search_by_last_name]}%")
+
+    if params[:search_by_last_name] && params[:search_by_last_name] != ''
+      @users = @users.where('last_name like ?', "%#{params[:search_by_last_name]}%")
     end
 
     # if params[:search_by_uin] && params[:search_by_uin] != ""
@@ -30,10 +30,9 @@ class UsersController < ApplicationController
     # end
   end
 
-
   # GET /users/1 or /users/1.json
-  def show;
-    @user = User.find(params[:id]) 
+  def show
+    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -42,8 +41,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit;
-   end
+  def edit; end
 
   # POST /users or /users.json
   def create
@@ -89,6 +87,10 @@ class UsersController < ApplicationController
 
   def profile
     @users = User.all
+  end
+
+  def help
+     @user = User.find(params[:id])
   end
 
   private

@@ -3,7 +3,7 @@ require 'rails_helper'
 
 RSpec.describe(User, type: :model) do
   subject do
-    described_class.new(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob:'2003-10-10', points:'3', role_id:'1')
+    described_class.new(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1')
   end
 
   it 'User is valid with valid attributes' do
@@ -34,15 +34,15 @@ RSpec.describe(User, type: :model) do
     subject.dob = nil
     expect(subject).not_to(be_valid)
   end
-
 end
 
 RSpec.describe(UserEvent, type: :model) do
-  let(:user) {User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob:'2003-10-10', points:'3', role_id:'1')}
-  let(:event) {Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing')}
   subject do
     described_class.new(user: user, event: event)
   end
+
+  let(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  let(:event) { Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing') }
 
   it 'userevent is valid with valid attributes' do
     expect(subject).to(be_valid)
@@ -60,61 +60,61 @@ RSpec.describe(UserEvent, type: :model) do
 end
 
 RSpec.describe(Event, type: :model) do
-    subject do
-      described_class.new(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing')
-    end
-  
-    it 'event is valid with valid attributes' do
-      expect(subject).to(be_valid)
-    end
-  
-    it 'event is not valid without a start date' do
-      subject.start = nil
-      expect(subject).not_to(be_valid)
-    end
-
-    it 'event is not valid without an end date' do
-      subject.end = nil
-      expect(subject).not_to(be_valid)
-    end
-
-    it 'event is not valid without a type id' do
-      subject.type_id = nil
-      expect(subject).not_to(be_valid)
-    end
-
-    it 'event is not valid without a status' do
-        subject.status = nil
-        expect(subject).not_to(be_valid)
-      end
+  subject do
+    described_class.new(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing')
   end
 
-  RSpec.describe(EventType, type: :model) do
-    subject do
-      described_class.new(points: '2')
-    end
-  
-    it 'eventtype is valid with valid attributes' do
-      expect(subject).to(be_valid)
-    end
-  
-    it 'eventtype is not valid without points value' do
-      subject.points = nil
-      expect(subject).not_to(be_valid)
-    end
+  it 'event is valid with valid attributes' do
+    expect(subject).to(be_valid)
   end
 
-  RSpec.describe(EventType, type: :model) do
-    subject do
-      described_class.new(points: '2')
-    end
-  
-    it 'eventtype is valid with valid attributes' do
-      expect(subject).to(be_valid)
-    end
-  
-    it 'eventtype is not valid without points value' do
-      subject.points = nil
-      expect(subject).not_to(be_valid)
-    end
+  it 'event is not valid without a start date' do
+    subject.start = nil
+    expect(subject).not_to(be_valid)
   end
+
+  it 'event is not valid without an end date' do
+    subject.end = nil
+    expect(subject).not_to(be_valid)
+  end
+
+  it 'event is not valid without a type id' do
+    subject.type_id = nil
+    expect(subject).not_to(be_valid)
+  end
+
+  it 'event is not valid without a status' do
+    subject.status = nil
+    expect(subject).not_to(be_valid)
+  end
+end
+
+RSpec.describe(EventType, type: :model) do
+  subject do
+    described_class.new(points: '2')
+  end
+
+  it 'eventtype is valid with valid attributes' do
+    expect(subject).to(be_valid)
+  end
+
+  it 'eventtype is not valid without points value' do
+    subject.points = nil
+    expect(subject).not_to(be_valid)
+  end
+end
+
+RSpec.describe(EventType, type: :model) do
+  subject do
+    described_class.new(points: '2')
+  end
+
+  it 'eventtype is valid with valid attributes' do
+    expect(subject).to(be_valid)
+  end
+
+  it 'eventtype is not valid without points value' do
+    subject.points = nil
+    expect(subject).not_to(be_valid)
+  end
+end

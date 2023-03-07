@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     member do
       get :delete
       get :search
+      get :help
     end
   end
 end
