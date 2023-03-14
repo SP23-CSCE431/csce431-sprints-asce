@@ -78,7 +78,7 @@ RSpec.describe('Member Signing Up for an Event', type: :feature) do
     visit new_user_event_path
     fill_in 'user_event[user_id]', with: user.id
     fill_in 'user_event[event_id]', with: event.id
-    click_on 'Create User event'
+    click_on 'Add Event'
     visit user_events_path
     expect(page).to(have_content(user.id))
   end
@@ -86,7 +86,7 @@ RSpec.describe('Member Signing Up for an Event', type: :feature) do
   it 'blank inputs' do
     visit '/admins/auth/google_oauth2/callback'
     visit new_user_event_path
-    click_on 'Create User event'
+    click_on 'Add Event'
     expect(page).to(have_content('2 errors prohibited this user_event from being saved'))
   end
 
@@ -95,7 +95,7 @@ RSpec.describe('Member Signing Up for an Event', type: :feature) do
     visit new_user_event_path
     fill_in 'user_event[user_id]', with: user.id
     fill_in 'user_event[event_id]', with: ' '
-    click_on 'Create User event'
+    click_on 'Add Event'
     expect(page).to(have_content('Event must exist'))
   end
 end
@@ -111,7 +111,7 @@ RSpec.describe('Updating a UserEvent', type: :feature) do
     visit edit_user_event_path(user_event)
     fill_in 'user_event[user_id]', with: user.id
     fill_in 'user_event[event_id]', with: event2.id
-    click_on 'Update User event'
+    click_on 'Add Event'
     visit user_events_path
     expect(page).to(have_content(user.id))
   end
@@ -121,7 +121,7 @@ RSpec.describe('Updating a UserEvent', type: :feature) do
     visit edit_user_event_path(user_event)
     fill_in 'user_event[user_id]', with: user.id
     fill_in 'user_event[event_id]', with: '20'
-    click_on 'Update User event'
+    click_on 'Add Event'
     expect(page).to(have_content('Event must exist'))
   end
 end
@@ -138,7 +138,7 @@ RSpec.describe('Calendar:', type: :feature) do
     visit new_user_event_path
     fill_in 'user_event[user_id]', with: user.id
     fill_in 'user_event[event_id]', with: event1.id
-    click_on 'Create User event'
+    click_on 'Add Event'
     visit calendar_path(user_id: user.id)
     expect(page).to(have_content(event1.start.strftime('%Y-%m-%d')))
   end
@@ -156,7 +156,7 @@ RSpec.describe('Calendar:', type: :feature) do
     visit new_user_event_path
     fill_in 'user_event[user_id]', with: user.id
     fill_in 'user_event[event_id]', with: event1.id
-    click_on 'Create User event'
+    click_on 'Add Event'
     visit calendar_path(user_id: user.id)
     expect(page).to(have_content(event1.start.strftime('%Y-%m-%d')))
   end
@@ -166,7 +166,7 @@ RSpec.describe('Calendar:', type: :feature) do
     visit new_user_event_path
     fill_in 'user_event[user_id]', with: user.id
     fill_in 'user_event[event_id]', with: event2.id
-    click_on 'Create User event'
+    click_on 'Add Event'
     visit calendar_path(user_id: user.id)
     expect(page).not_to(have_content(event2.start.strftime('%Y-%m-%d')))
   end

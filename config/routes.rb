@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   match 'profile', to: 'users#profile', via: :get
   # <!-- /calendar path will take users to their personal calendar page -->
   get '/calendar(/:date)', to: 'user_events#calendar', as: 'calendar'
+  # <!-- /profile path will take users to their profile page -->
+  match 'my_events', to: 'user_events#my_events', via: :get
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # resources :user_events, :event_types, :events, :roles
   # Defines the root path route ("/")

@@ -4,8 +4,8 @@
     <% @events_by_date[date].each do |event| %>
       <div><%= event.id %></div>
       <div><%= event.status %></div>
-      <div><%= event.start %></div>
-      <div><%= event.end %></div>
+      <div><%= event.start.strftime("%Y-%m-%d %I:%M %p") %></div>
+      <div><%= event.end.strftime("%Y-%m-%d %I:%M %p") %></div>
     <% end if @events_by_date[date] %>
   <% end %>
   
