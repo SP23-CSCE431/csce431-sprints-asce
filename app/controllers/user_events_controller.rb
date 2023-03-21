@@ -71,6 +71,11 @@ class UserEventsController < ApplicationController
     @events_by_date = @events.group_by { |event| event.start.to_date }
   end
 
+  # Displays all events that are tied to a specific user ie. they signed up for so they can easily manage and track what events they have
+  def my_events
+    @user_events = UserEvent.all
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

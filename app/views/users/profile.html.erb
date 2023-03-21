@@ -9,17 +9,48 @@
 <div id="users">
     <% @users.each do |user| %>
       <% if current_admin.email == user.email %>
-        <%= render user %>
+        <strong>Name:</strong>
+        <span><%= user.first_name %></span>
+        <span><%= user.last_name %></span>
+        <br>
+        <br>
+        <strong>UIN:</strong>
+        <span><%= user.uin %></span>
+        <br>
+        <br>
+        <strong>Email:</strong>
+        <span><%= user.email %></span>
+        <br>
+        <br>
+        <strong>Phone Number:</strong>
+        <span><%= user.phone_number %></span>
+        <br>
+        <br>
+        <strong>Dob:</strong>
+        <span><%= user.dob %></span>
+        <br>
+        <br>
+        <strong>Points:</strong>
+        <span><%= user.points %></span>
+        <br>
+        <br>
+        <strong>Role:</strong>
+        <span><%= user.role_id %></span>
+        <p>
+          <%= link_to "Edit My Information", edit_user_path(user.id) %>
+        </p>
       <% end %>
     <% end %>
 </div>
 
+<br>
+<br>
 
 <%= link_to "Show My Calendar", calendar_path(user_id: userId.id) %>
 
 <!-- The link can show the user what events they have signed up for -->
-<p>List of All Events I Am Signed Up For</p>
-<%= link_to "My Events", user_events_path %>
+<p>Manage All Events I Am Signed Up For</p>
+<%= link_to "My Events", my_events_path %>
 <br>
 <br>
 <!-- This link can show the user to see all other users in the club -->
