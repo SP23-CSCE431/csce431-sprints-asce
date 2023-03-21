@@ -1,0 +1,15 @@
+Inspecting 66 files
+C..........................................E......................
+
+Offenses:
+
+Gemfile:84:6: C: [Correctable] Layout/ExtraSpacing: Unnecessary spacing detected.
+  gem  'capybara'
+     ^
+Gemfile:84:6: C: [Correctable] Layout/SpaceBeforeFirstArg: Put one space between the method name and the first argument.
+  gem  'capybara'
+     ^^
+db/seeds.rb:2:3: E: Lint/Syntax: unexpected token $end
+(Using Ruby 2.7 parser; configure using TargetRubyVersion parameter, under AllCops)
+
+66 files inspected, 3 offenses detected, 2 offenses autocorrectable
