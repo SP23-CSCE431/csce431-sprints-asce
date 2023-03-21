@@ -1,0 +1,23 @@
+<% userId = User.find_by(email: current_admin.email) %>
+<!-- Link to the help section of the website -->
+<div><%= link_to "Help", help_user_path(id: userId.id) %></div>
+<%= link_to "Back To My Profile", profile_path %>
+
+<h2>My Events</h2>
+
+<!-- This displays all user_events ie. all signed up events by a user -->
+<div id="user_events">
+  <% @user_events.each do |user_event| %>
+    <% if userId.id == user_event.user_id %>
+        <strong>User:</strong>
+        <span><%= user_event.user.first_name %></span>
+        <br>
+        <br>
+        <strong>Event:</strong>
+        <span><%= user_event.event.id %></span>
+        <p>
+            <%= link_to "View More Options", user_event %>
+        </p>
+    <% end %>
+  <% end %>
+</div>

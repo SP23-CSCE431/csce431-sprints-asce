@@ -3,9 +3,8 @@
 <%= render @user_event %>
 
 <div>
-  <%= link_to "Edit this user event", edit_user_event_path(@user_event) %> |
-  <%= link_to "Back to user events", user_events_path %> |
-  <%= link_to "Back to events", events_path %>
+  <%= link_to "Back to events", events_path %> |
+  <%= link_to "Back to My Events", my_events_path %>
 
-  <%= button_to "Destroy this user event", @user_event, method: :delete %>
+  <%= button_to "Remove Sign-Up", @user_event, method: :delete %>
 </div>
