@@ -25,6 +25,20 @@ class UserEventsController < ApplicationController
   # POST /user_events or /user_events.json
   # this method actually creates the new user_event record and officially adds it to the table representing that the user has successfully signed up for an event
   # input fields with the user id and event id that are autofilled for the user
+  # def create
+  #   @user_event = UserEvent.new(user_event_params)
+
+  #   respond_to do |format|
+  #     if @user_event.save
+  #       format.html { redirect_to(user_event_url(@user_event), notice: 'User event was successfully created.') }
+  #       format.json { render(:show, status: :created, location: @user_event) }
+  #     else
+  #       format.html { render(:new, status: :unprocessable_entity) }
+  #       format.json { render(json: @user_event.errors, status: :unprocessable_entity) }
+  #     end
+  #   end
+  # end
+
   def create
     @user_event = UserEvent.new(user_event_params)
 
@@ -36,7 +50,7 @@ class UserEventsController < ApplicationController
         format.html { render(:new, status: :unprocessable_entity) }
         format.json { render(json: @user_event.errors, status: :unprocessable_entity) }
       end
-    end
+    end     
   end
 
   # PATCH/PUT /user_events/1 or /user_events/1.json
@@ -69,11 +83,6 @@ class UserEventsController < ApplicationController
     @user_events = UserEvent.where(user_id: params[:user_id])
     @events = @user_events.map(&:event)
     @events_by_date = @events.group_by { |event| event.start.to_date }
-  end
-
-  # Displays all events that are tied to a specific user ie. they signed up for so they can easily manage and track what events they have
-  def my_events
-    @user_events = UserEvent.all
   end
 
   private
