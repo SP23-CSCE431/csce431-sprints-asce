@@ -1,6 +1,4 @@
 class PagesController < ApplicationController
-
-  # search paremeters for user and event
   def event_sign_in
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
@@ -9,11 +7,14 @@ class PagesController < ApplicationController
     @events = @p.result(distinct: true)
   end
 
-  # parameters for drop down in the event_sign _in page
+  def about
+  end
+
   def event_check_in
-    user_id = params[:user_id]
+    uin = params[:uin]
     event_id = params[:event_id]
-    user = User.find(user_id)
+    user = User.find_by(uin: uin)
+    user_id=user.id
     event = Event.find(event_id)
     user_event = UserEvent.find_by(user_id: user_id, event_id: event_id)
     if user_event
@@ -36,7 +37,7 @@ class PagesController < ApplicationController
       flash[:notice] = 'The user checked in this event succesfully.'      
     end    
   
-    redirect_to pages_event_sign_in_path
+  redirect_to pages_event_sign_in_path
   end
-  
+
 end
