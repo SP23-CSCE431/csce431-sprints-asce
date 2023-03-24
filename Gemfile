@@ -90,5 +90,3 @@ group :test do
 end
 
 gem 'brakeman'
-
-gem 'ransack'
