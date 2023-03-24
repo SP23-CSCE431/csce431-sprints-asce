@@ -12,6 +12,16 @@
   <% end %>
 
   <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
     <%= form.label :start, style: "display: block" %>
     <%= form.datetime_field :start %>
   </div>
@@ -29,6 +39,11 @@
   <div>
     <%= form.label :type_id, style: "display: block" %>
     <%= form.number_field :type_id %>
+  </div>
+
+  <div>
+    <%= form.label :points, style: "display: block" %>
+    <%= form.number_field :points %>
   </div>
 
   <div>
