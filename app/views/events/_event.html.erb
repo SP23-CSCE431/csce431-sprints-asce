@@ -1,5 +1,15 @@
 <div id="<%= dom_id event %>">
   <p>
+    <strong>Name:</strong>
+    <%= event.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= event.description %>
+  </p>
+
+  <p>
     <strong>Start:</strong>
     <%= event.start %>
   </p>
@@ -17,6 +27,11 @@
   <p>
     <strong>Type:</strong>
     <%= event.type_id %>
+  </p>
+
+  <p>
+    <strong>Points:</strong>
+    <%= event.points %>
   </p>
 
 </div>
