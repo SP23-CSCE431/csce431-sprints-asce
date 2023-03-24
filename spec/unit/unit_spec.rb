@@ -61,7 +61,7 @@ end
 
 RSpec.describe(Event, type: :model) do
   subject do
-    described_class.new(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing')
+    described_class.new(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing', name: 'ten', description: 'add points', points: '10')
   end
 
   it 'event is valid with valid attributes' do
