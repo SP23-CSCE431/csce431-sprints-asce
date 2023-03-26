@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/csce431/project/csce431-sprints-asce/spec/feature/integration_spec.rb": {
+      "/csce431/csce431-sprints-asce/spec/feature/integration_spec.rb": {
         "lines": [
           null,
           1,
@@ -370,7 +370,7 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/spec/rails_helper.rb": {
+      "/csce431/csce431-sprints-asce/spec/rails_helper.rb": {
         "lines": [
           null,
           1,
@@ -437,7 +437,7 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/config/environment.rb": {
+      "/csce431/csce431-sprints-asce/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -446,7 +446,7 @@
           1
         ]
       },
-      "/csce431/project/csce431-sprints-asce/config/application.rb": {
+      "/csce431/csce431-sprints-asce/config/application.rb": {
         "lines": [
           1,
           null,
@@ -472,7 +472,7 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/config/boot.rb": {
+      "/csce431/csce431-sprints-asce/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -480,7 +480,7 @@
           1
         ]
       },
-      "/csce431/project/csce431-sprints-asce/config/environments/test.rb": {
+      "/csce431/csce431-sprints-asce/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -546,7 +546,7 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/config/initializers/assets.rb": {
+      "/csce431/csce431-sprints-asce/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -555,6 +555,7 @@
           null,
           null,
           null,
+          1,
           null,
           null,
           null,
@@ -562,7 +563,7 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/config/initializers/content_security_policy.rb": {
+      "/csce431/csce431-sprints-asce/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -573,354 +574,6 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/project/csce431-sprints-asce/config/initializers/devise.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/csce431/project/csce431-sprints-asce/config/initializers/filter_parameter_logging.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/csce431/project/csce431-sprints-asce/config/initializers/inflections.rb": {
-        "lines": [
           null,
           null,
           null,
@@ -939,7 +592,355 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/config/initializers/permissions_policy.rb": {
+      "/csce431/csce431-sprints-asce/config/initializers/devise.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/csce431/csce431-sprints-asce/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/csce431/csce431-sprints-asce/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/csce431-sprints-asce/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -954,8 +955,11 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/config/routes.rb": {
+      "/csce431/csce431-sprints-asce/config/routes.rb": {
         "lines": [
+          1,
+          null,
+          1,
           1,
           null,
           1,
@@ -999,7 +1003,7 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/models/admin.rb": {
+      "/csce431/csce431-sprints-asce/app/models/admin.rb": {
         "lines": [
           1,
           1,
@@ -1013,91 +1017,97 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/models/application_record.rb": {
+      "/csce431/csce431-sprints-asce/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/helpers/application_helper.rb": {
+      "/csce431/csce431-sprints-asce/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/helpers/calendar_helper.rb": {
+      "/csce431/csce431-sprints-asce/app/helpers/calendar_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/helpers/event_types_helper.rb": {
+      "/csce431/csce431-sprints-asce/app/helpers/event_types_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/helpers/events_helper.rb": {
+      "/csce431/csce431-sprints-asce/app/helpers/events_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/helpers/roles_helper.rb": {
+      "/csce431/csce431-sprints-asce/app/helpers/pages_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/helpers/user_events_helper.rb": {
+      "/csce431/csce431-sprints-asce/app/helpers/roles_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/helpers/users_helper.rb": {
+      "/csce431/csce431-sprints-asce/app/helpers/user_events_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/spec/helpers/calendar_helper_spec.rb": {
+      "/csce431/csce431-sprints-asce/app/helpers/users_helper.rb": {
         "lines": [
           1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/spec/requests/calendar_spec.rb": {
+      "/csce431/csce431-sprints-asce/spec/helpers/calendar_helper_spec.rb": {
         "lines": [
           1,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
+          null,
+          null,
+          null,
           null,
           null,
           null,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/spec/unit/unit_spec.rb": {
+      "/csce431/csce431-sprints-asce/spec/requests/calendar_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/csce431-sprints-asce/spec/unit/unit_spec.rb": {
         "lines": [
           null,
           1,
@@ -1221,7 +1231,26 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/models/user.rb": {
+      "/csce431/csce431-sprints-asce/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/csce431-sprints-asce/app/models/user_event.rb": {
         "lines": [
           1,
           1,
@@ -1229,30 +1258,30 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/models/user_event.rb": {
+      "/csce431/csce431-sprints-asce/app/models/event.rb": {
         "lines": [
           1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/csce431/csce431-sprints-asce/app/models/event_type.rb": {
+        "lines": [
           1,
           1,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/models/event.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/csce431/project/csce431-sprints-asce/app/models/event_type.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/csce431/project/csce431-sprints-asce/app/controllers/admins/omniauth_callbacks_controller.rb": {
+      "/csce431/csce431-sprints-asce/app/controllers/admins/omniauth_callbacks_controller.rb": {
         "lines": [
           1,
           1,
@@ -1295,21 +1324,21 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/controllers/application_controller.rb": {
+      "/csce431/csce431-sprints-asce/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/controllers/dashboards_controller.rb": {
+      "/csce431/csce431-sprints-asce/app/controllers/dashboards_controller.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/controllers/users_controller.rb": {
+      "/csce431/csce431-sprints-asce/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -1420,7 +1449,7 @@
           null
         ]
       },
-      "/csce431/project/csce431-sprints-asce/app/controllers/user_events_controller.rb": {
+      "/csce431/csce431-sprints-asce/app/controllers/user_events_controller.rb": {
         "lines": [
           1,
           1,
@@ -1515,6 +1544,6 @@
         ]
       }
     },
-    "timestamp": 1678752175
+    "timestamp": 1679846108
   }
 }
