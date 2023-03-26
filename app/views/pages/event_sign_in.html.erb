@@ -1,12 +1,37 @@
-<h1>Event Sign UP for User</h1>
+<h1>Event Check In for User</h1>
 <br/>
 
-# Search Feature allowing officers to find members
-<%= search_form_for(@q, url: pages_event_sign_in_path)  do |f| %>
-  <%= f.search_field :first_name_or_last_name_or_uin_cont, placeholder: "Search..." %>
-  <%= f.submit "Search!" %>
+<%= form_tag pages_event_check_in_path do %>
+  <label for="user_id">Select a User:</label>
+  <input type="text" name="uin" list="user-list">
+  <datalist id="user-list">
+    <% User.all.each do |user| %>
+      <option value="<%= user.uin %>">
+      <%= user.first_name %> <%= user.last_name %>
+    </option>
+    <% end %>
+  </datalist>
+
+  <label for="event_id">Select an Event:</label>
+  <input type="text" name="event_id" list="event-list">
+  <datalist id="event-list">
+    <% Event.all.each do |event| %>
+      <option value="<%= event.id %>">
+      <%= event.name %> 
+    <% end %>
+  </datalist>
+
+  <%= submit_tag "Check User into Event" %>
 <% end %>
 
+</br>
+</br>
+<%= search_form_for(@q, url: pages_event_sign_in_path)  do |f| %>
+  <%= f.search_field :first_name_or_last_name_or_uin_cont,
+    placeholder: "Search..." %>
+  <%= f.submit "Search!" %>
+<% end %>
+<br/>
 <table class="table table-dark table-striped">
     <thead>
       <tr>
@@ -32,44 +57,32 @@
     </tbody>
   </table>
 
-# Search Feature allowing officers to find events
-<%= search_form_for(@p, url: pages_event_sign_in_path)  do |f| %>
-<%= f.search_field :name_cont, placeholder: "Search..." %>
-<%= f.submit "Search!" %>
-<% end %>
-
-<table class="table table-dark table-striped">
-    <thead>
-    <tr>
-        <th><%= sort_link(@p, :start, "Start", default_order: :asc) %></th>
-        <th><%= sort_link(@p, :end, "End") %></th>
-        <th><%= sort_link(@p, :name, "Name") %></th>
-        <th><%= sort_link(@p, :status, "Status") %></th>
-        <th><%= sort_link(@p, :points, "Points") %></th>
-        <th><%= sort_link(@p, :id, "ID") %></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @events.each do |event| %>
+  <%= search_form_for(@p, url: pages_event_sign_in_path)  do |f| %>
+    <%= f.search_field :name_cont, placeholder: "Search..." %>
+    <%= f.submit "Search!" %>
+  <% end %>
+  <br/>
+  <table class="table table-dark table-striped">
+      <thead>
         <tr>
-        <td><%= event.start %></td>
-        <td><%= event.end %></td>
-        <td><%= event.name %></td>
-        <td><%= event.status %></td>
-        <td><%= event.points %></td>
-        <td><%= event.id %></td>
+          <th><%= sort_link(@p, :start, "Start", default_order: :asc) %></th>
+          <th><%= sort_link(@p, :end, "End") %></th>
+          <th><%= sort_link(@p, :name, "Name") %></th>
+          <th><%= sort_link(@p, :status, "Status") %></th>
+          <th><%= sort_link(@p, :points, "Points") %></th>
+          <th><%= sort_link(@p, :id, "ID") %></th>
         </tr>
-    <% end %>
+      </thead>
+      <tbody>
+        <% @events.each do |event| %>
+          <tr>
+            <td><%= event.start %></td>
+            <td><%= event.end %></td>
+            <td><%= event.name %></td>
+            <td><%= event.status %></td>
+            <td><%= event.points %></td>
+            <td><%= event.id %></td>
+          </tr>
+        <% end %>
     </tbody>
 </table>
-
-# When selecting a member and event, adds event points to member account
-<%= form_tag pages_event_check_in_path do %>
-    <%= label_tag :user_id, "Select a User:" %>
-    <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :first_name) %>
-  
-    <%= label_tag :event_id, "Select an Event:" %>
-    <%= select_tag :event_id, options_from_collection_for_select(Event.all, :id, :name) %>
-  
-    <%= submit_tag "Add User to Event" %>
-<% end %>
