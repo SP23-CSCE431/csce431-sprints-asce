@@ -1,14 +1,12 @@
 <!-- displays the user's personal calendar by month that shows all the events they are currently signed up for -->
 <%= month_calendar do |date| %>
-    <b><%= date.day %></b>
+    <%= date.day %>
     <% @events_by_date[date].each do |event| %>
-      <div class="cal_event px-2">
-        <div><%= event.id %></div>
-        <div><%= event.status %></div>
-        <div><%= event.start.strftime("%Y-%m-%d %I:%M %p") %></div>
-        <div><%= event.end.strftime("%Y-%m-%d %I:%M %p") %></div>
-      </div>
-    <% end if @events_by_date[date] %></div>
+      <div><%= event.id %></div>
+      <div><%= event.status %></div>
+      <div><%= event.start.strftime("%Y-%m-%d %I:%M %p") %></div>
+      <div><%= event.end.strftime("%Y-%m-%d %I:%M %p") %></div>
+    <% end if @events_by_date[date] %>
   <% end %>
   
   <%= link_to "Back To My Profile", profile_path %>
