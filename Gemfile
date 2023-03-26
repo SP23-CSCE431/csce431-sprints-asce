@@ -92,6 +92,3 @@ end
 gem 'brakeman'
 
 gem 'ransack'
-gem "cssbundling-rails", "~> 1.1"
-
-gem "jsbundling-rails", "~> 1.1"
