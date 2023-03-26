@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  # <!-- these are routes for the event check in portion -->
-  get 'pages/event_sign_in'
-  post 'pages/event_check_in'
   # <!-- establishes that the sign in page will be the first page of the website -->
   root 'dashboards#show'
   #root 'users#index'
