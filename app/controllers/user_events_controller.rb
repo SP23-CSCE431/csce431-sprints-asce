@@ -30,7 +30,7 @@ class UserEventsController < ApplicationController
 
     respond_to do |format|
       if @user_event.save
-        format.html { redirect_to(user_event_url(@user_event), notice: 'User event was successfully created.') }
+        format.html { redirect_to(user_event_url(@user_event), notice: 'You successfully signed up for the event!') }
         format.json { render(:show, status: :created, location: @user_event) }
       else
         format.html { render(:new, status: :unprocessable_entity) }
@@ -58,7 +58,7 @@ class UserEventsController < ApplicationController
     @user_event.destroy
 
     respond_to do |format|
-      format.html { redirect_to(user_events_url, notice: 'User event was successfully destroyed.') }
+      format.html { redirect_to(my_events_path, notice: 'You successfully unsigned up for the event.') }
       format.json { head(:no_content) }
     end
   end

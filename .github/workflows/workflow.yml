@@ -30,6 +30,9 @@ jobs:
         run: |
           gem install bundler
           bundler install
+      - name: compile assets
+        run: |
+          bundler exec rails assets:precompile
       - name: Create database
         run: |
           bundler exec rails db:create RAILS_ENV=test
