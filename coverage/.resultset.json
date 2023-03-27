@@ -35,7 +35,6 @@
           1,
           1,
           1,
-          1,
           null,
           null,
           1,
@@ -959,6 +958,9 @@
           1,
           null,
           1,
+          1,
+          null,
+          1,
           null,
           1,
           1,
@@ -1039,6 +1041,12 @@
         ]
       },
       "/csce431/project/csce431-sprints-asce/app/helpers/events_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/csce431/project/csce431-sprints-asce/app/helpers/pages_helper.rb": {
         "lines": [
           1,
           null
@@ -1226,11 +1234,23 @@
           1,
           1,
           1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
           null
         ]
       },
       "/csce431/project/csce431-sprints-asce/app/models/user_event.rb": {
         "lines": [
+          1,
           1,
           1,
           1,
@@ -1242,6 +1262,14 @@
           1,
           1,
           1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
           null
         ]
       },
@@ -1515,6 +1543,6 @@
         ]
       }
     },
-    "timestamp": 1678752175
+    "timestamp": 1679879730
   }
 }

@@ -27,7 +27,6 @@ RSpec.describe('Creating a user', type: :feature) do
     fill_in 'user[email]', with: 'student@tamu.edu'
     fill_in 'user[phone_number]', with: '1234567898'
     fill_in 'user[dob]', with: '2003-10-10'
-    fill_in 'user[points]', with: '3'
     fill_in 'user[role_id]', with: '2'
     click_on 'Create User'
     expect(page).to(have_content('User was successfully created'))
@@ -71,7 +70,7 @@ end
 
 RSpec.describe('Member Signing Up for an Event', type: :feature) do
   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
-  let!(:event) { Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing') }
+  let!(:event) { Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing', name: 'Event 1', description: 'This is Event 1') }
 
   it 'valid inputs' do
     visit '/admins/auth/google_oauth2/callback'
@@ -102,8 +101,8 @@ end
 
 RSpec.describe('Updating a UserEvent', type: :feature) do
   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
-  let!(:event1) { Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing') }
-  let!(:event2) { Event.create(start: '2022-11-10', end: '2023-11-10', type_id: '3', status: 'ongoing') }
+  let!(:event1) { Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing', name: 'Event 1', description: 'This is Event 1') }
+  let!(:event2) { Event.create(start: '2022-11-10', end: '2023-11-10', type_id: '3', status: 'ongoing', name: 'Event 2', description: 'This is Event 2') }
   let!(:user_event) { UserEvent.create(user_id: user.id, event_id: event1.id) }
 
   it 'valid update' do
@@ -113,7 +112,7 @@ RSpec.describe('Updating a UserEvent', type: :feature) do
     fill_in 'user_event[event_id]', with: event2.id
     click_on 'Add Event'
     visit user_events_path
-    expect(page).to(have_content(user.id))
+    expect(page).to(have_content(event2.name))
   end
 
   it 'invalid update due to nonexistent event' do
@@ -128,8 +127,8 @@ end
 
 RSpec.describe('Calendar:', type: :feature) do
   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
-  let!(:event1) { Event.create(start: '2023-3-20', end: '2023-3-21', type_id: '3', status: 'ongoing') }
-  let!(:event2) { Event.create(start: '2022-11-10', end: '2023-11-10', type_id: '3', status: 'ongoing') }
+  let!(:event1) { Event.create(start: '2023-3-20', end: '2023-3-21', type_id: '3', status: 'ongoing', name: 'Event 1', description: 'This is Event 1') }
+  let!(:event2) { Event.create(start: '2022-11-10', end: '2023-11-10', type_id: '3', status: 'ongoing', name: 'Event 2', description: 'This is Event 2') }
 
   it 'valid event added to calendar' do
     visit '/admins/auth/google_oauth2/callback'
