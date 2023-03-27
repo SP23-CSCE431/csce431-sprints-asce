@@ -3,7 +3,7 @@
     <b><%= date.day %></b>
     <% @events_by_date[date].each do |event| %>
       <div class="cal_event px-2">
-        <div><%= event.id %></div>
+        <div><%= event.name %></div>
         <div><%= event.status %></div>
         <div><%= event.start.strftime("%Y-%m-%d %I:%M %p") %></div>
         <div><%= event.end.strftime("%Y-%m-%d %I:%M %p") %></div>

@@ -42,13 +42,13 @@
   </div>
 
   <div>
-    <%= form.label :points, style: "display: block" %>
-    <%= form.number_field :points, value: 3 %>
-  </div>
-
-  <div>
     <%= form.label :role_id, style: "display: block" %>
     <%= form.number_field :role_id %>
+  </div>
+
+  <div class = 'hidden'>
+    <%= form.label :points, style: "display: block" %>
+    <%= form.number_field :points, value: 3 %>
   </div>
 
   <div>
