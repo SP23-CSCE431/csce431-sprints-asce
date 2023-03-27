@@ -11,11 +11,10 @@
     <% if userId.id == user_event.user_id %>
         <strong>User:</strong>
         <span><%= user_event.user.first_name %></span>
-        <span><%= user_event.user.last_name %></span>
         <br>
         <br>
         <strong>Event:</strong>
-        <span><%= user_event.event.name %></span>
+        <span><%= user_event.event.id %></span>
         <p>
             <%= link_to "View More Options", user_event %>
         </p>

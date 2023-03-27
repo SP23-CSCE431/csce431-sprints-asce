@@ -1,13 +1,8 @@
 <% userId = User.find_by(email: current_admin.email) %>
 <!-- Link to the help section of the website -->
 <div><%= link_to "Help", help_user_path(id: userId.id) %></div>
-
-<!-- Link back to the main home page of the website -->
-<div><%= link_to "Home Page", root_path %></div>
-
 <!-- Allows the user to sign out of their account from their profile page -->
 <%= link_to "Sign Out", destroy_admin_session_path %>
-
 <h2>My Profile</h2>
 
 <!-- This displays only the current user information on their profile page -->
