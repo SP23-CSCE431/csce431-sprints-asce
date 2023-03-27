@@ -13,6 +13,11 @@
 
   <p>If you're sure you want to add this event click the button below. This will also add the event to your calendar automatically.</p>
 
+  <!-- This actually creates the new user_event record by confirming they click the button -->
+  <div>
+    <%= form.submit "Add Event"%>
+  </div>
+
   <!-- Since users won't know their specific user id or event id to fill in the fields -->
   <!-- These fields are autopopulated and will not be shown to the user -->
   <div class='hidden'>
@@ -26,8 +31,4 @@
     <%= form.number_field :event_id, value: @eventId %>
   </div>
 
-  <!-- This actually creates the new user_event record by confirming they click the button -->
-  <div>
-    <%= form.submit "Add Event"%>
-  </div>
 <% end %>

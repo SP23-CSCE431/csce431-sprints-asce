@@ -2,7 +2,7 @@
 <%= month_calendar do |date| %>
     <%= date.day %>
     <% @events_by_date[date].each do |event| %>
-      <div><%= event.id %></div>
+      <div><%= event.name %></div>
       <div><%= event.status %></div>
       <div><%= event.start.strftime("%Y-%m-%d %I:%M %p") %></div>
       <div><%= event.end.strftime("%Y-%m-%d %I:%M %p") %></div>
