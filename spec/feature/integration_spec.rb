@@ -171,6 +171,27 @@ RSpec.describe('Calendar:', type: :feature) do
   end
 end
 
+RSpec.describe "User Search and Table Display", type: :feature do
+  before do
+  # create some users for testing
+    User.create(first_name: 'John', last_name: 'Doe', uin: '123456789', phone_number: '555-123-4567', email: 'john@example.com', dob: '1990-01-01', points: '10', role_id: '1')
+    User.create(first_name: 'Jane', last_name: 'Smith', uin: '987654321', phone_number: '555-987-6543', email: 'jane@example.com', dob: '1995-05-05', points: '20', role_id: '2')
+    User.create(first_name: 'Bob', last_name: 'Hanks', uin: '456789123', phone_number: '555-456-7890', email: 'bob@example.com', dob: '1985-10-10', points: '5', role_id: '1')
+  end
+  
+  context "when search for a user with first name 'John'" do
+    it "displays only the user with first name 'John'" do
+      visit '/admins/auth/google_oauth2/callback'
+      visit users_path     
+      fill_in 'q[first_name_or_last_name_or_uin_cont]', with: 'John'
+      click_button 'Search!'
+      expect(page).to have_content('John')
+      expect(page).to_not have_content('Jane')
+      expect(page).to_not have_content('Bob')
+    end
+  end
+end
+
 # RSpec.describe('Deleting Personal Account', type: :feature) do
 #   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
 #   scenario 'valid deletion' do
