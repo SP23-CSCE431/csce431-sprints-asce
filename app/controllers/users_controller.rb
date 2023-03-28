@@ -4,14 +4,16 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   # search index
   def index
-    @users = User.all
-    if params[:search_by_first_name] && params[:search_by_first_name] != ''
-      @users = @users.where('first_name like ?', "%#{params[:search_by_first_name]}%")
-    end
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).order(created_at: :asc)
+    # @users = User.all
+    # if params[:search_by_first_name] && params[:search_by_first_name] != ''
+    #   @users = @users.where('first_name like ?', "%#{params[:search_by_first_name]}%")
+    # end
 
-    if params[:search_by_last_name] && params[:search_by_last_name] != ''
-      @users = @users.where('last_name like ?', "%#{params[:search_by_last_name]}%")
-    end
+    # if params[:search_by_last_name] && params[:search_by_last_name] != ''
+    #   @users = @users.where('last_name like ?', "%#{params[:search_by_last_name]}%")
+    # end
 
     # if params[:search_by_uin] && params[:search_by_uin] != ""
     #   @users = @users.where("uin like ?", "%#{params[:search_by_uin]}%")
