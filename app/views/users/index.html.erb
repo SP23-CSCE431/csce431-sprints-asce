@@ -2,26 +2,45 @@
 
 <%= link_to "Back to my profile", profile_path %>
 
-<h1>Users</h1>
-
-  <%= form_tag "/users", method: "GET" do %>
-    <%= label_tag :search_by_first_name %>
-    <%= text_field_tag :search_by_first_name, params[:search_by_first_name] %>
-
-    <%= label_tag :search_by_last_name %>
-    <%= text_field_tag :search_last_name, params[:search_last_name] %>
-
+<%= search_form_for(@q, url: users_path)  do |f| %>
+  <%= f.search_field :first_name_or_last_name_or_uin_cont,
+    placeholder: "Search..." %>
+  <%= f.submit "Search!" %>
 <% end %>
+<br/>
+<div style="max-height: 400px; overflow-y: auto">
+<table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th><%= sort_link(@q, :id, "ID") %></th>
+        <th><%= sort_link(@q, :first_name, "First Name", default_order: :asc) %></th>
+        <th><%= sort_link(@q, :last_name, "Last Name") %></th>
+        <th><%= sort_link(@q, :uin, "User ID") %></th>
+        <th><%= sort_link(@q, :email, "User Email") %></th>
+        <th><%= sort_link(@q, :phone_number, "Phone Number") %></th>
+        <th><%= sort_link(@q, :dob, "Date of Birth") %></th>
+        <th><%= sort_link(@q, :role_id, "Role ID") %></th>        
+        <th><%= sort_link(@q, :points, "Points") %></th>        
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.id, user %></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.uin %></td>
+          <td><%= user.email %></td>
+          <td><%= user.phone_number %></td>
+          <td><%= user.dob %></td>
+          <td><%= user.role_id%></td>
+          <td><%= user.points %></td>          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
 
-<!-- This shows/displays all users in the club -->
-<!-- Each user displayed has a link to individually see more details of that user -->
-<div id="users">
-  <% @users.each do |user| %>
-      <%= render user %>
-      <p>
-        <%= link_to "Show this user", user %>
-      </p>
-  <% end %>
-</div>
+</br>
 
 <%= link_to "New user", new_user_path %>
