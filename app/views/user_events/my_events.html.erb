@@ -1,14 +1,3 @@
-<style>
-  table {
-    border: 1px solid black;
-  }
-  
-  th, td {
-    border: 1px solid black;
-    padding: 5px;
-  }
-</style>
-
 <!-- Link to the help section of the website -->
 <div><%= link_to "Help", help_user_path(id: @userId.id) %></div>
 <%= link_to "Back To My Profile", profile_path %>
@@ -17,28 +6,18 @@
 
 <!-- This displays all user_events ie. all signed up events by a user -->
 <div id="user_events">
-  <table>
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Event</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user_events.each do |user_event| %>
-        <% if @userId.id == user_event.user_id %>
-          <tr>
-            <td><%= user_event.user.first_name %> <%= user_event.user.last_name %></td>
-            <% if user_event.event.present? %>
-              <td><%= user_event.event.name %></td>
-            <% else %>
-              <td>Event has been deleted</td>
-            <% end %>
-            <td><%= link_to "View More Options", user_event %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+  <% @user_events.each do |user_event| %>
+    <% if @userId.id == user_event.user_id %>
+        <strong>User:</strong>
+        <span><%= user_event.user.first_name %></span>
+        <span><%= user_event.user.last_name %></span>
+        <br>
+        <br>
+        <strong>Event:</strong>
+        <span><%= user_event.event.name %></span>
+        <p>
+            <%= link_to "View More Options", user_event %>
+        </p>
+    <% end %>
+  <% end %>
 </div>
