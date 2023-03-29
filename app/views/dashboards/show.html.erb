@@ -1,12 +1,23 @@
+<%= link_to "Sign Out", destroy_admin_session_path %>
 <h1>You're logged in! Welcome to the ASCE TAMU Dashboard!</h1>
 <h3>New User?</h3>
 <%= link_to "Create Account", new_user_path %>
 <br>
 <h3>Already have an Account?</h3>
 <%= link_to "Go to my profile", profile_path %>
-<br>    
 <br>
+<h3>Officers Event Sign In</h3>
 <%= link_to "Event Sign In", pages_event_sign_in_path %>
 <br>
 <br>
-<%= link_to "Sign Out", destroy_admin_session_path %>
+<h3>ASCE Calendar</h3>
+<!-- displays the user's personal calendar by month that shows all the events they are currently signed up for -->
+<%= month_calendar do |date| %>
+    <%= date.day %>
+    <% @events_by_date[date].each do |event| %>
+      <div><%= event.name %></div>
+      <div><%= event.status %></div>
+      <div><%= event.start.strftime("%Y-%m-%d %I:%M %p") %></div>
+      <div><%= event.end.strftime("%Y-%m-%d %I:%M %p") %></div>
+    <% end if @events_by_date[date] %>
+  <% end %>

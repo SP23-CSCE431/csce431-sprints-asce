@@ -74,6 +74,7 @@ class UserEventsController < ApplicationController
   # Displays all events that are tied to a specific user ie. they signed up for so they can easily manage and track what events they have
   def my_events
     @user_events = UserEvent.all
+    @userId = User.find_by(email: current_admin.email)
   end
 
   private
