@@ -57,6 +57,13 @@ RSpec.describe(UserEvent, type: :model) do
     subject.event_id = nil
     expect(subject).not_to(be_valid)
   end
+
+  it 'raises error when creating duplicate user_event' do
+    subject.save!
+    expect {
+    described_class.create!(user: user, event: event)
+    }.to raise_error(ActiveRecord::RecordInvalid)
+  end
 end
 
 RSpec.describe(Event, type: :model) do
