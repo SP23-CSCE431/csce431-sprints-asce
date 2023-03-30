@@ -1,4 +1,5 @@
 class DashboardsController < ApplicationController
+  layout 'dashboard'
   def show
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @events = Event.all

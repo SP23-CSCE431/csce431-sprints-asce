@@ -28,14 +28,14 @@ RSpec.describe('Creating a user', type: :feature) do
     fill_in 'user[phone_number]', with: '1234567898'
     fill_in 'user[dob]', with: '2003-10-10'
     fill_in 'user[role_id]', with: '2'
-    click_on 'Create User'
+    click_on 'Save'
     expect(page).to(have_content('User was successfully created'))
   end
 
   it 'blank inputs' do
     visit '/admins/auth/google_oauth2/callback'
     visit new_user_path
-    click_on 'Create User'
+    click_on 'Save'
     expect(page).to(have_content('prohibited this user from being saved:'))
   end
 
@@ -48,7 +48,7 @@ RSpec.describe('Creating a user', type: :feature) do
     fill_in 'user[email]', with: 'student@tamu.edu'
     fill_in 'user[phone_number]', with: '1234567898'
     fill_in 'user[dob]', with: '2003-10-10'
-    click_on 'Create User'
+    click_on 'Save'
     expect(page).to(have_content('prohibited this user from being saved:'))
   end
 
@@ -61,7 +61,7 @@ RSpec.describe('Creating a user', type: :feature) do
     fill_in 'user[email]', with: 'student@gmail.com'
     fill_in 'user[phone_number]', with: '1234567898'
     fill_in 'user[dob]', with: '2003-10-10'
-    click_on 'Create User'
+    click_on 'Save'
     expect(page).to(have_content('prohibited this user from being saved:'))
   end
 end
@@ -71,7 +71,6 @@ end
 RSpec.describe('Member Signing Up for an Event', type: :feature) do
   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
   let!(:event) { Event.create(start: '2022-10-10', end: '2023-10-10', type_id: '3', status: 'ongoing', name: 'Event 1', description: 'This is Event 1') }
-
   it 'valid inputs' do
     visit '/admins/auth/google_oauth2/callback'
     visit new_user_event_path

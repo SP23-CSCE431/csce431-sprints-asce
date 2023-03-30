@@ -1,44 +1,8 @@
-<% userId = User.find_by(email: current_admin.email) %>
-<nav class="navbar navbar-default mb-5">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <div class="logo"><%= image_tag("ascelogo.png") %></div>
-    </div>
-      <div class="dropdown show">
-          <a class="btn btn-lg dropdown-toggle navbtn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            My Profile
-          </a>
-        
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <div class="dropdown-item"><%= link_to "Profile", profile_path %></div>
-            <div class="dropdown-item"><%= link_to "My Events", my_events_path %></div>
-            <div class="dropdown-item"><%= link_to "My Calendar", calendar_path(user_id: userId.id) %></div>
-          </div>
-        </div>
 
-        <div class="dropdown show">
-          <a class="btn btn-lg dropdown-toggle navbtn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Events
-          </a>
-        
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <div class="dropdown-item"><%= link_to "Events", events_path %></div>
-            <div class="dropdown-item"><%= link_to "Calendar", calendar_path(user_id: userId.id) %></div>
-          </div>
-        </div>
-
-        <div>
-        <%= link_to "Sign Out", destroy_admin_session_path %>
-        </div>
-  </div>
-</nav>
-<h1>Editing user</h1>
+<div class="container">
+<h1>Edit Information</h1>
 
 <%= render "form", user: @user %>
+</div>
 
 <br>
-
-<div>
-  <%= link_to "Show this user", @user %> |
-  
-</div>
