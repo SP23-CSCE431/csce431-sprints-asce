@@ -1,69 +1,82 @@
+
 <% userId = User.find_by(email: current_admin.email) %>
-<!-- Link to the help section of the website -->
-<div><%= link_to "Help", help_user_path(id: userId.id) %></div>
+<div class="container">
+  <div class="col-12 profile_nav text-center">
+    <div class="row profile_nav_top my-2">
+      <!-- Allows the user to sign out of their account from their profile page -->
+      <div class="col-4"><%= link_to "Sign Out", destroy_admin_session_path %></div>
 
-<!-- Link back to the main home page of the website -->
-<div><%= link_to "Home Page", root_path %></div>
+      <!-- Link to the help section of the website -->
+      <div class="col-4"><%= link_to "Help", help_user_path(id: userId.id) %></div>
 
-<!-- Allows the user to sign out of their account from their profile page -->
-<%= link_to "Sign Out", destroy_admin_session_path %>
+      <!-- Link back to the main home page of the website -->
+      <div class="col-4"><%= link_to "Home Page", root_path %></div>
+    </div>
+    <div class="row profile_nav_bottom mb-5">
+      <div class="col-4"></div>
+      <div class="col-4"></div>
+      <div class="col-4"></div>
+    </div>
+  </div>
+  
 
-<h2>My Profile</h2>
+  <h2>My Profile</h2>
 
-<!-- This displays only the current user information on their profile page -->
-<div id="users">
-    <% @users.each do |user| %>
-      <% if current_admin.email == user.email %>
-        <strong>Name:</strong>
-        <span><%= user.first_name %></span>
-        <span><%= user.last_name %></span>
-        <br>
-        <br>
-        <strong>UIN:</strong>
-        <span><%= user.uin %></span>
-        <br>
-        <br>
-        <strong>Email:</strong>
-        <span><%= user.email %></span>
-        <br>
-        <br>
-        <strong>Phone Number:</strong>
-        <span><%= user.phone_number %></span>
-        <br>
-        <br>
-        <strong>Dob:</strong>
-        <span><%= user.dob %></span>
-        <br>
-        <br>
-        <strong>Points:</strong>
-        <span><%= user.points %></span>
-        <br>
-        <br>
-        <strong>Role:</strong>
-        <span><%= user.role_id %></span>
-        <p>
-          <%= link_to "Edit My Information", edit_user_path(user.id) %>
-        </p>
+  <!-- This displays only the current user information on their profile page -->
+  <div id="users">
+      <% @users.each do |user| %>
+        <% if current_admin.email == user.email %>
+          <strong>Name:</strong>
+          <span><%= user.first_name %></span>
+          <span><%= user.last_name %></span>
+          <br>
+          <br>
+          <strong>UIN:</strong>
+          <span><%= user.uin %></span>
+          <br>
+          <br>
+          <strong>Email:</strong>
+          <span><%= user.email %></span>
+          <br>
+          <br>
+          <strong>Phone Number:</strong>
+          <span><%= user.phone_number %></span>
+          <br>
+          <br>
+          <strong>Dob:</strong>
+          <span><%= user.dob %></span>
+          <br>
+          <br>
+          <strong>Points:</strong>
+          <span><%= user.points %></span>
+          <br>
+          <br>
+          <strong>Role:</strong>
+          <span><%= user.role_id %></span>
+          <p>
+            <%= link_to "Edit My Information", edit_user_path(user.id) %>
+          </p>
+        <% end %>
       <% end %>
-    <% end %>
-</div>
+  </div>
 
-<br>
-<br>
+  <br>
+  <br>
 
 <%= link_to "Show My Personal Calendar", calendar_path(user_id: userId.id) %>
 
-<!-- The link can show the user what events they have signed up for -->
-<p>Manage All Events I Am Signed Up For</p>
-<%= link_to "My Events", my_events_path %>
-<br>
-<br>
-<!-- This link can show the user to see all other users in the club -->
-<p>List of All Users</p>
-<%= link_to "All Users", users_path %>
-<br>
-<br>
-<!-- This link takes the user to the events page where they can sign up for more events -->
-<p>Sign Up for Available Events</p>
-<%= link_to "Events", events_path %>
-<br>
+  <!-- The link can show the user what events they have signed up for -->
+  <p>Manage All Events I Am Signed Up For</p>
+  <%= link_to "My Events", my_events_path %>
+  <br>
+  <br>
+  <!-- This link can show the user to see all other users in the club -->
+  <p>List of All Users</p>
+  <%= link_to "All Users", users_path %>
+  <br>
+  <br>
+  <!-- This link takes the user to the events page where they can sign up for more events -->
+  <p>Sign Up for Available Events</p>
+  <%= link_to "Events", events_path %>
+  <br>
+</div>

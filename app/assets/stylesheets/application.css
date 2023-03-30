@@ -15,3 +15,33 @@
  *= require user_event_style
  *= require simple_calendar
  */
+a {
+    color: maroon;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+    color: maroon;
+}
+
+.logo img {
+    max-width: 130px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.profile_nav {
+    border-bottom: 3px maroon;
+}
+
+.dropdown-item:active {
+    background-color: darkgray;
+}
+
+@media only screen and (max-width: 650px) {
+    .logo img {
+        display: none;
+    }
+}
