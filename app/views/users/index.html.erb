@@ -1,6 +1,5 @@
+<div class="container">
 <p style="color: green"><%= notice %></p>
-
-<%= link_to "Back to my profile", profile_path %>
 
 <%= search_form_for(@q, url: users_path)  do |f| %>
   <%= f.search_field :first_name_or_last_name_or_uin_cont,
@@ -8,8 +7,8 @@
   <%= f.submit "Search!" %>
 <% end %>
 <br/>
-<div style="max-height: 400px; overflow-y: auto">
-<table class="table table-dark table-striped">
+<div class="searchdiv">
+<table class="table table-striped">
     <thead>
       <tr>
         <th><%= sort_link(@q, :id, "ID") %></th>
@@ -20,7 +19,8 @@
         <th><%= sort_link(@q, :phone_number, "Phone Number") %></th>
         <th><%= sort_link(@q, :dob, "Date of Birth") %></th>
         <th><%= sort_link(@q, :role_id, "Role ID") %></th>        
-        <th><%= sort_link(@q, :points, "Points") %></th>        
+        <th><%= sort_link(@q, :points, "Points") %></th> 
+        <th>Edit</th>       
       </tr>
     </thead>
     <tbody>
@@ -34,13 +34,11 @@
           <td><%= user.phone_number %></td>
           <td><%= user.dob %></td>
           <td><%= user.role_id%></td>
-          <td><%= user.points %></td>          
+          <td><%= user.points %></td> 
+          <td><%= link_to("Edit", edit_user_path(user.id)) %></td>         
         </tr>
       <% end %>
     </tbody>
   </table>
   </div>
-
-</br>
-
-<%= link_to "New user", new_user_path %>
+</div>
