@@ -14,4 +14,19 @@
     <%= user_event.event&.description %>
   </p>
 
+  <p>
+    <strong>Event Start Date:</strong>
+    <%= user_event.event&.start.strftime("%Y-%m-%d %I:%M %p") %>
+  </p>
+
+  <p>
+    <strong>Event End Date:</strong>
+    <%= user_event.event&.end.strftime("%Y-%m-%d %I:%M %p") %>
+  </p>
+
+  <p>
+    <strong>Event Points:</strong>
+    <%= user_event.event&.points %>
+  </p>
+
 </div>
