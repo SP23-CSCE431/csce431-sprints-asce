@@ -276,6 +276,25 @@ RSpec.describe 'User Points Reset', type: :feature do
   end
 end
 
+RSpec.describe DeleteEntriesWorker, type: :worker do
+  describe '#perform' do
+    it 'deletes users created 4 years ago' do
+      user = User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1', created_at: 4.years.ago)
+      expect {
+        DeleteEntriesWorker.new.perform
+      }.to change(User, :count).by(-1)
+      expect(User.exists?(user.id)).to eq(false)
+    end
+
+    it 'does not delete users created less than 4 years ago' do
+      user = User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1', created_at: 3.years.ago)
+      expect {
+        DeleteEntriesWorker.new.perform
+      }.not_to change(User, :count)
+      expect(User.exists?(user.id)).to eq(true)
+    end
+  end
+end
 # RSpec.describe('Deleting Personal Account', type: :feature) do
 #   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
 #   scenario 'valid deletion' do
