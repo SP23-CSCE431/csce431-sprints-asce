@@ -1,10 +1,8 @@
 <div class="container">
-<p style="color: green"><%= notice %></p>
-
 <%= search_form_for(@q, url: users_path)  do |f| %>
   <%= f.search_field :first_name_or_last_name_or_uin_cont,
     placeholder: "Search..." %>
-  <%= f.submit "Search!" %>
+  <div class="btn btn-primary"><%= f.submit "Search!" %></div>
 <% end %>
 <br/>
 <div class="searchdiv">
@@ -20,7 +18,8 @@
         <th><%= sort_link(@q, :dob, "Date of Birth") %></th>
         <th><%= sort_link(@q, :role_id, "Role ID") %></th>        
         <th><%= sort_link(@q, :points, "Points") %></th> 
-        <th>Edit</th>       
+        <th>Edit</th> 
+        <th>Delete</th>      
       </tr>
     </thead>
     <tbody>
@@ -35,7 +34,8 @@
           <td><%= user.dob %></td>
           <td><%= user.role_id%></td>
           <td><%= user.points %></td> 
-          <td><%= link_to("Edit", edit_user_path(user.id)) %></td>         
+          <td><%= link_to("Edit", edit_user_path(user.id)) %></td>
+          <td><%= link_to "Delete", user, method: :delete %></td>        
         </tr>
       <% end %>
     </tbody>

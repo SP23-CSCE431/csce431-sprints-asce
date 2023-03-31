@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
-  layout "dashboard"
   # GET /users or /users.json
   # search index
   def index
@@ -34,7 +33,6 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
-    render(:layout => "application")
     @user = User.find(params[:id])
   end
 
@@ -45,7 +43,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    render(:layout => "application")
   end
 
   # POST /users or /users.json
@@ -102,12 +99,10 @@ class UsersController < ApplicationController
 
   def profile
     @users = User.all
-    render(:layout => "application")
   end
 
   def help
      @user = User.find(params[:id])
-     render(:layout => "application")
   end
 
   private

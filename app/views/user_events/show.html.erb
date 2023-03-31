@@ -1,10 +1,8 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
 
 <%= render @user_event %>
 
 <div>
-  <%= link_to "Back to events", events_path %> |
-  <%= link_to "Back to My Events", my_events_path %>
-
-  <%= button_to "Remove Sign-Up", @user_event, method: :delete %>
+  <%= button_to "Remove Sign-Up", @user_event, method: :delete, class: "btn btn-primary" %>
+</div>
 </div>
