@@ -38,6 +38,11 @@ a:hover {
     left: 0;
 }
 
+.navbar {
+    border-bottom: 2px solid maroon;
+    padding-bottom: 20px;
+}
+
 .profile_nav {
     border-bottom: 3px maroon;
 }
@@ -51,7 +56,8 @@ a:hover {
 }
 
 .btn-primary,
-.sign-in button {
+.sign-in button,
+.btn-primary input {
     background-color: maroon;
     border: none;
     outline: none;
@@ -62,7 +68,9 @@ a:hover {
 
 .btn-primary:hover,
 .btn-primary:active,
-.sign-in button:hover {
+.sign-in button:hover,
+.btn-primary input:hover,
+.btn-primary input:active {
     background-color: maroon;
     opacity: 0.8;
     border: none;
@@ -83,6 +91,19 @@ a:hover {
     padding: 7px;
 }
 
+.btn-primary a,
+.btn-primary a:hover,
+.btn-primary a:active {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-primary input,
+.btn-primary input:hover,
+.btn-primary input:active {
+    padding: 2px;
+}
+
 .calendar-heading {
     text-align: center;
     font-size: 20px;
@@ -91,6 +112,7 @@ a:hover {
 
 .calendar-title {
     margin: 20px;
+    font-weight: bold;
 }
 
 .simple-calendar .day,
@@ -103,13 +125,11 @@ a:hover {
     overflow-y: auto;
 }
 
-@media only screen and (max-width: 800px) {
-    .logo img {
-        width: 80px;
-    }
+.events {
+    border-bottom: 2px solid maroon;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 780px) {
     .navbar-header {
         display: none;
     }
