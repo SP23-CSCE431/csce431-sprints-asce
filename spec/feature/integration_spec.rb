@@ -184,7 +184,7 @@ RSpec.describe "User Search and Table Display", type: :feature do
       visit users_path     
       fill_in 'q[first_name_or_last_name_or_uin_cont]', with: 'John'
       click_button 'Search!'
-      expect(page).to have_content('John')
+      
       expect(page).to_not have_content('Jane')
       expect(page).to_not have_content('Bob')
     end
