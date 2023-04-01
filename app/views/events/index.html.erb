@@ -1,20 +1,40 @@
 <p style="color: green"><%= notice %></p>
 
-<!-- This allows a user to be taken back to their profile page -->
-<%= link_to "Back To My Profile", profile_path %>
-
-<h1>Events</h1>
-
-<!-- This displays all events to the user -->
+<!-- This displays all events to the user in a neat table format-->
 <!-- For each displayed event you can show this event to see more details or add the new event to sign up for -->
-<div id="events">
-  <% @events.each do |event| %>
-    <%= render event %>
-    <p>
-      <%= link_to "Show this event", event %> |
-      <%= link_to "Add this event", new_user_event_path(eventId: event.id) %>
-    </p>
-  <% end %>
+<div class="container">
+  <%= link_to "Create New Event", new_event_path %>
+  <h2>Events</h2>
+  <div class="searchdiv">
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= "Event Name" %></th>
+          <th><%= "Event Description" %></th>
+          <th><%= "Start Date" %></th>
+          <th><%= "End Date" %></th>
+          <th><%= "Status" %></th>
+          <th><%= "Points" %></th>
+          <th><%=  %></th>
+          <th><%=  %></th>          
+          <th></th>       
+        </tr>
+      </thead>
+      <tbody>
+        <% @events.each do |event| %>
+          <tr>
+            <td><%= event.name %></td>
+            <td><%= event.description %></td>
+            <td><%= event.start.strftime("%Y-%m-%d %I:%M %p") %></td>
+            <td><%= event.end.strftime("%Y-%m-%d %I:%M %p") %></td>
+            <td><%= event.status %></td>
+            <td><%= event.points %></td>
+            <td><%= link_to "Show this event", event %></td>
+            <td><%= link_to "Add this event", new_user_event_path(eventId: event.id) %></td>        
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New event", new_event_path %>

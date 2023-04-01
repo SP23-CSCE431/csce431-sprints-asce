@@ -124,10 +124,10 @@ RSpec.describe('Updating a UserEvent', type: :feature) do
   end
 end
 
-RSpec.describe('Calendar:', type: :feature) do
+RSpec.describe('My Personal Calendar:', type: :feature) do
   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
-  let!(:event1) { Event.create(start: '2023-3-20', end: '2023-3-21', type_id: '3', status: 'ongoing', name: 'Event 1', description: 'This is Event 1') }
-  let!(:event2) { Event.create(start: '2022-11-10', end: '2023-11-10', type_id: '3', status: 'ongoing', name: 'Event 2', description: 'This is Event 2') }
+  let!(:event1) { Event.create(start: Date.current, end: Date.current + 1.days, type_id: '3', status: 'ongoing', name: 'Event 1', description: 'This is Event 1') }
+  let!(:event2) { Event.create(start: '2022-11-10', end: '2022-12-10', type_id: '3', status: 'ongoing', name: 'Event 2', description: 'This is Event 2') }
 
   it 'valid event added to calendar' do
     visit '/admins/auth/google_oauth2/callback'
@@ -188,6 +188,39 @@ RSpec.describe "User Search and Table Display", type: :feature do
       expect(page).to_not have_content('Jane')
       expect(page).to_not have_content('Bob')
     end
+  end
+end
+
+RSpec.describe('Main Calendar:', type: :feature) do
+  let!(:event1) { Event.create(start: '2022-11-10', end: '2022-12-10', type_id: '3', status: 'ongoing', name: 'Test Event 1', description: 'This is Test Event 1', points: 3) }
+  let!(:event2) { Event.create(start: '2022-11-10', end: '2022-12-10', type_id: '3', status: 'ongoing', name: 'Test Event 2', description: 'This is Test Event 2', points: 2) }
+  let!(:event3) { Event.create(start: '2023-03-31 10:00:00', end: '2023-03-31 11:00:00', name: 'Test Event 1', description: 'This is Test Event 1', points: 3) }
+  let!(:event4) { Event.create(start: '2023-03-31 10:00:00', end: '2023-03-31 11:00:00', name: 'Test Event 2', description: 'This is Test Event 2', points: 2) }
+
+  it 'should automatically show the view based on the current month and year' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit root_path
+    expect(page).to have_content(Date.current.strftime('%B %Y'))
+  end
+
+  it 'should display the next month accordingly when the next button is clicked' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit root_path
+    current_month_year = Date.current.strftime('%B %Y')
+    click_on 'Next'
+    next_month_year = (Date.current + 1.month).strftime('%B')
+    expect(page).to have_content(next_month_year)
+    expect(page).not_to have_content(current_month_year)
+  end
+
+  it 'should display the previous month accordingly when the previous button is clicked' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit root_path
+    current_month_year = Date.current.strftime('%B %Y')
+    click_on 'Previous'
+    previous_month_year = (Date.current - 1.month).strftime('%B')
+    expect(page).to have_content(previous_month_year)
+    expect(page).not_to have_content(current_month_year)
   end
 end
 
