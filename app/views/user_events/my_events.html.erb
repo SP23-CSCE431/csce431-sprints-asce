@@ -1,23 +1,35 @@
-<!-- Link to the help section of the website -->
-<div><%= link_to "Help", help_user_path(id: @userId.id) %></div>
-<%= link_to "Back To My Profile", profile_path %>
-
-<h2>My Events</h2>
-
-<!-- This displays all user_events ie. all signed up events by a user -->
-<div id="user_events">
-  <% @user_events.each do |user_event| %>
-    <% if @userId.id == user_event.user_id %>
-        <strong>User:</strong>
-        <span><%= user_event.user.first_name %></span>
-        <span><%= user_event.user.last_name %></span>
-        <br>
-        <br>
-        <strong>Event:</strong>
-        <span><%= user_event.event.name %></span>
-        <p>
-            <%= link_to "View More Options", user_event %>
-        </p>
-    <% end %>
-  <% end %>
+<!-- This displays all user_events ie. all signed up events by a user in a neat table format-->
+<div class="container">
+  <h2>My Events</h2>
+  <div class="searchdiv">
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= "First Name" %></th>
+          <th><%= "Last Name" %></th>
+          <th><%= "Event Name" %></th>
+          <th><%= "Points" %></th>
+          <th><%= "Start Date" %></th>
+          <th><%= "End Date" %></th>        
+          <th></th>       
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_events.each do |user_event| %>
+          <% if @userId.id == user_event.user_id %>
+          <tr>
+            <td><%= user_event.user.first_name %></td>
+            <td><%= user_event.user.last_name %></td>
+            <td><%= user_event.event.name %></td>
+            <td><%= user_event.event.points %></td>
+            <td><%= user_event.event.start.strftime("%Y-%m-%d %I:%M %p") %></td>
+            <td><%= user_event.event.end.strftime("%Y-%m-%d %I:%M %p") %></td>
+            <td><%= link_to "View More Options", user_event %></td>      
+          </tr>
+        <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
 </div>

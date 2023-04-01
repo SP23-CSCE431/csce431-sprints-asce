@@ -37,16 +37,8 @@
               <div class="dropdown-item"><%= link_to "My Calendar", calendar_path(user_id: userId.id) if userId %></div>
             </div>
           </div>
-  
-          <div class="dropdown show">
-            <a class="btn btn-lg dropdown-toggle navbtn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Events
-            </a>
-          
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <div class="dropdown-item"><%= link_to "Events", events_path %></div>
-              <div class="dropdown-item"><%= link_to "Calendar", calendar_path(user_id: userId.id) if userId %></div>
-            </div>
+          <div class="navlink">
+            <%= link_to "Events", events_path %>
           </div>
           <div class="navlink">
             <%= link_to "Member Search", users_path%>
