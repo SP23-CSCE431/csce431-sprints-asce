@@ -1,34 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :require_admin, only: [:edit, :update, :destroy]
   # GET /users or /users.json
   # search index
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).order(created_at: :asc)
-    # @users = User.all
-    # if params[:search_by_first_name] && params[:search_by_first_name] != ''
-    #   @users = @users.where('first_name like ?', "%#{params[:search_by_first_name]}%")
-    # end
-
-    # if params[:search_by_last_name] && params[:search_by_last_name] != ''
-    #   @users = @users.where('last_name like ?', "%#{params[:search_by_last_name]}%")
-    # end
-
-    # if params[:search_by_uin] && params[:search_by_uin] != ""
-    #   @users = @users.where("uin like ?", "%#{params[:search_by_uin]}%")
-    # end
-
-    # if params[:search_by_email] && params[:search_by_email] != ""
-    #   @users = @users.where("email like ?", "%#{params[:search_by_email]}%")
-    # end
-
-    # if params[:search_by_phone_number] && params[:search_by_phone_number] != ""
-    #   @users = @users.where("phone_number like ?", "%#{params[:search_by_phone_number]}%")
-    # end
-
-    # if params[:search_by_dob] && params[:search_by_dob] != ""
-    #   @users = @users.where("dob like ?", "%#{params[:search_by_dob]}%")
-    # end
   end
 
   # GET /users/1 or /users/1.json
@@ -83,19 +59,34 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1 or /users/1.json
-  def destroy
-    User.find(params[:id]).destroy
-    respond_to do |format|
-      if (@user.email == current_admin.email)
-        format.html { redirect_to(destroy_admin_session_path, notice: 'Account Successfully Deleted') }
-        format.json { head(:no_content) }
-      else
-        format.html { redirect_to(users_path, notice: 'Account Successfully Deleted') }
-        format.json { head(:no_content) }
-      end
+  # def destroy
+  #   User.find(params[:id]).destroy
+  #   respond_to do |format|
+  #     if (@user.email == current_admin.email)
+  #       format.html { redirect_to(destroy_admin_session_path, notice: 'Account Successfully Deleted') }
+  #       format.json { head(:no_content) }
+  #     else
+  #       format.html { redirect_to(users_path, notice: 'Account Successfully Deleted') }
+  #       format.json { head(:no_content) }
+  #     end
       
+  #   end
+  # end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @current_user.admin?
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      flash[:error] = "You must be an admin to perform this action."
+      redirect_to root_path
     end
   end
+  
 
   def profile
     @users = User.all
@@ -106,6 +97,13 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def require_admin
+    unless current_user && current_user.admin?
+      flash[:error] = "You must be an admin to perform this action."
+      redirect_to root_path
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
