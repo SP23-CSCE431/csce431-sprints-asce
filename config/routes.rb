@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # <!-- these are routes for the event check in portion -->
   get 'pages/event_sign_in'
   post 'pages/event_check_in'
+  # <!-- these are routes for the points reset portion -->
+  get 'pages/reset_user_points' 
+  post 'pages/reset_user_points' , to: 'pages#post_reset_user_points'
   # <!-- establishes that the sign in page will be the first page of the website -->
   root 'dashboards#show'
   #root 'users#index'

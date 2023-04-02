@@ -1,0 +1,17 @@
+<div><%= link_to "Home Page", root_path %></div>
+
+<%= form_tag pages_reset_user_points_path do %>
+    <label for="user_id">Select a User:</label>
+    <input type="text" name="uin" list="user-list">
+    <datalist id="user-list">
+      <% User.all.each do |user| %>
+        <option value="<%= user.uin %>">
+        <%= user.first_name %> <%= user.last_name %>
+        <%= user.points %>
+      </option>
+      <% end %>
+    </datalist>  
+    
+  
+    <%= submit_tag "Reset User Points" %>
+<% end %>
