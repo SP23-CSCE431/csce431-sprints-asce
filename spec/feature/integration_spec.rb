@@ -224,6 +224,58 @@ RSpec.describe('Main Calendar:', type: :feature) do
   end
 end
 
+RSpec.describe 'Event Check In', type: :feature do    
+  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  let!(:event) { Event.create(name: 'event name', description: 'event description', start: '2023-3-20', end: '2023-3-21', type_id: '3', status: 'ongoing', points:30) }
+  
+  context 'when user has already checked in to event' do
+    it 'displays a message that user checked in before' do
+      UserEvent.create(user_id: user.id, event_id: event.id, checked: true)
+      visit '/admins/auth/google_oauth2/callback'
+      visit pages_event_sign_in_path
+      fill_in 'uin', with: user.uin
+      fill_in 'event_id', with: event.id
+      click_button 'Check User into Event'
+      expect(page).to have_content('The user checked in this event before!')
+    end
+  end
+
+  context 'when user has not checked in to event' do
+    before(:each) do
+      UserEvent.create(user_id: user.id, event_id: event.id, checked: false)
+      @count_before_click = event.count
+      visit '/admins/auth/google_oauth2/callback'
+      visit pages_event_sign_in_path
+      fill_in 'uin', with: user.uin
+      fill_in 'event_id', with: event.id
+      click_button 'Check User into Event'        
+      @count_after_click = event.reload.count
+    end      
+
+    it 'displays a message that user checked in succesfully' do
+      expect(page).to have_content('The user checked in this event succesfully.')
+    end
+
+    it 'event count increment' do
+      expect(@count_after_click).to eq(@count_before_click + 1)
+    end
+  end  
+end
+
+RSpec.describe 'User Points Reset', type: :feature do    
+  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '10', role_id: '1') }
+
+  context 'when click the reset button' do
+    it 'displays a message that user points reset succesfully' do
+      visit '/admins/auth/google_oauth2/callback'
+      visit pages_reset_user_points_path
+      fill_in 'uin', with: user.uin
+      click_button 'Reset User Points'
+      expect(page).to have_content('User points succesfully reset to zero')
+    end
+  end
+end
+
 # RSpec.describe('Deleting Personal Account', type: :feature) do
 #   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
 #   scenario 'valid deletion' do

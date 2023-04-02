@@ -3,27 +3,29 @@
 <h1>Event Check In for User</h1>
 <br/>
 
-<%= form_tag pages_event_check_in_path do %>
+
+<%= form_tag pages_event_check_in_path, id: "check-in-form" do %>
   <label for="user_id">Select a User:</label>
-  <input type="text" name="uin" list="user-list">
+  <input type="text" name="uin" id="user-input" list="user-list">
   <datalist id="user-list">
     <% User.all.each do |user| %>
       <option value="<%= user.uin %>">
-      <%= user.first_name %> <%= user.last_name %>
-    </option>
+        <%= user.first_name %> <%= user.last_name %>
+      </option>
     <% end %>
   </datalist>
 
   <label for="event_id">Select an Event:</label>
-  <input type="text" name="event_id" list="event-list">
+  <input type="text" name="event_id" id="event-input" list="event-list" value="<%=@event_id%>">
   <datalist id="event-list">
     <% Event.all.each do |event| %>
       <option value="<%= event.id %>">
-      <%= event.name %> 
+        <%= event.name %> 
+      </option>
     <% end %>
   </datalist>
 
-  <%= submit_tag "Check User into Event" %>
+  <%= submit_tag "Check User into Event", id: "check-in-button" %>
 <% end %>
 
 </br>
@@ -34,7 +36,8 @@
   <%= f.submit "Search!" %>
 <% end %>
 <br/>
-<table class="table table-dark table-striped">
+<div style="max-height: 150px; overflow-y: auto">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
         <th><%= sort_link(@q, :first_name, "First Name", default_order: :asc) %></th>
@@ -58,33 +61,64 @@
       <% end %>
     </tbody>
   </table>
+</div>
 
-  <%= search_form_for(@p, url: pages_event_sign_in_path)  do |f| %>
-    <%= f.search_field :name_cont, placeholder: "Search..." %>
-    <%= f.submit "Search!" %>
-  <% end %>
-  <br/>
-  <table class="table table-dark table-striped">
-      <thead>
+<%= search_form_for(@p, url: pages_event_sign_in_path)  do |f| %>
+<%= f.search_field :name_cont, placeholder: "Search..." %>
+<%= f.submit "Search!" %>
+<% end %>
+<br/>
+<div style="max-height: 150px; overflow-y: auto">
+    <table class="table table-dark table-striped">
+        <thead>
         <tr>
-          <th><%= sort_link(@p, :start, "Start", default_order: :asc) %></th>
-          <th><%= sort_link(@p, :end, "End") %></th>
-          <th><%= sort_link(@p, :name, "Name") %></th>
-          <th><%= sort_link(@p, :status, "Status") %></th>
-          <th><%= sort_link(@p, :points, "Points") %></th>
-          <th><%= sort_link(@p, :id, "ID") %></th>
+            <th><%= sort_link(@p, :start, "Start", default_order: :asc) %></th>
+            <th><%= sort_link(@p, :end, "End") %></th>
+            <th><%= sort_link(@p, :name, "Name") %></th>
+            <th><%= sort_link(@p, :status, "Status") %></th>
+            <th><%= sort_link(@p, :points, "Points") %></th>
+            <th><%= sort_link(@p, :id, "ID") %></th>
+            <th><%= sort_link(@p, :count, "Count") %></th>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         <% @events.each do |event| %>
-          <tr>
+            <tr>
             <td><%= event.start %></td>
             <td><%= event.end %></td>
             <td><%= event.name %></td>
             <td><%= event.status %></td>
             <td><%= event.points %></td>
             <td><%= event.id %></td>
-          </tr>
+            <td><%= event.count %></td>
+            </tr>
         <% end %>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    var form = document.getElementById("check-in-form");
+    var userInput = document.getElementById("user-input");
+    var eventInput = document.getElementById("event-input");
+    var button = document.getElementById("check-in-button");
+
+    form.addEventListener("submit", function(event) {
+        // Check if the user input is empty
+        if (userInput.value.trim() === "") {
+        alert("Please select a user");
+        event.preventDefault();
+        return;
+        }
+
+        // Check if the event input is empty
+        if (eventInput.value.trim() === "") {
+        alert("Please select an event");
+        event.preventDefault();
+        return;
+        }
+
+        // If both inputs have a value, allow the form submission
+        button.disabled = true;
+    });
+</script>
