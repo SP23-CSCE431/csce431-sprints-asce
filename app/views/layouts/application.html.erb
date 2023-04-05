@@ -33,7 +33,7 @@
           
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <div class="dropdown-item"><%= link_to "Profile", profile_path %></div>
-              <div class="dropdown-item"><%= link_to "My Events", my_events_path %></div>
+              <div class="dropdown-item"><%= link_to "My Events", my_events_path if userId %></div>
               <div class="dropdown-item"><%= link_to "My Calendar", calendar_path(user_id: userId.id) if userId %></div>
             </div>
           </div>
