@@ -6,7 +6,7 @@
 
 <%= form_tag pages_event_check_in_path, id: "check-in-form" do %>
   <label for="user_id">Select a User:</label>
-  <input type="text" name="uin" id="user-input" list="user-list">
+  <input type="text" name="uin" id="user-input" list="user-list" placeholder='Enter UIN'>
   <datalist id="user-list">
     <% User.all.each do |user| %>
       <option value="<%= user.uin %>">
