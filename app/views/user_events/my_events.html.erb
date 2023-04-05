@@ -11,10 +11,11 @@
           <th><%= "Points" %></th>
           <th><%= "Start Date" %></th>
           <th><%= "End Date" %></th>        
-          <th></th>       
+          <th><%= "More Details" %></th>       
         </tr>
       </thead>
       <tbody>
+      <!-- Iterates through each user_event object and displays the attributes per each table column accordingly-->
         <% @user_events.each do |user_event| %>
           <% if @userId.id == user_event.user_id %>
           <tr>
