@@ -79,10 +79,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_140704) do
     t.string "phone_number"
     t.date "dob"
     t.integer "points"
-    t.integer "role_id"
+    t.integer "role_id", default: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role", default: 3
   end
 
   add_foreign_key "assignments", "roles"

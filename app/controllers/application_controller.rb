@@ -10,7 +10,9 @@ class ApplicationController < ActionController::Base
   helper_method :executive_officer?
 
   def set_current_user
-    @current_user = User.find(session[:user_id]) if session[:user_id]
+    # Use the user data from my profile page to set current user
+    user = User.find_by(email: current_admin.email)
+    @current_user = user if user.present?
   end
 
   def current_user
