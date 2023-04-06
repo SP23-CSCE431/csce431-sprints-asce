@@ -295,13 +295,15 @@ RSpec.describe DeleteEntriesWorker, type: :worker do
     end
   end
 end
-# RSpec.describe('Deleting Personal Account', type: :feature) do
-#   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
-#   scenario 'valid deletion' do
+
+# RSpec.describe 'User deleting their own account', type: :feature do
+#   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '10', role_id: '1') }
+#   let!(:current_admin) {Admin.create(email: 'student@tamu.edu')}
+#     it 'allows someone to delete their own account' do
 #     visit '/admins/auth/google_oauth2/callback'
-#     visit user_url
-#     click_on 'Destroy'
-#     expect(page).to have_content('User was successfully destroyed')
+#     visit profile_path
+    
+#     expect(page).to have_content("You\'re Signed Out!")
 #   end
 # end
 

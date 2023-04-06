@@ -1,4 +1,4 @@
-<div><%= link_to "Home Page", root_path %></div>
+<div class="container">
 
 <h2>Reset User Points</h2>
 <%= form_tag pages_reset_user_points_path do %>
@@ -14,5 +14,6 @@
     </datalist>  
     
   
-    <%= submit_tag "Reset User Points" %>
+    <%= submit_tag "Reset User Points", class: "btn btn-primary" %>
 <% end %>
+</div>
