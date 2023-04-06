@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_admin, only: [:edit, :update, :destroy]
+  before_action :set_user, only: %i[show edit update destroy]
   # GET /users or /users.json
   # search index
   def index
@@ -59,33 +59,21 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1 or /users/1.json
-  # def destroy
-  #   User.find(params[:id]).destroy
-  #   respond_to do |format|
-  #     if (@user.email == current_admin.email)
-  #       format.html { redirect_to(destroy_admin_session_path, notice: 'Account Successfully Deleted') }
-  #       format.json { head(:no_content) }
-  #     else
-  #       format.html { redirect_to(users_path, notice: 'Account Successfully Deleted') }
-  #       format.json { head(:no_content) }
-  #     end
-      
-  #   end
-  # end
-
   def destroy
-    @user = User.find(params[:id])
-    if @current_user.admin?
-      @user.destroy
-      respond_to do |format|
-        format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-        format.json { head :no_content }
+    User.find(params[:id]).destroy
+    respond_to do |format|
+      if (@user.email == current_admin.email)
+        format.html { redirect_to(destroy_admin_session_path, notice: 'Account Successfully Deleted') }
+        format.json { head(:no_content) }
+      else
+        format.html { redirect_to(users_path, notice: 'Account Successfully Deleted') }
+        format.json { head(:no_content) }
       end
-    else
-      flash[:error] = "You must be an admin to perform this action."
-      redirect_to root_path
+      
     end
   end
+
+  
   
 
   def profile
@@ -98,12 +86,12 @@ class UsersController < ApplicationController
 
   private
 
-  def require_admin
-    unless current_user && current_user.admin?
-      flash[:error] = "You must be an admin to perform this action."
-      redirect_to root_path
-    end
-  end
+  # def require_admin
+  #   unless current_user && current_user.admin?
+  #     flash[:error] = "You must be an admin to perform this action."
+  #     redirect_to root_path
+  #   end
+  # end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
