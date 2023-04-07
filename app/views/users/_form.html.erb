@@ -41,13 +41,12 @@
     <%= form.date_field :dob %>
   </div>
 
-  <% if executive_officer? || current_admin.email == 'adao102@tamu.edu' || current_admin.email == 'timo.short@tamu.edu' || current_admin.email == 'vpranav@tamu.edu' || 
-      current_admin.email == 'bannerdavid@tamu.edu' || current_admin.email == 'zhanlan@tamu.edu'%>
+  <% if executive_officer?%>
   <div>
     <%= form.label :role_id, style: "display: block" %>
-    <%= form.collection_select :role_id, Role.all, :id, :role_name, prompt: 'Select a role', value: 1 %>
+    <%= form.collection_select :role_id, Role.all, :id, :role_name, prompt: 'Select a role' %>
   </div>
-  
+
   <% else %>
     <div class = 'hidden'>
       <%= form.label :role_id, style: "display: block" %>
