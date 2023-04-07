@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  belongs_to :role, class_name: 'Role', foreign_key: 'role_id'
+  has_many :roles, class_name: 'role', foreign_key: 'role_id'
   validates :first_name, :last_name, :uin, :email, :phone_number, :dob, :points, :role_id, presence: true
-  validates :email, :uniqueness => true, format: { with: /\A[^@\s]+@tamu\.edu\z/i, message: "must be a tamu email" }
+  #validates the the email is unique (no duplicates) and that it is a tamu email
+  validates :email, :uniqueness => true, format: { with: /\A[^@\s]+@tamu\.edu\z/i, message: "Must be a tamu email" }
   has_many :user_events
   has_many :events, through: :user_events
 

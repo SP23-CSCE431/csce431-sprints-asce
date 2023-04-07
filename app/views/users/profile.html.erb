@@ -32,6 +32,7 @@
           <span><%= user.points %></span>
           <br>
           <br>
+
           <% if executive_officer? || current_admin.email == 'adao102@tamu.edu' || current_admin.email == 'timo.short@tamu.edu' || current_admin.email == 'vpranav@tamu.edu' || 
                 current_admin.email == 'bannerdavid@tamu.edu' || current_admin.email == 'zhanlan@tamu.edu'%>
             <strong>Role:</strong>
@@ -40,6 +41,7 @@
             <td></td>
             <td></td>
           <% end %> 
+
           <div class="mt-3">
             <%= link_to "Edit My Information", edit_user_path(user.id) %>
           </div>

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   # GET /users or /users.json
   # search index
+  # queries the user by the parameter
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).order(created_at: :asc)
@@ -22,6 +23,8 @@ class UsersController < ApplicationController
   end
 
   # POST /users or /users.json
+  #If the creationg of a new user is successful, redirect to the user's profile page
+  #otherwise re-render new page with error messages
   def create
     @user = User.new(user_params)
     respond_to do |format|
@@ -36,6 +39,9 @@ class UsersController < ApplicationController
   end
 
   # PATCH/PUT /users/1 or /users/1.json
+  #if the user which is being edited is the active current user, redirect to profile page after successful update
+  #otherwise, redirect to their user url
+  #if update unsuccessful, redirect back to the edit page with error messages
   def update
     @user = User.find(params[:id])
     respond_to do |format|
@@ -59,6 +65,8 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1 or /users/1.json
+  #if the deleted user is the current active user, redirect back to the signed out dashboard page
+  #otherwise, redirect back to the users_path
   def destroy
     User.find(params[:id]).destroy
     respond_to do |format|
@@ -73,9 +81,6 @@ class UsersController < ApplicationController
     end
   end
 
-  
-  
-
   def profile
     @users = User.all
   end
@@ -85,13 +90,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  # def require_admin
-  #   unless current_user && current_user.admin?
-  #     flash[:error] = "You must be an admin to perform this action."
-  #     redirect_to root_path
-  #   end
-  # end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user

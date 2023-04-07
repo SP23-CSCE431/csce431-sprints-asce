@@ -1,20 +1,25 @@
+<!-- This acts as the homepage for website, with access to all features -->
 <% userId = User.find_by(email: current_admin.email) %>
 <div class="container">
 <div><h1>You're logged in!</h1></div>
 <div><h2>Welcome to the ASCE TAMU Dashboard!</h2></div>
 <div class="my-3">
+  <!-- allows new members to create an account -->
   <h3>New Member?</h3>
   <%= link_to "Create Account", new_user_path %>
 </div>
 <div class="my-3">
+  <!-- allows existing members to go directly to their profile, only if the user already exists -->
   <h3>Already have an Account?</h3>
   <%= link_to "Go to my profile", profile_path if userId%>
 </div>
 <div class="my-3">
+  <!-- direct link to the event sign in page, which will allow officers to sign a member into an event -->
   <h3>Officers Event Sign In</h3>
   <%= link_to "Event Sign In", pages_event_sign_in_path %>
 </div>
 <div class="my-3">
+  <!-- allows an officer to reset the points of another user -->
   <h3>Officer Points Reset Page</h3>
   <%= link_to "Reset User Points", pages_reset_user_points_path %>
 </div>

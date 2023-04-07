@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_user
   before_action :authenticate_admin!
-
+  
   private
 
   # functions to check whether the user is exec/admin or not.
@@ -30,3 +29,4 @@ class ApplicationController < ActionController::Base
     @current_user
   end
 end
+
