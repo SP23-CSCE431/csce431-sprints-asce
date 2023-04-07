@@ -1,6 +1,6 @@
 <div class="container">
 
-
+<% if !user? %>
 <%= search_form_for(@q, url: users_path)  do |f| %>
   <%= f.search_field :first_name_or_last_name_or_uin_cont,
     placeholder: "Search..." %>
@@ -53,4 +53,6 @@
     </tbody>
   </table>
   </div>
+  <%end%>
 </div>
+

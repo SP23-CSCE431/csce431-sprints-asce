@@ -3,7 +3,9 @@
 <!-- This displays all events to the user in a neat table format-->
 <!-- For each displayed event you can show this event to see more details or add the new event to sign up for -->
 <div class="container">
-  <%= link_to "Create New Event", new_event_path %>
+  <% if !user? %>
+    <%= link_to "Create New Event", new_event_path %>
+  <%end%>
   <h2>Events</h2>
   <div class="searchdiv">
   <table class="table table-striped">
@@ -16,7 +18,9 @@
           <th><%= "Status" %></th>
           <th><%= "Points" %></th>
           <th><%= "More Details" %></th>
-          <th><%= "Sign-Up" %></th>          
+          <% if !user? %>
+              <th><%= "Sign-Up" %></th>
+          <%end%>             
           <th></th>       
         </tr>
       </thead>
@@ -31,7 +35,9 @@
             <td><%= event.points %></td>
             <td><%= link_to "Show this event", event %></td>
             <td><%= link_to "Add this event", new_user_event_path(eventId: event.id) %></td>
-            <td><%= link_to "Check In", pages_event_sign_in_path(event_id: event.id) %></td>       
+            <% if !user? %>
+              <td><%= link_to "Check In", pages_event_sign_in_path(event_id: event.id) %></td>   
+            <%end%>    
           </tr>
         <% end %>
       </tbody>
