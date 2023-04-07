@@ -45,12 +45,16 @@
       current_admin.email == 'bannerdavid@tamu.edu' || current_admin.email == 'zhanlan@tamu.edu'%>
   <div>
     <%= form.label :role_id, style: "display: block" %>
-    <%= form.collection_select :role_id, Role.all, :id, :role_name, prompt: 'Select a role', value: 3 %>
+    <%= form.collection_select :role_id, Role.all, :id, :role_name, prompt: 'Select a role', value: 1 %>
   </div>
+  
   <% else %>
-    <td></td>
-    <td></td>
+    <div class = 'hidden'>
+      <%= form.label :role_id, style: "display: block" %>
+      <%= form.collection_select :role_id, Role.all, :id, :role_name, prompt: 'Select a role', value: 3 %>
+    </div>
   <% end %>
+
   <div class = 'hidden'>
     <%= form.label :points, style: "display: block" %>
     <%= form.number_field :points, value: 0 %>
