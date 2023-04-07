@@ -1,6 +1,4 @@
 <div class="container">
-
-<% if !user? %>
 <%= search_form_for(@q, url: users_path)  do |f| %>
   <%= f.search_field :first_name_or_last_name_or_uin_cont,
     placeholder: "Search..." %>
@@ -20,13 +18,8 @@
         <th><%= sort_link(@q, :dob, "Date of Birth") %></th>
         <th><%= sort_link(@q, :role_id, "Role ID") %></th>        
         <th><%= sort_link(@q, :points, "Points") %></th> 
-        <% if executive_officer? %>
-          <th>Edit</th> 
-          <th>Delete</th>
-        <% else %>
-            <td></td>
-            <td></td>
-        <% end %>     
+        <th>Edit</th> 
+        <th>Delete</th>      
       </tr>
     </thead>
     <tbody>
@@ -41,18 +34,11 @@
           <td><%= user.dob %></td>
           <td><%= user.role_id%></td>
           <td><%= user.points %></td> 
-          <% if executive_officer? %>
-            <td><%= link_to("Edit", edit_user_path(user.id)) %></td>
-            <td><%= link_to "Delete", user, method: :delete %></td>
-          <% else %>
-            <td></td>
-            <td></td>
-          <% end %>  
+          <td><%= link_to("Edit", edit_user_path(user.id)) %></td>
+          <td><%= link_to "Delete", user, method: :delete %></td>        
         </tr>
       <% end %>
     </tbody>
   </table>
   </div>
-  <%end%>
 </div>
-

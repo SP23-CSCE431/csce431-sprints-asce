@@ -6,13 +6,33 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Create Roles
-executive_officer_role = Role.create!(role_name: "executive_officer", create_event: true, delete_event: true, edit_event: true, delete_member: true, promote_member: true)
-admin_role = Role.create!(role_name: "admin", create_event: true, delete_event: true, edit_event: true, delete_member: true, promote_member: true)
-user_role = Role.create!(role_name: "user", create_event: false, delete_event: false, edit_event: false, delete_member: false, promote_member: false)
+x = false
 
-# Create Users
-executive_officer = User.create!(first_name: "Executive", last_name: "Officer", uin: "123456789", email: "executive.officer@tamu.edu", phone_number: "123-456-7890", dob: Date.new(1990, 1, 1), points: 0, role_id: executive_officer_role.id)
-admin_user = User.create!(first_name: "Admin", last_name: "User", uin: "123456789", email: "admin@tamu.edu", phone_number: "123-456-7890", dob: Date.new(1990, 1, 1), points: 0, role_id: admin_role.id)
-user1 = User.create!(first_name: "John", last_name: "Doe", uin: "123456789", email: "john.doe@tamu.edu", phone_number: "123-456-7890", dob: Date.new(1990, 1, 1), points: 0, role_id: user_role.id)
-user2 = User.create!(first_name: "Jane", last_name: "Doe", uin: "123456789", email: "jane.doe@tamu.edu", phone_number: "123-456-7890", dob: Date.new(1990, 1, 1), points: 0, role_id: user_role.id)
+Roles = Role.create!(
+  [
+    {
+      role_name: 'Member',
+      create_event: x,
+      edit_event: x,
+      delete_event: x,
+      delete_member: x,
+      promote_member: x
+    },
+    {
+      role_name: 'Officer',
+      create_event: x,
+      edit_event: x,
+      delete_event: x,
+      delete_member: x,
+      promote_member: x
+    },
+    {
+      role_name: 'Executive Officer',
+      create_event: true,
+      edit_event: true,
+      delete_event: true,
+      delete_member: true,
+      promote_member: true
+    }
+  ]
+)

@@ -32,13 +32,8 @@
           <span><%= user.points %></span>
           <br>
           <br>
-          <% if executive_officer? %>
-            <strong>Role:</strong>
-            <span><%= user.role_id %></span>
-          <% else %>
-            <td></td>
-            <td></td>
-          <% end %> 
+          <strong>Role:</strong>
+          <span><%= user.role_id %></span>
           <div class="mt-3">
             <%= link_to "Edit My Information", edit_user_path(user.id) %>
           </div>
