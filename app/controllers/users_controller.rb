@@ -81,6 +81,9 @@ class UsersController < ApplicationController
     end
   end
 
+  
+  
+
   def profile
     @users = User.all
   end
@@ -90,6 +93,13 @@ class UsersController < ApplicationController
   end
 
   private
+
+  # def require_admin
+  #   unless current_user && current_user.admin?
+  #     flash[:error] = "You must be an admin to perform this action."
+  #     redirect_to root_path
+  #   end
+  # end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user

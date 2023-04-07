@@ -24,6 +24,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_140704) do
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
+  create_table "assignments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_assignments_on_role_id"
+    t.index ["user_id"], name: "index_assignments_on_user_id"
+  end
+
   create_table "event_types", force: :cascade do |t|
     t.integer "points"
     t.datetime "created_at", null: false
@@ -70,9 +79,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_140704) do
     t.string "phone_number"
     t.date "dob"
     t.integer "points"
-    t.integer "role_id"
+    t.integer "role_id", default: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "assignments", "roles"
+  add_foreign_key "assignments", "users"
 end
