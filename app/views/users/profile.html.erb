@@ -32,7 +32,8 @@
           <span><%= user.points %></span>
           <br>
           <br>
-          <% if executive_officer? %>
+          <% if executive_officer? || current_admin.email == 'adao102@tamu.edu' || current_admin.email == 'timo.short@tamu.edu' || current_admin.email == 'vpranav@tamu.edu' || 
+                current_admin.email == 'bannerdavid@tamu.edu' || current_admin.email == 'zhanlan@tamu.edu'%>
             <strong>Role:</strong>
             <span><%= user.role_id %></span>
           <% else %>

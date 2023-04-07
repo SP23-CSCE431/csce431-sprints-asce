@@ -40,9 +40,11 @@
           <div class="navlink">
             <%= link_to "Events", events_path %>
           </div>
+          <% if !user? %>
           <div class="navlink">
             <%= link_to "Member Search", users_path%>
           </div>
+          <% end %>
           <div class="navright justify-content-right text-right">
             <div class="sign-out-link">
               <%= link_to "Sign Out", destroy_admin_session_path %>
