@@ -15,11 +15,15 @@ class ApplicationController < ActionController::Base
     current_user && current_user.role_id == 3
   end
   helper_method :user?
+
+
   #current user is a variable to get current user
   def set_current_user
+    if current_admin
     # Use the user data from my profile page to set current user
-    user = User.find_by(email: current_admin.email)
-    @current_user = user if user.present?
+      user = User.find_by(email: current_admin.email)
+      @current_user = user if user.present?
+    end
   end
 
   def current_user
