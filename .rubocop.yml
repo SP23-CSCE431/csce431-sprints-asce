@@ -81,15 +81,6 @@ Layout/ClassStructure:
 Layout/TrailingWhitespace: # Remove trailing whitespace
     Enabled: true
 
-Layout/SpaceInsideParens: # No spaces after ( or before ).
-    Enabled: true
-
-Layout/SpaceInsideBrackets: # No spaces after [ or before ].
-    Enabled: true
-
-Layout/SpaceInsideBraces: # No spaces after { or before }.
-    Enabled: true
-
 Layout/SpaceAroundOperators: # Use spaces around operators, after commas, colons and semicolons.
     Enabled: true
 
