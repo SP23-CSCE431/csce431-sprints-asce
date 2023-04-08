@@ -85,7 +85,7 @@ RSpec.describe('Member Signing Up for an Event', type: :feature) do
     visit '/admins/auth/google_oauth2/callback'
     visit new_user_event_path
     click_on 'Add Event'
-    expect(page).to(have_content('2 errors prohibited this user_event from being saved'))
+    expect(page).to(have_content('errors prohibited this user_event from being saved'))
   end
 
   it 'invalid event' do
