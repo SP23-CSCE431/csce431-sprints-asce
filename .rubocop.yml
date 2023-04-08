@@ -93,13 +93,13 @@ Layout/SpaceInsideBraces: # No spaces after { or before }.
 Layout/SpaceAroundOperators: # Use spaces around operators, after commas, colons and semicolons.
     Enabled: true
 
-Layout/AlignHash: # Align the elements of a hash literal if they span more than one line.
+Layout/HashAlignment: # Align the elements of a hash literal if they span more than one line.
     Enabled: true
 
-Layout/AlignParameters: # Align the parameters of a method call if they span more than one line.
+Layout/ParameterAlignment: # Align the parameters of a method call if they span more than one line.
     Enabled: true
 
-Layout/AlignArray: # Align the elements of an array literal if they span more than one line.
+Layout/ArrayAlignment: # Align the elements of an array literal if they span more than one line.
     Enabled: true
 
 Layout/IndentationWidth:
@@ -323,7 +323,7 @@ Naming/InclusiveLanguage: # (new in 1.18)
 
 Naming/PredicateName: # Avoid prefixing predicate methods with "is", "does", or "can"
   Enabled: true
-  NamePrefixBlacklist:
+  ForbiddenPrefixes:
     - is_
     - does_
     - can_
