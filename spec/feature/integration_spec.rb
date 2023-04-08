@@ -27,7 +27,6 @@ RSpec.describe('Creating a user', type: :feature) do
     fill_in 'user[email]', with: 'student@tamu.edu'
     fill_in 'user[phone_number]', with: '1234567898'
     fill_in 'user[dob]', with: '2003-10-10'
-    fill_in 'user[role_id]', with: '2'
     click_on 'Save'
     expect(page).to(have_content('User was successfully created'))
   end
@@ -296,6 +295,24 @@ RSpec.describe DeleteEntriesWorker, type: :worker do
   end
 end
 
+RSpec.describe ResetUserPointsWorker, type: :worker do
+  describe '#perform' do
+    let!(:user1) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '10', role_id: '1') }
+    let!(:user2) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student2@tamu.edu', dob: '2003-10-10', points: '5', role_id: '1') }
+    let!(:user3) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student3@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+
+    it 'sets the points attribute to 0 for all users' do
+      expect {
+        ResetUserPointsWorker.new.perform
+        user1.reload
+        user2.reload
+        user3.reload
+      }.to change { user1.points }.from(10).to(0)
+       .and change { user2.points }.from(5).to(0)
+       .and change { user3.points }.from(3).to(0)
+    end
+  end
+end
 # RSpec.describe 'User deleting their own account', type: :feature do
 #   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '10', role_id: '1') }
 #   let!(:current_admin) {Admin.create(email: 'student@tamu.edu')}
