@@ -30,6 +30,7 @@ jobs:
         run: |
           gem install bundler
           bundler install
+          bundle exec whenever --update-crontab
       - name: Create database
         run: |
           bundler exec rails db:create RAILS_ENV=test

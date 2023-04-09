@@ -51,6 +51,9 @@ gem 'rexml'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
+#Scheduling gems that allow for deletion of entries after certain period of time
+gem 'sidekiq'
+gem 'whenever'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
