@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-04-05T20:27:45+00:00">2023-04-05T20:27:45+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-04-07T20:22:22+00:00">2023-04-07T20:22:22+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  92.57%
+  92.74%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.76
+         2.74
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>552</b> relevant lines,
-    <span class="green"><b>511</b> lines covered</span> and
+    <b>565</b> relevant lines,
+    <span class="green"><b>524</b> lines covered</span> and
     <span class="red"><b>41</b> lines missed. </span>
     (<span class="green">
-  92.57%
+  92.74%
 </span>
 )
   </div>
@@ -282,9 +282,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#937adcd962d8286a87a55b8095d740d8903f1c07" class="src_link" title="app/models/user_event.rb">app/models/user_event.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">6</td>
             <td class="cell--number">5</td>
-            <td class="cell--number">4</td>
-            <td class="cell--number">4</td>
+            <td class="cell--number">5</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -458,11 +458,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#016572be7586d51c50bc54c547c2f8f8a96abfed" class="src_link" title="spec/unit/unit_spec.rb">spec/unit/unit_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">127</td>
-            <td class="cell--number">71</td>
-            <td class="cell--number">71</td>
+            <td class="cell--number">147</td>
+            <td class="cell--number">83</td>
+            <td class="cell--number">83</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.31</td>
+            <td class="cell--number">1.41</td>
             
           </tr>
         
@@ -5266,8 +5266,8 @@
     
 
     <div class="t-line-summary">
-      <b>4</b> relevant lines.
-      <span class="green"><b>4</b> lines covered</span> and
+      <b>5</b> relevant lines.
+      <span class="green"><b>5</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -5318,12 +5318,23 @@
 
             
 
+            <code class="ruby">  validates :user_id, :event_id, presence: true</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="5">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">  validates :user_id, uniqueness: { scope: :event_id, message: &quot;You have already signed up for this event&quot; }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="5">
+          <li class="never" data-hits="" data-linenumber="6">
             
             
 
@@ -12466,7 +12477,7 @@
 
             
 
-            <code class="ruby">    expect(page).to(have_content(&#39;2 errors prohibited this user_event from being saved&#39;))</code>
+            <code class="ruby">    expect(page).to(have_content(&#39;errors prohibited this user_event from being saved&#39;))</code>
           </li>
         </div>
       
@@ -17763,8 +17774,8 @@
     
 
     <div class="t-line-summary">
-      <b>71</b> relevant lines.
-      <span class="green"><b>71</b> lines covered</span> and
+      <b>83</b> relevant lines.
+      <span class="green"><b>83</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -18216,8 +18227,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="41">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="8" data-linenumber="41">
+            <span class="hits">8</span>
             
 
             
@@ -18249,8 +18260,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="44">
-            <span class="hits">5</span>
+          <li class="covered" data-hits="9" data-linenumber="44">
+            <span class="hits">9</span>
             
 
             
@@ -18260,8 +18271,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="45">
-            <span class="hits">5</span>
+          <li class="covered" data-hits="9" data-linenumber="45">
+            <span class="hits">9</span>
             
 
             
@@ -18332,7 +18343,7 @@
 
             
 
-            <code class="ruby">  it &#39;userevent is not valid without a user id&#39; do</code>
+            <code class="ruby">  it &#39;userevent is not valid when user id is nil&#39; do</code>
           </li>
         </div>
       
@@ -18387,7 +18398,7 @@
 
             
 
-            <code class="ruby">  it &#39;userevent is not valid without a event id&#39; do</code>
+            <code class="ruby">  it &#39;userevent is not valid when event id is nil&#39; do</code>
           </li>
         </div>
       
@@ -18442,7 +18453,7 @@
 
             
 
-            <code class="ruby">  it &#39;raises error when creating duplicate user_event&#39; do</code>
+            <code class="ruby">  it &#39;userevent is not valid when user id is string&#39; do</code>
           </li>
         </div>
       
@@ -18453,7 +18464,7 @@
 
             
 
-            <code class="ruby">    subject.save!</code>
+            <code class="ruby">    subject.user_id = &#39;one&#39;</code>
           </li>
         </div>
       
@@ -18464,18 +18475,18 @@
 
             
 
-            <code class="ruby">    expect {</code>
+            <code class="ruby">    expect(subject).not_to(be_valid)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="64">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="64">
+            
             
 
             
 
-            <code class="ruby">    described_class.create!(user: user, event: event)</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -18486,12 +18497,45 @@
 
             
 
-            <code class="ruby">    }.to raise_error(ActiveRecord::RecordInvalid)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="66">
+          <li class="covered" data-hits="1" data-linenumber="66">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &#39;userevent is not valid when event id is string&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="67">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    subject.event_id = &#39;two&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="68">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(subject).not_to(be_valid)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="69">
             
             
 
@@ -18502,18 +18546,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="67">
-            
-            
-
-            
-
-            <code class="ruby">end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="68">
+          <li class="never" data-hits="" data-linenumber="70">
             
             
 
@@ -18524,40 +18557,40 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="69">
+          <li class="covered" data-hits="1" data-linenumber="71">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">RSpec.describe(Event, type: :model) do</code>
+            <code class="ruby">  it &#39;userevent is not valid when user id is double&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="70">
+          <li class="covered" data-hits="1" data-linenumber="72">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  subject do</code>
+            <code class="ruby">    subject.user_id = 1.0</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="71">
-            <span class="hits">5</span>
+          <li class="covered" data-hits="1" data-linenumber="73">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    described_class.new(start: &#39;2022-10-10&#39;, end: &#39;2023-10-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;, name: &#39;ten&#39;, description: &#39;add points&#39;, points: &#39;10&#39;)</code>
+            <code class="ruby">    expect(subject).not_to(be_valid)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="72">
+          <li class="never" data-hits="" data-linenumber="74">
             
             
 
@@ -18568,7 +18601,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="73">
+          <li class="never" data-hits="" data-linenumber="75">
             
             
 
@@ -18579,46 +18612,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="74">
+          <li class="covered" data-hits="1" data-linenumber="76">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  it &#39;event is valid with valid attributes&#39; do</code>
+            <code class="ruby">  it &#39;userevent is not valid when event id is double&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="75">
+          <li class="covered" data-hits="1" data-linenumber="77">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    expect(subject).to(be_valid)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="76">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="77">
-            
-            
-
-            
-
-            <code class="ruby"></code>
+            <code class="ruby">    subject.event_id = 2.0</code>
           </li>
         </div>
       
@@ -18629,34 +18640,12 @@
 
             
 
-            <code class="ruby">  it &#39;event is not valid without a start date&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="79">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    subject.start = nil</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="80">
-            <span class="hits">1</span>
-            
-
-            
-
             <code class="ruby">    expect(subject).not_to(be_valid)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="81">
+          <li class="never" data-hits="" data-linenumber="79">
             
             
 
@@ -18667,7 +18656,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="82">
+          <li class="never" data-hits="" data-linenumber="80">
             
             
 
@@ -18678,13 +18667,35 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="81">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &#39;raises error when creating duplicate user_event&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="82">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    subject.save!</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="covered" data-hits="1" data-linenumber="83">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  it &#39;event is not valid without an end date&#39; do</code>
+            <code class="ruby">    expect {</code>
           </li>
         </div>
       
@@ -18695,18 +18706,18 @@
 
             
 
-            <code class="ruby">    subject.end = nil</code>
+            <code class="ruby">    described_class.create!(user: user, event: event)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="85">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="85">
+            
             
 
             
 
-            <code class="ruby">    expect(subject).not_to(be_valid)</code>
+            <code class="ruby">    }.to raise_error(ActiveRecord::RecordInvalid)</code>
           </li>
         </div>
       
@@ -18728,18 +18739,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="88">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="88">
+            
             
 
             
 
-            <code class="ruby">  it &#39;event is not valid without a type id&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -18750,7 +18761,7 @@
 
             
 
-            <code class="ruby">    subject.type_id = nil</code>
+            <code class="ruby">RSpec.describe(Event, type: :model) do</code>
           </li>
         </div>
       
@@ -18761,18 +18772,18 @@
 
             
 
-            <code class="ruby">    expect(subject).not_to(be_valid)</code>
+            <code class="ruby">  subject do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="91">
-            
-            
-
+          <li class="covered" data-hits="5" data-linenumber="91">
+            <span class="hits">5</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    described_class.new(start: &#39;2022-10-10&#39;, end: &#39;2023-10-10&#39;, type_id: &#39;3&#39;, status: &#39;ongoing&#39;, name: &#39;ten&#39;, description: &#39;add points&#39;, points: &#39;10&#39;)</code>
           </li>
         </div>
       
@@ -18783,18 +18794,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="93">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="93">
+            
             
 
             
 
-            <code class="ruby">  it &#39;event is not valid without a status&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -18805,7 +18816,7 @@
 
             
 
-            <code class="ruby">    subject.status = nil</code>
+            <code class="ruby">  it &#39;event is valid with valid attributes&#39; do</code>
           </li>
         </div>
       
@@ -18816,7 +18827,7 @@
 
             
 
-            <code class="ruby">    expect(subject).not_to(be_valid)</code>
+            <code class="ruby">    expect(subject).to(be_valid)</code>
           </li>
         </div>
       
@@ -18838,18 +18849,18 @@
 
             
 
-            <code class="ruby">end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="98">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="98">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">  it &#39;event is not valid without a start date&#39; do</code>
           </li>
         </div>
       
@@ -18860,7 +18871,7 @@
 
             
 
-            <code class="ruby">RSpec.describe(EventType, type: :model) do</code>
+            <code class="ruby">    subject.start = nil</code>
           </li>
         </div>
       
@@ -18871,23 +18882,12 @@
 
             
 
-            <code class="ruby">  subject do</code>
+            <code class="ruby">    expect(subject).not_to(be_valid)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="101">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    described_class.new(points: &#39;2&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="102">
+          <li class="never" data-hits="" data-linenumber="101">
             
             
 
@@ -18898,7 +18898,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="103">
+          <li class="never" data-hits="" data-linenumber="102">
             
             
 
@@ -18909,13 +18909,24 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="103">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &#39;event is not valid without an end date&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="covered" data-hits="1" data-linenumber="104">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  it &#39;eventtype is valid with valid attributes&#39; do</code>
+            <code class="ruby">    subject.end = nil</code>
           </li>
         </div>
       
@@ -18926,7 +18937,7 @@
 
             
 
-            <code class="ruby">    expect(subject).to(be_valid)</code>
+            <code class="ruby">    expect(subject).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -18959,7 +18970,7 @@
 
             
 
-            <code class="ruby">  it &#39;eventtype is not valid without points value&#39; do</code>
+            <code class="ruby">  it &#39;event is not valid without a type id&#39; do</code>
           </li>
         </div>
       
@@ -18970,7 +18981,7 @@
 
             
 
-            <code class="ruby">    subject.points = nil</code>
+            <code class="ruby">    subject.type_id = nil</code>
           </li>
         </div>
       
@@ -19003,18 +19014,18 @@
 
             
 
-            <code class="ruby">end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="113">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="113">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">  it &#39;event is not valid without a status&#39; do</code>
           </li>
         </div>
       
@@ -19025,7 +19036,7 @@
 
             
 
-            <code class="ruby">RSpec.describe(EventType, type: :model) do</code>
+            <code class="ruby">    subject.status = nil</code>
           </li>
         </div>
       
@@ -19036,18 +19047,18 @@
 
             
 
-            <code class="ruby">  subject do</code>
+            <code class="ruby">    expect(subject).not_to(be_valid)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="116">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="116">
+            
             
 
             
 
-            <code class="ruby">    described_class.new(points: &#39;2&#39;)</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -19058,7 +19069,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -19080,7 +19091,7 @@
 
             
 
-            <code class="ruby">  it &#39;eventtype is valid with valid attributes&#39; do</code>
+            <code class="ruby">RSpec.describe(EventType, type: :model) do</code>
           </li>
         </div>
       
@@ -19091,18 +19102,18 @@
 
             
 
-            <code class="ruby">    expect(subject).to(be_valid)</code>
+            <code class="ruby">  subject do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="121">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="121">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    described_class.new(points: &#39;2&#39;)</code>
           </li>
         </div>
       
@@ -19113,18 +19124,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="123">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="123">
+            
             
 
             
 
-            <code class="ruby">  it &#39;eventtype is not valid without points value&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -19135,7 +19146,7 @@
 
             
 
-            <code class="ruby">    subject.points = nil</code>
+            <code class="ruby">  it &#39;eventtype is valid with valid attributes&#39; do</code>
           </li>
         </div>
       
@@ -19146,7 +19157,7 @@
 
             
 
-            <code class="ruby">    expect(subject).not_to(be_valid)</code>
+            <code class="ruby">    expect(subject).to(be_valid)</code>
           </li>
         </div>
       
@@ -19163,6 +19174,226 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="127">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="128">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &#39;eventtype is not valid without points value&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="129">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    subject.points = nil</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="130">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(subject).not_to(be_valid)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="131">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="132">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="133">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="134">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">RSpec.describe(EventType, type: :model) do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="135">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  subject do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="136">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    described_class.new(points: &#39;2&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="137">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="138">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="139">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &#39;eventtype is valid with valid attributes&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="140">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(subject).to(be_valid)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="141">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="142">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="143">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &#39;eventtype is not valid without points value&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="144">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    subject.points = nil</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="145">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(subject).not_to(be_valid)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="146">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="147">
             
             
 
