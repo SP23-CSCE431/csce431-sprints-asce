@@ -2,33 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   # GET /users or /users.json
   # search index
+  # queries the user by the parameter
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).order(created_at: :asc)
-    # @users = User.all
-    # if params[:search_by_first_name] && params[:search_by_first_name] != ''
-    #   @users = @users.where('first_name like ?', "%#{params[:search_by_first_name]}%")
-    # end
-
-    # if params[:search_by_last_name] && params[:search_by_last_name] != ''
-    #   @users = @users.where('last_name like ?', "%#{params[:search_by_last_name]}%")
-    # end
-
-    # if params[:search_by_uin] && params[:search_by_uin] != ""
-    #   @users = @users.where("uin like ?", "%#{params[:search_by_uin]}%")
-    # end
-
-    # if params[:search_by_email] && params[:search_by_email] != ""
-    #   @users = @users.where("email like ?", "%#{params[:search_by_email]}%")
-    # end
-
-    # if params[:search_by_phone_number] && params[:search_by_phone_number] != ""
-    #   @users = @users.where("phone_number like ?", "%#{params[:search_by_phone_number]}%")
-    # end
-
-    # if params[:search_by_dob] && params[:search_by_dob] != ""
-    #   @users = @users.where("dob like ?", "%#{params[:search_by_dob]}%")
-    # end
   end
 
   # GET /users/1 or /users/1.json
@@ -46,6 +23,8 @@ class UsersController < ApplicationController
   end
 
   # POST /users or /users.json
+  #If the creationg of a new user is successful, redirect to the user's profile page
+  #otherwise re-render new page with error messages
   def create
     @user = User.new(user_params)
     respond_to do |format|
@@ -60,6 +39,9 @@ class UsersController < ApplicationController
   end
 
   # PATCH/PUT /users/1 or /users/1.json
+  #if the user which is being edited is the active current user, redirect to profile page after successful update
+  #otherwise, redirect to their user url
+  #if update unsuccessful, redirect back to the edit page with error messages
   def update
     @user = User.find(params[:id])
     respond_to do |format|
@@ -83,6 +65,8 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1 or /users/1.json
+  #if the deleted user is the current active user, redirect back to the signed out dashboard page
+  #otherwise, redirect back to the users_path
   def destroy
     User.find(params[:id]).destroy
     respond_to do |format|

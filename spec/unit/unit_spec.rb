@@ -48,13 +48,33 @@ RSpec.describe(UserEvent, type: :model) do
     expect(subject).to(be_valid)
   end
 
-  it 'userevent is not valid without a user id' do
+  it 'userevent is not valid when user id is nil' do
     subject.user_id = nil
     expect(subject).not_to(be_valid)
   end
 
-  it 'userevent is not valid without a event id' do
+  it 'userevent is not valid when event id is nil' do
     subject.event_id = nil
+    expect(subject).not_to(be_valid)
+  end
+
+  it 'userevent is not valid when user id is string' do
+    subject.user_id = 'one'
+    expect(subject).not_to(be_valid)
+  end
+
+  it 'userevent is not valid when event id is string' do
+    subject.event_id = 'two'
+    expect(subject).not_to(be_valid)
+  end
+
+  it 'userevent is not valid when user id is double' do
+    subject.user_id = 1.0
+    expect(subject).not_to(be_valid)
+  end
+
+  it 'userevent is not valid when event id is double' do
+    subject.event_id = 2.0
     expect(subject).not_to(be_valid)
   end
 

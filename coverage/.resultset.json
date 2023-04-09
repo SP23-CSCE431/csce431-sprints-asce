@@ -1258,12 +1258,32 @@
           null,
           1,
           1,
-          4,
+          8,
           null,
           null,
-          5,
-          5,
+          9,
+          9,
           null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
           1,
           1,
           null,
@@ -1369,6 +1389,7 @@
       },
       "/csce431/project/csce431-sprints-asce/app/models/user_event.rb": {
         "lines": [
+          1,
           1,
           1,
           1,
@@ -1744,6 +1765,6 @@
         ]
       }
     },
-    "timestamp": 1680726465
+    "timestamp": 1680898941
   }
 }

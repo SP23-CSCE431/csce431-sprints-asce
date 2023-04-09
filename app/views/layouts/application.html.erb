@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<!-- includes all metadata for the base layout, includes bootstrap link-->
   <head>
     <title>GoogleOauthDevise</title>
     <%= csrf_meta_tags %>
@@ -18,6 +19,7 @@
   </head>
 
   <body>
+  <!-- navbar for all pages except the root -->
   <% userId = User.find_by(email: current_admin.email) %>
   <nav class="navbar navbar-default mb-5">
       <div class="navbar-header">
@@ -40,9 +42,11 @@
           <div class="navlink">
             <%= link_to "Events", events_path %>
           </div>
+          <% if !user? %>
           <div class="navlink">
             <%= link_to "Member Search", users_path%>
           </div>
+          <% end %>
           <div class="navright justify-content-right text-right">
             <div class="sign-out-link">
               <%= link_to "Sign Out", destroy_admin_session_path %>
