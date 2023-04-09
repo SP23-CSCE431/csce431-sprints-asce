@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :email, :uniqueness => true, format: { with: /\A[^@\s]+@tamu\.edu\z/i, message: "Must be a tamu email" }
   #validates that the uin is a 9 digit number
   validates :uin, format: { with: /\A\d{9}\z/, message: "must be a 9 digit number" }
-  has_many :user_events
+  has_many :user_events, dependent: :destroy
   has_many :events, through: :user_events
 
   def self.ransackable_attributes(auth_object = nil)
