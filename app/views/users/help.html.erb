@@ -8,6 +8,9 @@
     <!-- links to pdfs which can help with support -->
         <li><a href="https://google.com">Installation and Setup</a></li>
         <li><a href="https://drive.google.com/file/d/12PBYYZKHLUCSd1J6trRUBm0Sqvy4ksXD/view?usp=share_link" target="_blank">System Navigation</a></li>
+        <% if executive_officer? || current_admin.email == 'adao102@tamu.edu' || current_admin.email == 'timo.short@tamu.edu' || current_admin.email == 'vpranav@tamu.edu' || current_admin.email == 'bannerdavid@tamu.edu' || current_admin.email == 'zhanlan@tamu.edu' %>
+                <li><a href="https://docs.google.com/document/d/1zBX1ALHbnJ4IRnwPaxZTN4R--_jC0gXAz96qQjDjbSw/edit?usp=share_link" target="_blank">Maintenance</a></li>
+        <% end %>
     </ul>
     <h2 class="help_subheader">Support</h2>
     <div><b>Developer Contact Information:</b></div>
