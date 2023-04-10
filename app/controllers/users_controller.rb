@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :check_permissions, only: [:index]
   # GET /users or /users.json
   # search index
   # queries the user by the parameter
@@ -99,5 +100,12 @@ class UsersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:first_name, :last_name, :uin, :email, :phone_number, :dob, :points, :role_id)
+  end
+
+  def check_permissions
+    if current_admin.user&.role_id == 3
+      flash[:alert] = "You are not authorized to access member search."
+      redirect_to root_path
+    end
   end
 end
