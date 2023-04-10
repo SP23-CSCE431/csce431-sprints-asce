@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
+  before_action :check_create_permissions, only: %i[new create]
 
   # GET /events or /events.json
   def index
@@ -67,6 +68,13 @@ class EventsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def check_create_permissions
+    if current_admin.user&.role_id == 3
+      flash[:alert] = "You are not authorized to create an event."
+      redirect_to events_path
+    end
   end
 
   # Only allow a list of trusted parameters through.

@@ -8,4 +8,8 @@ class Admin < ApplicationRecord
 
     create_with(uid: uid, full_name: full_name, avatar_url: avatar_url).find_or_create_by!(email: email)
   end
+
+  def user
+    User.find_by(email: self.email)
+  end
 end
