@@ -15,6 +15,7 @@
           <th><%= "End Date" %></th>
           <th><%= "Status" %></th>
           <th><%= "Points" %></th>
+          <th><%= "Count" %></th>
           <th><%= "More Details" %></th>
           <th><%= "Sign-Up" %></th>          
           <th></th>       
@@ -29,6 +30,7 @@
             <td><%= event.end.strftime("%Y-%m-%d %I:%M %p") %></td>
             <td><%= event.status %></td>
             <td><%= event.points %></td>
+            <th><%= event.count %></th>
             <td><%= link_to "Show this event", event %></td>
             <td><%= link_to "Add this event", new_user_event_path(eventId: event.id) %></td>
             <td><%= link_to "Check In", pages_event_sign_in_path(event_id: event.id) %></td>       
