@@ -1,12 +1,11 @@
-<div><%= link_to "Home Page", root_path %></div>
-
+<div class="container">
 <h1>Event Check In for User</h1>
 <br/>
 
 
 <%= form_tag pages_event_check_in_path, id: "check-in-form" do %>
-  <label for="user_id">Select a User:</label>
-  <input type="text" name="uin" id="user-input" list="user-list" placeholder='Enter UIN'>
+  <div><label for="user_id">Select a User:</label>
+  <input type="text" name="uin" id="user-input" list="user-list" placeholder='Enter UIN'></div>
   <datalist id="user-list">
     <% User.all.each do |user| %>
       <option value="<%= user.uin %>">
@@ -15,8 +14,8 @@
     <% end %>
   </datalist>
 
-  <label for="event_id">Select an Event:</label>
-  <input type="text" name="event_id" id="event-input" list="event-list" value="<%=@event_id%>">
+  <div><label for="event_id">Select an Event:</label>
+  <input type="text" name="event_id" id="event-input" list="event-list" value="<%=@event_id%>"></div>
   <datalist id="event-list">
     <% Event.all.each do |event| %>
       <option value="<%= event.id %>">
@@ -25,7 +24,7 @@
     <% end %>
   </datalist>
 
-  <%= submit_tag "Check User into Event", id: "check-in-button" %>
+  <div class="btn btn-primary"><%= submit_tag "Check User into Event", id: "check-in-button" %></div>
 <% end %>
 
 </br>
@@ -33,7 +32,7 @@
 <%= search_form_for(@q, url: pages_event_sign_in_path)  do |f| %>
   <%= f.search_field :first_name_or_last_name_or_uin_cont,
     placeholder: "Search..." %>
-  <%= f.submit "Search!" %>
+  <div class="btn btn-primary"><%= f.submit "Search!" %></div>
 <% end %>
 <br/>
 <div style="max-height: 150px; overflow-y: auto">
@@ -65,11 +64,11 @@
 
 <%= search_form_for(@p, url: pages_event_sign_in_path)  do |f| %>
 <%= f.search_field :name_cont, placeholder: "Search..." %>
-<%= f.submit "Search!" %>
+<div class="btn btn-primary"><%= f.submit "Search!" %></div>
 <% end %>
 <br/>
 <div style="max-height: 150px; overflow-y: auto">
-    <table class="table table-dark table-striped">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th><%= sort_link(@p, :start, "Start", default_order: :asc) %></th>
@@ -96,7 +95,7 @@
         </tbody>
     </table>
 </div>
-
+</div>
 <script>
     var form = document.getElementById("check-in-form");
     var userInput = document.getElementById("user-input");
