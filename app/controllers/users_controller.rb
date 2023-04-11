@@ -103,7 +103,7 @@ class UsersController < ApplicationController
   end
 
   def check_permissions
-    if current_admin.user&.role_id == 3
+    if current_admin.user&.role_id == 3 || current_admin.user&.role_id == nil
       flash[:alert] = "You are not authorized to access member search."
       redirect_to root_path
     end

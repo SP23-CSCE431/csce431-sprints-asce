@@ -71,7 +71,7 @@ class EventsController < ApplicationController
   end
 
   def check_create_permissions
-    if current_admin.user&.role_id == 3
+    if current_admin.user&.role_id == 3 || current_admin.user&.role_id == nil
       flash[:alert] = "You are not authorized to create an event."
       redirect_to events_path
     end

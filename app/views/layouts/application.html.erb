@@ -39,18 +39,19 @@
               <div class="dropdown-item"><%= link_to "My Calendar", calendar_path(user_id: userId.id) if userId %></div>
             </div>
           </div>
-          <% if executive_officer? || admin? || user?%>
+
+          
           <div class="navlink">
             <%= link_to "Events", events_path %>
           </div>
-          <% end %>
+          
 
-          <% if executive_officer? || admin? %>
+         
           <div class="navlink">
             <%= link_to "Member Search", users_path%>
           </div>
-          <% end %>
-          
+        
+
           <div class="navright justify-content-right text-right">
             <div class="sign-out-link">
               <%= link_to "Sign Out", destroy_admin_session_path %>
