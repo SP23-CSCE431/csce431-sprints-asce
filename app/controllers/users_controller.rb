@@ -20,12 +20,11 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users or /users.json
-  #If the creationg of a new user is successful, redirect to the user's profile page
-  #otherwise re-render new page with error messages
+  # If the creationg of a new user is successful, redirect to the user's profile page
+  # otherwise re-render new page with error messages
   def create
     @user = User.new(user_params)
     respond_to do |format|
@@ -40,9 +39,9 @@ class UsersController < ApplicationController
   end
 
   # PATCH/PUT /users/1 or /users/1.json
-  #if the user which is being edited is the active current user, redirect to profile page after successful update
-  #otherwise, redirect to their user url
-  #if update unsuccessful, redirect back to the edit page with error messages
+  # if the user which is being edited is the active current user, redirect to profile page after successful update
+  # otherwise, redirect to their user url
+  # if update unsuccessful, redirect back to the edit page with error messages
   def update
     @user = User.find(params[:id])
     respond_to do |format|
@@ -50,7 +49,7 @@ class UsersController < ApplicationController
         if @user.email == current_admin.email
           format.html { redirect_to(profile_path) }
           format.json { render(:show, status: :ok, location: @user) }
-        else 
+        else
           format.html { redirect_to(user_url(@user), notice: 'User was successfully updated.') }
           format.json { render(:show, status: :ok, location: @user) }
         end
@@ -66,19 +65,18 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1 or /users/1.json
-  #if the deleted user is the current active user, redirect back to the signed out dashboard page
-  #otherwise, redirect back to the users_path
+  # if the deleted user is the current active user, redirect back to the signed out dashboard page
+  # otherwise, redirect back to the users_path
   def destroy
     User.find(params[:id]).destroy
     respond_to do |format|
-      if (@user.email == current_admin.email)
+      if @user.email == current_admin.email
         format.html { redirect_to(destroy_admin_session_path, notice: 'Account Successfully Deleted') }
         format.json { head(:no_content) }
       else
         format.html { redirect_to(users_path, notice: 'Account Successfully Deleted') }
         format.json { head(:no_content) }
       end
-      
     end
   end
 
@@ -87,7 +85,7 @@ class UsersController < ApplicationController
   end
 
   def help
-     @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   private
@@ -104,8 +102,8 @@ class UsersController < ApplicationController
 
   def check_permissions
     if current_admin.user&.role_id == 3
-      flash[:alert] = "You are not authorized to access member search."
-      redirect_to root_path
+      flash[:alert] = 'You are not authorized to access member search.'
+      redirect_to(root_path)
     end
   end
 end

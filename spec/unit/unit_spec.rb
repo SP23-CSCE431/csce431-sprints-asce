@@ -2,10 +2,11 @@
 require 'rails_helper'
 
 RSpec.describe(User, type: :model) do
-  let(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
   subject do
     described_class.new(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1')
   end
+
+  let(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
 
   it 'User is valid with valid attributes' do
     expect(subject).to(be_valid)
@@ -38,9 +39,9 @@ RSpec.describe(User, type: :model) do
 
   it 'User is not valid for duplicate email' do
     subject.save!
-    expect {
-    described_class.create!
-    }.to raise_error(ActiveRecord::RecordInvalid)
+    expect do
+      described_class.create!
+    end.to(raise_error(ActiveRecord::RecordInvalid))
   end
 
   it 'User is not valid with non 9-digit uin' do
@@ -100,9 +101,9 @@ RSpec.describe(UserEvent, type: :model) do
 
   it 'raises error when creating duplicate user_event' do
     subject.save!
-    expect {
-    described_class.create!(user: user, event: event)
-    }.to raise_error(ActiveRecord::RecordInvalid)
+    expect do
+      described_class.create!(user: user, event: event)
+    end.to(raise_error(ActiveRecord::RecordInvalid))
   end
 end
 
@@ -121,12 +122,12 @@ RSpec.describe(Event, type: :model) do
   end
 
   it 'event is not valid for invalid start date' do
-    subject.start = 12345
+    subject.start = 12_345
     expect(subject).not_to(be_valid)
   end
 
   it 'event is not valid for invalid end date' do
-    subject.end = 12345
+    subject.end = 12_345
     expect(subject).not_to(be_valid)
   end
 

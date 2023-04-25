@@ -36,7 +36,7 @@ class UserEventsController < ApplicationController
         format.html { render(:new, status: :unprocessable_entity) }
         format.json { render(json: @user_event.errors, status: :unprocessable_entity) }
       end
-    end     
+    end
   end
 
   # PATCH/PUT /user_events/1 or /user_events/1.json

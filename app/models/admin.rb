@@ -10,6 +10,6 @@ class Admin < ApplicationRecord
   end
 
   def user
-    User.find_by(email: self.email)
+    User.find_by(email: email)
   end
 end
