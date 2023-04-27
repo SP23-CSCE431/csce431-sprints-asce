@@ -405,6 +405,7 @@ RSpec.describe ResetUserPointsWorker, type: :worker do
   end
 end
 
+<<<<<<< HEAD
 
 RSpec.describe('Modifying an Event', type: :feature) do
   let!(:event) { Event.create(name: 'event name', description: 'event description', start: '2023-3-20', end: '2023-3-21', type_id: '3', status: 'ongoing', points:30) }
@@ -435,6 +436,61 @@ RSpec.describe('Deleting an Event', type: :feature) do
   end
 end
 
+=======
+RSpec.describe('Creating an Event', type: :feature) do
+  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  scenario 'valid inputs' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit new_event_path
+    fill_in "event[start]", with: '2023-3-20'
+    fill_in "event[end]", with: '2023-3-21'
+    fill_in "event[name]", with: 'Event thingy'
+    fill_in "event[points]", with: '3'
+    fill_in "event[description]", with: 'description'
+    fill_in "event[status]", with: 'ongoing'
+    click_on 'Save'
+    expect(page).to have_content('successfully')
+  end
+
+  scenario 'blank inputs' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit new_event_path
+    click_on 'Save'
+    expect(page).to have_content('prohibited this event from being saved:')
+  end
+end
+
+
+RSpec.describe('Modifying an Event', type: :feature) do
+  let!(:event) { Event.create(name: 'event name', description: 'event description', start: '2023-3-20', end: '2023-3-21', type_id: '3', status: 'ongoing', points:30) }
+  scenario 'valid modification' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit edit_event_path(event)
+    fill_in "event[status]", with: 'ended'
+    click_on 'Save'
+    expect(page).to have_content('successfully')
+  end
+
+  scenario 'blank input' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit edit_event_path(event)
+    fill_in "event[status]", with: ''
+    click_on 'Save'
+    expect(page).to have_content('prohibited')
+  end
+end
+
+RSpec.describe('Deleting an Event', type: :feature) do
+  let!(:event) { Event.create(name: 'event name', description: 'event description', start: '2023-3-20', end: '2023-3-21', type_id: '3', status: 'ongoing', points:30) }
+  scenario 'valid deletion' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit event_path(event)
+    click_on 'Delete'
+    expect(page).to have_content('successfully')
+  end
+end
+
+>>>>>>> d1879afc015e051efd9daab1ddc2cc874a5b09f0
 RSpec.describe('Visiting the Help page', type: :feature) do
   let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
   scenario 'valid visit' do
