@@ -161,7 +161,6 @@ To reset a specific user's points please only input the specific user's UIN, no 
 ## Extra Helps
 
 Developer Contact Information:
+   
 Anthony Dao: adao102@tamu.edu
-David Vilentchouk: bannerdavid@tamu.edu
-Pranav Vankamamidi: vpranav@tamu.edu
-George Lan: zhanlan@tamu.edu
+
