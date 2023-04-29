@@ -115,6 +115,7 @@ RSpec.describe('Creating a user', type: :feature) do
     click_on 'Save'
     expect(page).to(have_content('prohibited this user from being saved:'))
   end
+
 end
 
 RSpec.describe('Viewing Profile', type: :feature) do
@@ -168,6 +169,60 @@ RSpec.describe('Deleting a user', type: :feature) do
     click_on 'Delete'
     expect(page).to(have_content('Successfully'))
   end
+end
+
+RSpec.describe('Viewing Profile', type: :feature) do
+  let!(:user) { User.create(first_name: 'John', last_name: 'Doe', uin: '730303036', phone_number: '8324344445', email: 'johndoe@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  let!(:user2) { User.create(first_name: 'Jill', last_name: 'Doe', uin: '730303436', phone_number: '8324344445', email: 'jilldoe@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  it 'Shows current user information' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit profile_path
+    expect(page).to(have_content('johndoe@tamu.edu'))
+  end
+  it 'Does not show other user information' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit profile_path
+    expect(page).not_to(have_content('jilldoe@tamu.edu'))
+  end
+end
+
+RSpec.describe('Editing a user', type: :feature) do
+  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  let!(:user2) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student2@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  it 'valid edit' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit edit_user_path(user)
+    fill_in 'user[first_name]', with: 'bob'
+    click_on 'Save'
+    user.reload
+    expect(user.first_name).to eq('bob')
+  end
+  it 'invalid email' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit edit_user_path(user)
+    fill_in 'user[email]', with: 'student2@tamu.edu'
+    click_on 'Save'
+    expect(page).to(have_content('prohibited'))
+  end
+  it 'blank input' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit edit_user_path(user)
+    fill_in 'user[first_name]', with: ''
+    click_on 'Save'
+    expect(page).to(have_content('prohibited'))
+  end
+end
+
+RSpec.describe('Deleting a user', type: :feature) do
+  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  let!(:current_user) { User.create(first_name: 'John', last_name: 'Doe', uin: '730303036', phone_number: '8324344445', email: 'johndoe@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  it 'valid deletion' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit user_path(user)
+    click_on 'Delete'
+    expect(page).to(have_content('Successfully'))
+  end
+
 
   it 'Deleting the current user' do
     visit '/admins/auth/google_oauth2/callback'
@@ -405,6 +460,7 @@ RSpec.describe ResetUserPointsWorker, type: :worker do
   end
 end
 
+
 #roles
 RSpec.describe('Member accessing member search', type: :feature) do
   let!(:user1) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '10', role_id: '3') }
@@ -469,6 +525,28 @@ RSpec.describe('Officer deleting own account', type: :feature) do
     visit user_path(current_user)
     click_on 'Delete'
     expect(page).to(have_content('successfully'))
+
+RSpec.describe('Creating an Event', type: :feature) do
+  let!(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
+  scenario 'valid inputs' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit new_event_path
+    fill_in "event[start]", with: '2023-3-20'
+    fill_in "event[end]", with: '2023-3-21'
+    fill_in "event[name]", with: 'Event thingy'
+    fill_in "event[points]", with: '3'
+    fill_in "event[description]", with: 'description'
+    fill_in "event[status]", with: 'ongoing'
+    click_on 'Save'
+    expect(page).to have_content('successfully')
+  end
+
+  scenario 'blank inputs' do
+    visit '/admins/auth/google_oauth2/callback'
+    visit new_event_path
+    click_on 'Save'
+    expect(page).to have_content('prohibited this event from being saved:')
+
   end
 end
 
