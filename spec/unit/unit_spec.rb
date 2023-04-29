@@ -2,6 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe(User, type: :model) do
+  let(:user) { User.create(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1') }
   subject do
     described_class.new(first_name: 'Joe', last_name: 'Shmoe', uin: '730303036', phone_number: '8324344445', email: 'student@tamu.edu', dob: '2003-10-10', points: '3', role_id: '1')
   end
@@ -27,6 +28,25 @@ RSpec.describe(User, type: :model) do
 
   it 'User is not valid without an email' do
     subject.email = nil
+    expect(subject).not_to(be_valid)
+  end
+
+  it 'User is not valid with integer email' do
+    subject.email = 1
+    expect(subject).not_to(be_valid)
+  end
+
+  it 'User is not valid for duplicate email' do
+    subject.save!
+    expect {
+    described_class.create!
+    }.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
+  it 'User is not valid with non 9-digit uin' do
+    subject.uin = 'alsdkfjalsdfk'
+    expect(subject).not_to(be_valid)
+    subject.uin = '1234567'
     expect(subject).not_to(be_valid)
   end
 
@@ -97,6 +117,16 @@ RSpec.describe(Event, type: :model) do
 
   it 'event is not valid without a start date' do
     subject.start = nil
+    expect(subject).not_to(be_valid)
+  end
+
+  it 'event is not valid for invalid start date' do
+    subject.start = 12345
+    expect(subject).not_to(be_valid)
+  end
+
+  it 'event is not valid for invalid end date' do
+    subject.end = 12345
     expect(subject).not_to(be_valid)
   end
 

@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :executive_officer?
 
+  def admin?
+    current_user && current_user.role_id == 2
+  end
+  helper_method :admin?
+
   #get if user is a normal user
   def user?
     current_user && current_user.role_id == 3

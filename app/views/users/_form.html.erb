@@ -14,32 +14,36 @@
 
   <div>
     <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, name: 'user[first_name]' %>
   </div>
 
   <div>
     <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, name: 'user[last_name]' %>
   </div>
 
   <div>
     <%= form.label :uin, style: "display: block" %>
-    <%= form.text_field :uin %>
+    <%= form.text_field :uin, name: 'user[uin]' %>
   </div>
 
   <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email, value: current_admin.email %>
+  <%= form.label :email, style: "display: block" %>
+  <% if current_admin.email == @user.email %>
+    <%= form.text_field :email, name: 'user[email]', value: current_admin.email %>
+  <% else %>
+    <%= form.text_field :email, name: 'user[email]' %>
+  <% end %>
   </div>
 
   <div>
     <%= form.label :phone_number, style: "display: block" %>
-    <%= form.text_field :phone_number %>
+    <%= form.text_field :phone_number, name: 'user[phone_number]' %>
   </div>
 
   <div>
     <%= form.label :dob, style: "display: block" %>
-    <%= form.date_field :dob %>
+    <%= form.date_field :dob, name: 'user[dob]' %>
   </div>
 
     

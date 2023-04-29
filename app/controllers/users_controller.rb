@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
-  before_action :check_permissions, only: [:index]
+  before_action :check_permissions, only: [:index , :edit, :destroy]
+  before_action :check_officer_permissions, only: [:edit ,:destroy]
   # GET /users or /users.json
   # search index
   # queries the user by the parameter
@@ -12,6 +13,12 @@ class UsersController < ApplicationController
   # GET /users/1 or /users/1.json
   def show
     @user = User.find(params[:id])
+  
+    # Restrict access to view other user's profiles
+    if current_admin&.email != @user.email && (current_admin&.user&.role_id == 3 || current_admin&.user&.role_id.nil?)
+      flash[:alert] = "You are not authorized to view this profile."
+      redirect_to root_path
+    end
   end
 
   # GET /users/new
@@ -103,8 +110,25 @@ class UsersController < ApplicationController
   end
 
   def check_permissions
-    if current_admin.user&.role_id == 3
-      flash[:alert] = "You are not authorized to access member search."
+    if action_name == 'index'
+      if current_admin&.user&.role_id == 3 || current_admin&.user&.role_id.nil?
+        flash[:alert] = "You are not authorized to access this action."
+        redirect_to root_path
+      end
+    else
+      user_to_edit = User.find_by(id: params[:id])
+    
+      if (current_admin&.user&.role_id == 3 || current_admin&.user&.role_id.nil?) && current_admin&.email != user_to_edit.email
+        flash[:alert] = "You are not authorized to access this action."
+        redirect_to root_path
+      end
+    end
+  end
+
+  def check_officer_permissions
+    user_to_edit = User.find(params[:id])
+    if current_admin.user&.role_id == 2 && current_admin.email != user_to_edit.email
+      flash[:alert] = "You are not authorized to edit or delete members."
       redirect_to root_path
     end
   end
