@@ -1,27 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # csce431-sprints-asce
 
 # README
@@ -54,6 +30,7 @@ You can run all the test cases by running. This will run both the unit and integ
 `rspec .`
 
 ## Execute Code
+`cd` into the directory where your app files are located in after downloading
 Run the following code in Powershell if using windows or the terminal using Linux/Mac
 docker start -ai sweet_spence
 Install the app
@@ -65,6 +42,10 @@ Run the app
 The application can be seen using a browser and navigating to http://localhost:3000/
 
 ## Environmental Variables/Files
+Signing/Logging in with Google Authentication makes use of the Google Oauth API and to support the use of this authentication within the app we need to make use of a Client ID and Client Secret so that we receive access to these Google tokens for users to be authenticated during their sessions.
+
+These Client ID and Client Secret values have already been generated so there is no need to go through the trouble of getting new keys. However it is important to remember that if there is ever a need to refresh and update these two values you must NEVER do so in the Github repository itself but rather update the config variables within Heroku instead.
+
 ## Deployment
 1. Follow the instructions above to start up the docker image in the terminal
 2. (Start your docker and work in your terminal) Make sure you have dev, test and main branches. However, since we’re not really going to develop any new features, we won’t be using the dev branch in the assignment. We’ll be using test and main branches.
@@ -146,7 +127,13 @@ Great! You just created a pipeline ready for deployment!
 
 ## CI/CD
 
-CI/CD has been implemented in the GitHub Actions in the repo here -> https://github.com/SP23-CSCE431/csce431-sprints-asce/actions
+CD (or Continuous Deployment) is set up through Heroku which automatically deploys the app in real time every time the branches associated with existing applications are updated.
+
+Review App: test branch
+
+Production App: main branch
+
+CI (or Continuous Integration) has been implemented making use of GitHub Actions in the repo here -> https://github.com/SP23-CSCE431/csce431-sprints-asce/actions. These GitHub Actions run all tests, a security invulnerabilites checker, linter etc. every time code is pushed to the repository or new pull requests are created which allows us to quickly detect any bugs or defects early since we can immediately check the Actions log.
 
 ## Support
 
