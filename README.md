@@ -143,7 +143,7 @@ Make sure you fill out all provided fields to create your account. If you make a
 We're sorry, but something went wrong.
 First make sure that you have created your account before you interact with and access other pages. If you have already created an account already please make sure you have only used your @tamu.edu email and not any other email or personal gmail. You can easily update your email by editing your profile.
 Reset User Points
-To reset a specific user's points please only input the specific user's UIN, no other type of input will work.
+To reset a specific user's points please only input the specific user's UIN, no other type of input will work. Finally in order to access help documentation within the website, you must first create an account on the website as these documents have been hidden from non-members for security measures.
 
 ## Extra Helps
 
