@@ -30,15 +30,20 @@ You can run all the test cases by running. This will run both the unit and integ
 `rspec .`
 
 ## Execute Code
-`cd` into the directory where your app files are located in after downloading
+`cd` into the directory where your app files are located in after cloning repository
+
 Run the following code in Powershell if using windows or the terminal using Linux/Mac
-docker start -ai sweet_spence
+
+`docker start -ai {your container name}`
+
 Install the app
 
 `bundle install && rails webpacker:install && rails db:create && db:migrate`
 
 Run the app
+
 `rails server --binding:0.0.0.0`
+
 The application can be seen using a browser and navigating to http://localhost:3000/
 
 ## Environmental Variables/Files
