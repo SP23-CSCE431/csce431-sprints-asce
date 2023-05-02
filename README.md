@@ -17,6 +17,7 @@ This code has been run and tested on:
 - Heroku CLI - Download latest version at https://devcenter.heroku.com/articles/heroku-cli
 - Git - Downloat latest version at https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 - GitHub Desktop (Not needed, but HELPFUL) at https://desktop.github.com/
+- ASCE Specific Maintenence guide at https://docs.google.com/document/d/1zBX1ALHbnJ4IRnwPaxZTN4R--_jC0gXAz96qQjDjbSw/edit?usp=sharing
 
 ## Installation
 Download this code repository by using git:
